@@ -1,5 +1,5 @@
 import wave, struct
-DEPTH = 32
+DEPTH = 8192
 WIDTH = 16
 ADDRESS_RADIX = 'HEX'
 DATA_RADIX = 'HEX'
@@ -8,11 +8,15 @@ def tohex(val, nbits):
   return hex((val + (1 << nbits)) % (1 << nbits))
 
 
+
+
 w = wave.open('smb3_sound_effects_1_up.wav', 'r')
 # framerate: numero de sample por segundo
 # nframes: numero de sample (informação da amplitude)
 # Returns a tuple (nchannels, sampwidth, framerate, nframes, comptype, compname)
 print(w.getparams())
+
+txsamprate = w.getparams().framerate/9600
 
 f = open("initialization.mif", "w+")
 f.write("DEPTH = %d;" % DEPTH)
@@ -29,6 +33,7 @@ f.write('\t\t\t\t\t' + '% otherwise specified, radixes = HEX %' + '\n')
 f.write("-- Specify values for addresses, which can be single address or range" + '\n')
 f.write("CONTENT" + '\n')
 f.write("BEGIN" + '\n')
+
 for i in range(44, w.getnframes()):
     waveData = w.readframes(1)
     # print(len(waveData))
