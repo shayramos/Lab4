@@ -2,10 +2,10 @@ module codecInterface(	input clock,
 						input reset,
 						input [15:0] dataIn,
 						input sendData,
-						output bclk,
-						output lrck,
+						output reg bclk,
+						output reg lrck,
 						output data,
-						output wordSent
+						output reg wordSent
 						);
 	
 	parameter fs = 9600,
@@ -19,7 +19,7 @@ module codecInterface(	input clock,
 	reg [7:0] bclk_counter;
 	reg [11:0] lrck_counter;
 	reg [15:0] reg_data;
-	
+	reg [7:0] bclk_counter_max;
 	
 	assign data = reg_data[~data_index];
 

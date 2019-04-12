@@ -22,7 +22,6 @@ module audioProcessor(  input clock, //interface para Avalon
     reg [15:0] dataToInterface, dataToInterfaceNext;
     wire interfaceDone, dataEnable;
 
-
     codecInterface codecInt(   .clock(clock),
                                 .reset(reset),
                                 .dataIn(dataToInterface),
@@ -62,7 +61,7 @@ module audioProcessor(  input clock, //interface para Avalon
                 next_state = WAITING_DONE;
             end
             WAITING_DONE: begin
-                if (done) next_state = IDLE;
+                if (interfaceDone) next_state = IDLE;
                 else next_state = WAITING_DONE;
             end
             default: next_state = IDLE;
