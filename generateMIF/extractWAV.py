@@ -18,11 +18,7 @@ data2 = map(lambda x: int(x / max(abs(min(y2.tolist())), max(y2.tolist())) * 327
 data3 = map(lambda x: int(x / max(abs(min(y3.tolist())), max(y3.tolist())) * 32767), y3.tolist())
 data4 = map(lambda x: int(x / max(abs(min(y4.tolist())), max(y4.tolist())) * 32767), y4.tolist())
 data5 = map(lambda x: int(x / max(abs(min(y5.tolist())), max(y5.tolist())) * 32767), y5.tolist())
-datanew = [len(data1)] + data1 + \
-          [len(data2)] + data2 + \
-          [len(data3)] + data3 + \
-          [len(data4)] + data4 + \
-          [len(data5)] + data5
+datanew = data1 + data2 + data3 + data4 + data5
 
 # Mif headers
 DEPTH = 1024 * 1024
@@ -49,12 +45,17 @@ f.write("BEGIN" + '\n')
 
 # indexes
 f.write(hex(0) + "\t:\t" + hex(32) + ";\n")
-f.write(hex(1) + "\t:\t" + hex(32 + len(data1)) + ";\n")
-f.write(hex(2) + "\t:\t" + hex(32 + len(data1) + len(data2)) + ";\n")
-f.write(hex(3) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3)) + ";\n")
-f.write(hex(4) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) + len(data4)) + ";\n")
+f.write(hex(1) + "\t:\t" + hex(32 + len(data1) - 1) + ";\n")
+f.write(hex(2) + "\t:\t" + hex(32 + len(data1)) + ";\n")
+f.write(hex(3) + "\t:\t" + hex(32 + len(data1) + len(data2) - 1) + ";\n")
+f.write(hex(4) + "\t:\t" + hex(32 + len(data1) + len(data2)) + ";\n")
+f.write(hex(5) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) - 1) + ";\n")
+f.write(hex(6) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3)) + ";\n")
+f.write(hex(7) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) + len(data4) - 1) + ";\n")
+f.write(hex(8) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) + len(data4)) + ";\n")
+f.write(hex(9) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) + len(data4) + len(data5) - 1) + ";\n")
 
-for i in range(5, 32):
+for i in range(10, 32):
     f.write(hex(i) + "\t:\t" + hex(0) + ";\n")
 
 # first wave
