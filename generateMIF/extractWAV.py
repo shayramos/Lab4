@@ -12,16 +12,17 @@ y3, sr = librosa.load('smw_coin.wav', sr=9600)
 y4, sr = librosa.load('smw_fireball.wav', sr=9600)
 y5, sr = librosa.load('smw_jump.wav', sr=9600)
 
-# lista de valores em float
-data1 = y1.tolist()
-data2 = y2.tolist()
-data3 = y3.tolist()
-data4 = y4.tolist()
-data5 = y5.tolist()
-datat = [len(data1)] + data1 + [len(data2)] + data2 + [len(data3)] + data3 + [len(data4)] + data4 + [len(data5)] + data5
-
-# normalizando com inteiros em 16 bits
-datanew = map(lambda x: int(x / max(abs(min(datat)), max(datat)) * 32767), datat)
+# dados do wave para uma lista
+data1 = map(lambda x: int(x / max(abs(min(y1.tolist())), max(y1.tolist())) * 32767), y1.tolist())
+data2 = map(lambda x: int(x / max(abs(min(y2.tolist())), max(y2.tolist())) * 32767), y2.tolist())
+data3 = map(lambda x: int(x / max(abs(min(y3.tolist())), max(y3.tolist())) * 32767), y3.tolist())
+data4 = map(lambda x: int(x / max(abs(min(y4.tolist())), max(y4.tolist())) * 32767), y4.tolist())
+data5 = map(lambda x: int(x / max(abs(min(y5.tolist())), max(y5.tolist())) * 32767), y5.tolist())
+datanew = [len(data1)] + data1 + \
+          [len(data2)] + data2 + \
+          [len(data3)] + data3 + \
+          [len(data4)] + data4 + \
+          [len(data5)] + data5
 
 # Mif headers
 DEPTH = 1024 * 1024
