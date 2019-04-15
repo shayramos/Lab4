@@ -1,5 +1,5 @@
 Analysis & Synthesis report for audioProcessor
-Wed Apr 10 21:41:20 2019
+Mon Apr 15 00:01:46 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -20,10 +20,12 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Parameter Settings for User Entity Instance: Top-level Entity: |audioProcessor
  14. Parameter Settings for User Entity Instance: codecInterface:codecInt
- 15. Port Connectivity Checks: "codecInterface:codecInt"
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 15. Parameter Settings for User Entity Instance: memoController:memoInt
+ 16. Port Connectivity Checks: "memoController:memoInt"
+ 17. Port Connectivity Checks: "codecInterface:codecInt"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -49,7 +51,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Apr 10 21:41:20 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 15 00:01:45 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; audioProcessor                              ;
 ; Top-level Entity Name              ; audioProcessor                              ;
@@ -175,6 +177,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------+------------------------------------------------------------------------+---------+
 ; codecInterface.v                 ; yes             ; User Verilog HDL File  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v ;         ;
 ; audioprocessor.v                 ; yes             ; User Verilog HDL File  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v ;         ;
+; memoController.v                 ; yes             ; User Verilog HDL File  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v ;         ;
 +----------------------------------+-----------------+------------------------+------------------------------------------------------------------------+---------+
 
 
@@ -350,6 +353,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memoController:memoInt ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; INICIO         ; 000   ; Unsigned Binary                            ;
+; IDLE           ; 001   ; Unsigned Binary                            ;
+; READDATA       ; 010   ; Unsigned Binary                            ;
+; WAIT           ; 011   ; Unsigned Binary                            ;
+; OUTDATA        ; 100   ; Unsigned Binary                            ;
+; INPUTSTATE     ; 101   ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memoController:memoInt"                                                                ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; readEn  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dataOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "codecInterface:codecInt"                                                            ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -387,7 +415,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:21     ;
 +----------------+--------------+
 
 
@@ -397,7 +425,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Apr 10 21:41:06 2019
+    Info: Processing started: Sun Apr 14 23:57:53 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off audioProcessor -c audioProcessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -405,17 +433,57 @@ Info (12021): Found 1 design units, including 1 entities, in source file codecin
     Info (12023): Found entity 1: codecInterface File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file audioprocessor.v
     Info (12023): Found entity 1: audioProcessor File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at audioprocessor.v(30): created implicit net for "blck" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 30
+Info (12021): Found 1 design units, including 1 entities, in source file memocontroller.v
+    Info (12023): Found entity 1: memoController File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at audioprocessor.v(35): created implicit net for "blck" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 35
 Info (12127): Elaborating entity "audioProcessor" for the top level hierarchy
+Warning (10030): Net "memory" at audioprocessor.v(19) has no driver or initial value, using a default initial value '0' File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 19
 Warning (10034): Output port "readdata" at audioprocessor.v(6) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
 Warning (10034): Output port "waitrequest" at audioprocessor.v(7) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 7
 Warning (10034): Output port "bclk" at audioprocessor.v(9) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 9
-Info (12128): Elaborating entity "codecInterface" for hierarchy "codecInterface:codecInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 32
+Info (12128): Elaborating entity "codecInterface" for hierarchy "codecInterface:codecInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 37
 Warning (10858): Verilog HDL warning at codecInterface.v(22): object bclk_counter_max used but never assigned File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 22
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(43): truncated value with size 32 to match size of target (8) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 43
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(66): truncated value with size 32 to match size of target (12) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 66
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(77): truncated value with size 32 to match size of target (4) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 77
 Warning (10030): Net "bclk_counter_max" at codecInterface.v(22) has no driver or initial value, using a default initial value '0' File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 22
+Info (12128): Elaborating entity "memoController" for hierarchy "memoController:memoInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 44
+Warning (10230): Verilog HDL assignment warning at memoController.v(26): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 26
+Warning (10230): Verilog HDL assignment warning at memoController.v(35): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 35
+Warning (10230): Verilog HDL assignment warning at memoController.v(50): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 50
+Warning (10199): Verilog HDL Case Statement warning at memoController.v(52): case item expression never matches the case expression File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 52
+Warning (10230): Verilog HDL assignment warning at memoController.v(56): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 56
+Warning (10230): Verilog HDL assignment warning at memoController.v(59): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 59
+Warning (10230): Verilog HDL assignment warning at memoController.v(62): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 62
+Warning (10199): Verilog HDL Case Statement warning at memoController.v(64): case item expression never matches the case expression File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 64
+Warning (10230): Verilog HDL assignment warning at memoController.v(69): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 69
+Warning (10230): Verilog HDL assignment warning at memoController.v(72): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 72
+Warning (10199): Verilog HDL Case Statement warning at memoController.v(84): case item expression never matches the case expression File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 84
+Warning (10230): Verilog HDL assignment warning at memoController.v(96): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 96
+Warning (10199): Verilog HDL Case Statement warning at memoController.v(101): case item expression never matches the case expression File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 101
+Warning (10240): Verilog HDL Always Construct warning at memoController.v(81): inferring latch(es) for variable "addrFinal", which holds its previous value in one or more paths through the always construct File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Warning (10034): Output port "dataOut" at memoController.v(9) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 9
+Info (10041): Inferred latch for "addrFinal[0]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[1]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[2]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[3]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[4]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[5]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[6]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[7]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[8]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[9]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[10]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[11]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[12]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[13]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[14]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[15]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[16]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[17]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[18]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[19]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
+Info (10041): Inferred latch for "addrFinal[20]" at memoController.v(81) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "readdata[0]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
     Warning (13410): Pin "readdata[1]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
@@ -495,10 +563,10 @@ Info (21057): Implemented 90 device resources after synthesis - the final resour
     Info (21058): Implemented 36 input pins
     Info (21059): Implemented 36 output pins
     Info (21061): Implemented 18 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 81 warnings
-    Info: Peak virtual memory: 4783 megabytes
-    Info: Processing ended: Wed Apr 10 21:41:20 2019
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 97 warnings
+    Info: Peak virtual memory: 9799 megabytes
+    Info: Processing ended: Mon Apr 15 00:01:47 2019
+    Info: Elapsed time: 00:03:54
+    Info: Total CPU time (on all processors): 00:01:35
 
 
