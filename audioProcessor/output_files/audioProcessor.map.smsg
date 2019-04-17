@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at memoController.v(5): object "readData" differs only in case from object "READDATA" in the same scope File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 5

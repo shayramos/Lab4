@@ -2,9 +2,11 @@ module memoController(	input clock,
 						input reset,
 						input [15:0] dataIn,
 						input [20:0] addrInitial,
+						input readData,
 						output reg readEn,
 //						output writeEn,
-						output reg [15:0] dataOut
+						output reg [15:0] dataOut,
+						output reg available
 //						output reg [20:0] addrOut
 						);
 						
@@ -50,10 +52,20 @@ module memoController(	input clock,
 		next_state = INICIO;
 		case (state)
 			INPUTSTATE: begin
-				next_state = INICIO;
+				if(readData) begin
+					next_state = INICIO;
+				end
+				else begin
+					next_state = INPUTSTATE;
+				end
 			end
 			INICIO: begin
-				next_state = READDATA;
+				if(readData) begin
+					next_state = READDATA;
+				end
+				else begin
+					next_state = INICIO;
+				end
 			end
 			READDATA: begin
 				next_state = WAIT;
@@ -79,19 +91,16 @@ module memoController(	input clock,
 	//Decodificador de saida
    always @ (*) begin
 		readEn = 0;
-//		writeEn = 0;
+		available = 0;
 		case (state)
 			INPUTSTATE: begin
 				addrFinal = 0;
-//				addrOut = 0;
 			end
 			INICIO: begin
 				readEn = 0;
-//				writeEn = 0;
 			end
 			READDATA: begin
 				readEn = 1;
-//				addrOut = addr;
 				if(addrFinal==0) begin
 					addrFinal = addrInitial + 1;
 				end
@@ -100,6 +109,7 @@ module memoController(	input clock,
 			end
 			OUTDATA: begin
 				dataOut[15:0] = dataIn[15:0];
+				available = 1;
 			end
 			IDLE: begin
 			end

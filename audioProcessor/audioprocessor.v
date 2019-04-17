@@ -22,7 +22,7 @@ module audioProcessor(  input clock, //interface para Avalon
     reg [31:0] savedWriteData;
     reg [1:0] state, next_state;
     reg [15:0] dataToInterface, dataToInterfaceNext;
-    wire interfaceDone, dataEnable;
+    wire interfaceDone, dataEnable, readMemoryData;
     wire [15:0] dataFromMemory, dataFromController;
 	 wire [20:0] addrToMemory;
 
@@ -40,8 +40,10 @@ module audioProcessor(  input clock, //interface para Avalon
 										.reset(reset),
 										.dataIn(memory[addrToMemory]),
 										.addrInitial(addrToMemory),
+										.readData(readMemoryData),
 										.readEn(read),
-										.dataOut(dataFromController));
+										.dataOut(dataFromController),
+										.available(dataEnable));
 
     always @ (posedge clock) begin
         if (reset) begin
