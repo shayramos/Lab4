@@ -1,5 +1,5 @@
 Analysis & Synthesis report for audioProcessor
-Tue Apr 16 22:33:30 2019
+Wed Apr 17 23:34:45 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,23 +10,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |audioProcessor|state
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: Top-level Entity: |audioProcessor
- 14. Parameter Settings for User Entity Instance: codecInterface:codecInt
- 15. Parameter Settings for User Entity Instance: memoController:memoInt
- 16. Port Connectivity Checks: "memoController:memoInt"
- 17. Port Connectivity Checks: "codecInterface:codecInt"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
- 21. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis IP Cores Summary
+  6. Analysis & Synthesis Messages
+  7. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -52,20 +38,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Apr 16 22:33:30 2019       ;
+; Analysis & Synthesis Status        ; Failed - Wed Apr 17 23:34:45 2019           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; audioProcessor                              ;
 ; Top-level Entity Name              ; audioProcessor                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 18                                          ;
-;     Total combinational functions  ; 18                                          ;
-;     Dedicated logic registers      ; 13                                          ;
-; Total registers                    ; 13                                          ;
-; Total pins                         ; 72                                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -163,261 +149,20 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                           ; Library ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------+---------+
-; codecInterface.v                 ; yes             ; User Verilog HDL File  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v ;         ;
-; audioprocessor.v                 ; yes             ; User Verilog HDL File  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v ;         ;
-; memoController.v                 ; yes             ; User Verilog HDL File  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v ;         ;
-+----------------------------------+-----------------+------------------------+------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 18          ;
-;                                             ;             ;
-; Total combinational functions               ; 18          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 4           ;
-;     -- 3 input functions                    ; 2           ;
-;     -- <=2 input functions                  ; 12          ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 7           ;
-;     -- arithmetic mode                      ; 11          ;
-;                                             ;             ;
-; Total registers                             ; 13          ;
-;     -- Dedicated logic registers            ; 13          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 72          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 13          ;
-; Total fan-out                               ; 156         ;
-; Average fan-out                             ; 0.89        ;
-+---------------------------------------------+-------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                               ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+----------------+--------------+
-; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Entity Name    ; Library Name ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+----------------+--------------+
-; |audioProcessor              ; 18 (0)              ; 13 (0)                    ; 0           ; 0            ; 0       ; 0         ; 72   ; 0            ; |audioProcessor                         ; audioProcessor ; work         ;
-;    |codecInterface:codecInt| ; 18 (18)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |audioProcessor|codecInterface:codecInt ; codecInterface ; work         ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+----------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------+
-; State Machine - |audioProcessor|state                                                                 ;
-+-------------------------+-----------------+--------------------+-------------------------+------------+
-; Name                    ; state.DATA_SEND ; state.WAITING_DONE ; state.WAITING_INTERFACE ; state.IDLE ;
-+-------------------------+-----------------+--------------------+-------------------------+------------+
-; state.IDLE              ; 0               ; 0                  ; 0                       ; 0          ;
-; state.WAITING_INTERFACE ; 0               ; 0                  ; 1                       ; 1          ;
-; state.WAITING_DONE      ; 0               ; 1                  ; 0                       ; 1          ;
-; state.DATA_SEND         ; 1               ; 0                  ; 0                       ; 1          ;
-+-------------------------+-----------------+--------------------+-------------------------+------------+
-
-
-+-------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                  ;
-+--------------------------------------------+----------------------------------------+
-; Register name                              ; Reason for Removal                     ;
-+--------------------------------------------+----------------------------------------+
-; codecInterface:codecInt|reg_data[0..15]    ; Stuck at GND due to stuck port clock   ;
-; dataToInterface[0..15]                     ; Lost fanout                            ;
-; codecInterface:codecInt|bclk_counter[0..7] ; Stuck at GND due to stuck port data_in ;
-; codecInterface:codecInt|data_index[0..3]   ; Lost fanout                            ;
-; codecInterface:codecInt|bclk               ; Lost fanout                            ;
-; state~2                                    ; Lost fanout                            ;
-; state~3                                    ; Lost fanout                            ;
-; codecInterface:codecInt|wordSent           ; Lost fanout                            ;
-; state.IDLE                                 ; Lost fanout                            ;
-; state.WAITING_INTERFACE                    ; Lost fanout                            ;
-; state.WAITING_DONE                         ; Lost fanout                            ;
-; state.DATA_SEND                            ; Lost fanout                            ;
-; Total Number of Removed Registers = 52     ;                                        ;
-+--------------------------------------------+----------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                    ;
-+--------------------------------------+-------------------------+-------------------------------------------------------------------------------+
-; Register name                        ; Reason for Removal      ; Registers Removed due to This Register                                        ;
-+--------------------------------------+-------------------------+-------------------------------------------------------------------------------+
-; codecInterface:codecInt|reg_data[0]  ; Stuck at GND            ; dataToInterface[0], codecInterface:codecInt|data_index[3],                    ;
-;                                      ; due to stuck port clock ; codecInterface:codecInt|data_index[2], codecInterface:codecInt|data_index[1], ;
-;                                      ;                         ; codecInterface:codecInt|data_index[0], codecInterface:codecInt|bclk           ;
-; state~3                              ; Lost Fanouts            ; codecInterface:codecInt|wordSent, state.WAITING_DONE, state.DATA_SEND         ;
-; state~2                              ; Lost Fanouts            ; state.IDLE, state.WAITING_INTERFACE                                           ;
-; codecInterface:codecInt|reg_data[1]  ; Stuck at GND            ; dataToInterface[1]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[2]  ; Stuck at GND            ; dataToInterface[2]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[3]  ; Stuck at GND            ; dataToInterface[3]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[4]  ; Stuck at GND            ; dataToInterface[4]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[5]  ; Stuck at GND            ; dataToInterface[5]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[6]  ; Stuck at GND            ; dataToInterface[6]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[7]  ; Stuck at GND            ; dataToInterface[7]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[8]  ; Stuck at GND            ; dataToInterface[8]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[9]  ; Stuck at GND            ; dataToInterface[9]                                                            ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[10] ; Stuck at GND            ; dataToInterface[10]                                                           ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[11] ; Stuck at GND            ; dataToInterface[11]                                                           ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[12] ; Stuck at GND            ; dataToInterface[12]                                                           ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[13] ; Stuck at GND            ; dataToInterface[13]                                                           ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[14] ; Stuck at GND            ; dataToInterface[14]                                                           ;
-;                                      ; due to stuck port clock ;                                                                               ;
-; codecInterface:codecInt|reg_data[15] ; Stuck at GND            ; dataToInterface[15]                                                           ;
-;                                      ; due to stuck port clock ;                                                                               ;
-+--------------------------------------+-------------------------+-------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 13    ;
-; Number of registers using Synchronous Clear  ; 12    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |audioProcessor|codecInterface:codecInt|lrck_counter[11] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |audioProcessor ;
-+-------------------+-------+----------------------------------------------------+
-; Parameter Name    ; Value ; Type                                               ;
-+-------------------+-------+----------------------------------------------------+
-; IDLE              ; 00    ; Unsigned Binary                                    ;
-; WAITING_INTERFACE ; 01    ; Unsigned Binary                                    ;
-; DATA_SEND         ; 11    ; Unsigned Binary                                    ;
-; WAITING_DONE      ; 10    ; Unsigned Binary                                    ;
-+-------------------+-------+----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: codecInterface:codecInt ;
-+------------------+----------+----------------------------------------+
-; Parameter Name   ; Value    ; Type                                   ;
-+------------------+----------+----------------------------------------+
-; fs               ; 9600     ; Signed Integer                         ;
-; data_width       ; 24       ; Signed Integer                         ;
-; channels_number  ; 2        ; Signed Integer                         ;
-; clk_frequency    ; 49766400 ; Signed Integer                         ;
-; blck_counter_max ; 53       ; Signed Integer                         ;
-; lrck_counter_max ; 2591     ; Signed Integer                         ;
-+------------------+----------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: memoController:memoInt ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; INICIO         ; 000   ; Unsigned Binary                            ;
-; IDLE           ; 001   ; Unsigned Binary                            ;
-; READDATA       ; 010   ; Unsigned Binary                            ;
-; WAIT           ; 011   ; Unsigned Binary                            ;
-; OUTDATA        ; 100   ; Unsigned Binary                            ;
-; INPUTSTATE     ; 101   ; Unsigned Binary                            ;
-+----------------+-------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "memoController:memoInt"                                                                ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; readEn  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; dataOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "codecInterface:codecInt"                                                            ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; bclk ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 72                          ;
-; cycloneiii_ff         ; 13                          ;
-;     SCLR              ; 12                          ;
-;     plain             ; 1                           ;
-; cycloneiii_lcell_comb ; 19                          ;
-;     arith             ; 11                          ;
-;         2 data inputs ; 11                          ;
-;     normal            ; 8                           ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 1                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 4                           ;
-;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.06                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:13     ;
-+----------------+--------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                           ;
++--------+--------------+---------+--------------+--------------+-------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance               ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-------------------------------+-----------------+
+; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |audioProcessor|romMemory:rom ; romMemory.v     ;
++--------+--------------+---------+--------------+--------------+-------------------------------+-----------------+
 
 
 +-------------------------------+
@@ -426,7 +171,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Apr 16 22:30:54 2019
+    Info: Processing started: Wed Apr 17 23:34:00 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off audioProcessor -c audioProcessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -436,141 +181,92 @@ Info (12021): Found 1 design units, including 1 entities, in source file audiopr
     Info (12023): Found entity 1: audioProcessor File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file memocontroller.v
     Info (12023): Found entity 1: memoController File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at audioprocessor.v(35): created implicit net for "blck" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file rommemory.v
+    Info (12023): Found entity 1: romMemory File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 39
+Warning (10236): Verilog HDL Implicit Net warning at audioprocessor.v(41): created implicit net for "blck" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 41
 Info (12127): Elaborating entity "audioProcessor" for the top level hierarchy
-Warning (10030): Net "memory" at audioprocessor.v(19) has no driver or initial value, using a default initial value '0' File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 19
 Warning (10034): Output port "readdata" at audioprocessor.v(6) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
 Warning (10034): Output port "waitrequest" at audioprocessor.v(7) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 7
 Warning (10034): Output port "bclk" at audioprocessor.v(9) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 9
-Info (12128): Elaborating entity "codecInterface" for hierarchy "codecInterface:codecInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 37
+Info (12128): Elaborating entity "codecInterface" for hierarchy "codecInterface:codecInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 43
 Warning (10858): Verilog HDL warning at codecInterface.v(22): object bclk_counter_max used but never assigned File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 22
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(43): truncated value with size 32 to match size of target (8) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 43
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(66): truncated value with size 32 to match size of target (12) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 66
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(77): truncated value with size 32 to match size of target (4) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 77
 Warning (10030): Net "bclk_counter_max" at codecInterface.v(22) has no driver or initial value, using a default initial value '0' File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 22
-Info (12128): Elaborating entity "memoController" for hierarchy "memoController:memoInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 46
-Warning (10230): Verilog HDL assignment warning at memoController.v(28): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 28
-Warning (10230): Verilog HDL assignment warning at memoController.v(37): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 37
-Warning (10230): Verilog HDL assignment warning at memoController.v(52): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 52
-Warning (10199): Verilog HDL Case Statement warning at memoController.v(54): case item expression never matches the case expression File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 54
-Warning (10230): Verilog HDL assignment warning at memoController.v(64): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 64
-Warning (10230): Verilog HDL assignment warning at memoController.v(67): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 67
-Warning (10230): Verilog HDL assignment warning at memoController.v(71): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 71
-Warning (10230): Verilog HDL assignment warning at memoController.v(74): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 74
-Warning (10199): Verilog HDL Case Statement warning at memoController.v(76): case item expression never matches the case expression File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 76
-Warning (10230): Verilog HDL assignment warning at memoController.v(81): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 81
-Warning (10230): Verilog HDL assignment warning at memoController.v(84): truncated value with size 3 to match size of target (2) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 84
-Warning (10199): Verilog HDL Case Statement warning at memoController.v(96): case item expression never matches the case expression File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 96
-Warning (10230): Verilog HDL assignment warning at memoController.v(105): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 105
-Warning (10199): Verilog HDL Case Statement warning at memoController.v(110): case item expression never matches the case expression File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 110
-Warning (10240): Verilog HDL Always Construct warning at memoController.v(93): inferring latch(es) for variable "addrFinal", which holds its previous value in one or more paths through the always construct File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Warning (10034): Output port "dataOut" at memoController.v(8) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 8
-Info (10041): Inferred latch for "addrFinal[0]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[1]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[2]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[3]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[4]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[5]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[6]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[7]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[8]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[9]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[10]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[11]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[12]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[13]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[14]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[15]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[16]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[17]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[18]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[19]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Info (10041): Inferred latch for "addrFinal[20]" at memoController.v(93) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 93
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "readdata[0]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[1]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[2]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[3]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[4]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[5]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[6]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[7]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[8]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[9]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[10]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[11]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[12]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[13]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[14]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[15]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[16]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[17]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[18]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[19]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[20]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[21]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[22]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[23]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[24]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[25]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[26]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[27]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[28]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[29]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[30]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "readdata[31]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
-    Warning (13410): Pin "waitrequest" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 7
-    Warning (13410): Pin "bclk" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 9
-    Warning (13410): Pin "codecSerialData" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 11
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 28 registers lost all their fanouts during netlist optimizations.
+Info (12128): Elaborating entity "memoController" for hierarchy "memoController:memoInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 52
+Warning (10230): Verilog HDL assignment warning at memoController.v(35): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 35
+Warning (10230): Verilog HDL assignment warning at memoController.v(103): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 103
+Warning (10240): Verilog HDL Always Construct warning at memoController.v(91): inferring latch(es) for variable "addrFinal", which holds its previous value in one or more paths through the always construct File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Warning (10240): Verilog HDL Always Construct warning at memoController.v(91): inferring latch(es) for variable "dataOut", which holds its previous value in one or more paths through the always construct File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[0]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[1]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[2]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[3]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[4]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[5]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[6]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[7]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[8]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[9]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[10]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[11]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[12]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[13]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[14]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "dataOut[15]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[0]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[1]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[2]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[3]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[4]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[5]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[6]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[7]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[8]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[9]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[10]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[11]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[12]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[13]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[14]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[15]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[16]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[17]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[18]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[19]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (10041): Inferred latch for "addrFinal[20]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
+Info (12128): Elaborating entity "romMemory" for hierarchy "romMemory:rom" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 57
+Info (12128): Elaborating entity "altsyncram" for hierarchy "romMemory:rom|altsyncram:altsyncram_component" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
+Info (12130): Elaborated megafunction instantiation "romMemory:rom|altsyncram:altsyncram_component" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
+Info (12133): Instantiated megafunction "romMemory:rom|altsyncram:altsyncram_component" with the following parameter: File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "../generateMIF/initialization.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_huc1.tdf
+    Info (12023): Found entity 1: altsyncram_huc1 File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 31
+Info (12128): Elaborating entity "altsyncram_huc1" for hierarchy "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Error (113012): Address at line 11 exceeds the specified depth (1048576) in the Memory Initialization File "initialization.mif" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/generateMIF/initialization.mif Line: 11
+Error (113000): Memory Initialization File or Hexadecimal (Intel-Format) File "initialization.mif" contains illegal syntax at line 11 File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/generateMIF/initialization.mif Line: 11
+Error (127000): Can't read Memory Initialization File or Hexadecimal (Intel-Format) File ../generateMIF/initialization.mif for ROM instance ALTSYNCRAM. If the file exists, it is not in correct format. File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
+Error (12152): Can't elaborate user hierarchy "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (144001): Generated suppressed messages file E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/output_files/audioProcessor.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 34 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "writedata[0]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[1]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[2]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[3]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[4]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[5]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[6]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[7]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[8]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[9]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[10]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[11]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[12]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[13]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[14]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[15]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[16]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[17]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[18]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[19]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[20]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[21]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[22]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[23]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[24]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[25]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[26]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[27]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[28]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[29]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[30]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "writedata[31]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
-    Warning (15610): No output dependent on input pin "read" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 4
-    Warning (15610): No output dependent on input pin "write" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 5
-Info (21057): Implemented 90 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 36 input pins
-    Info (21059): Implemented 36 output pins
-    Info (21061): Implemented 18 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 98 warnings
-    Info: Peak virtual memory: 9816 megabytes
-    Info: Processing ended: Tue Apr 16 22:33:30 2019
-    Info: Elapsed time: 00:02:36
-    Info: Total CPU time (on all processors): 00:01:48
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 14 warnings
+    Error: Peak virtual memory: 4759 megabytes
+    Error: Processing ended: Wed Apr 17 23:34:46 2019
+    Error: Elapsed time: 00:00:46
+    Error: Total CPU time (on all processors): 00:00:24
 
 
 +------------------------------------------+

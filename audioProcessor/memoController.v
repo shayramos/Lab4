@@ -4,15 +4,17 @@ module memoController(	input clock,
 						input [20:0] addrInitial,
 						input readData,
 						output reg readEn,
-//						output writeEn,
 						output reg [15:0] dataOut,
+						output [20:0] addrOut,
 						output reg available
-//						output reg [20:0] addrOut
 						);
-						
+	
+//addrOut é o endereço que está armazenado no addrInitial
+//ainda preciso fazer um acesso antes de tudo para saber qual o endereço inicial da música
+
 	reg [20:0] addrFinal;
 	reg [20:0] addr;
-	reg [1:0] state, next_state;
+	reg [2:0] state, next_state;
 
 	parameter INICIO = 3'b000,
 				IDLE = 3'b001,

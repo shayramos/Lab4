@@ -16,15 +16,21 @@ module audioProcessor(  input clock, //interface para Avalon
                 WAITING_DONE = 2'b10;
 
     //definir memoria
-	 reg [15:0] memory [0:1048575];
+//	 reg [15:0] memory [0:1048575];
 
 
     reg [31:0] savedWriteData;
     reg [1:0] state, next_state;
     reg [15:0] dataToInterface, dataToInterfaceNext;
-    wire interfaceDone, dataEnable, readMemoryData;
-    wire [15:0] dataFromMemory, dataFromController;
-	 wire [20:0] addrToMemory;
+    wire interfaceDone;
+	 //indica que a palavra está disponível
+	 wire dataEnable;
+	 //sinal que diz para o controlador ler a palavra da memoria
+	 wire readMemoryData;
+	 //palavra da memoria
+	 wire [15:0] dataFromMemory, dataFromController;
+	 //endereço da musica a ser tocada
+	 wire [20:0] addrToController, addrToMemory;
 
 	 
     codecInterface codecInt(   .clock(clock),
@@ -38,13 +44,19 @@ module audioProcessor(  input clock, //interface para Avalon
 										  
 	memoController memoInt( 	.clock(clock),
 										.reset(reset),
-										.dataIn(memory[addrToMemory]),
-										.addrInitial(addrToMemory),
+										.dataIn(dataFromMemory),
+										.addrInitial(addrToController),
 										.readData(readMemoryData),
 										.readEn(read),
 										.dataOut(dataFromController),
+										.addrOut(addrToMemory),
 										.available(dataEnable));
-
+										
+	romMemory rom(		.address(addrToMemory),
+							.clock(clock),
+							.rden(read),
+							.q(dataFromMemory));
+	
     always @ (posedge clock) begin
         if (reset) begin
             dataToInterface <= 0;
