@@ -1,10 +1,5 @@
 import librosa
 
-
-def tohex(val, nbits):
-    return hex((val + (1 << nbits)) % (1 << nbits))
-
-
 # Downsample 9600 Hz
 y1, sr = librosa.load('smw_1_up.wav', sr=9600)
 y2, sr = librosa.load('smw_bubble_pop.wav', sr=9600)
@@ -44,22 +39,22 @@ f.write("CONTENT" + '\n')
 f.write("BEGIN" + '\n')
 
 # indexes
-f.write(hex(0) + "\t:\t" + hex(32) + ";\n")
-f.write(hex(1) + "\t:\t" + hex(32 + len(data1) - 1) + ";\n")
-f.write(hex(2) + "\t:\t" + hex(32 + len(data1)) + ";\n")
-f.write(hex(3) + "\t:\t" + hex(32 + len(data1) + len(data2) - 1) + ";\n")
-f.write(hex(4) + "\t:\t" + hex(32 + len(data1) + len(data2)) + ";\n")
-f.write(hex(5) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) - 1) + ";\n")
-f.write(hex(6) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3)) + ";\n")
-f.write(hex(7) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) + len(data4) - 1) + ";\n")
-f.write(hex(8) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) + len(data4)) + ";\n")
-f.write(hex(9) + "\t:\t" + hex(32 + len(data1) + len(data2) + len(data3) + len(data4) + len(data5) - 1) + ";\n")
+f.write(format(0, 'x').upper() + "\t:\t" + format(32, 'x').upper() + ";\n")
+f.write(format(1, 'x').upper() + "\t:\t" + format(32 + len(data1) - 1, 'x').upper() + ";\n")
+f.write(format(2, 'x').upper() + "\t:\t" + format(32 + len(data1), 'x').upper() + ";\n")
+f.write(format(3, 'x').upper() + "\t:\t" + format(32 + len(data1) + len(data2) - 1, 'x').upper() + ";\n")
+f.write(format(4, 'x').upper() + "\t:\t" + format(32 + len(data1) + len(data2), 'x').upper() + ";\n")
+f.write(format(5, 'x').upper() + "\t:\t" + format(32 + len(data1) + len(data2) + len(data3) - 1, 'x').upper() + ";\n")
+f.write(format(6, 'x').upper() + "\t:\t" + format(32 + len(data1) + len(data2) + len(data3), 'x').upper() + ";\n")
+f.write(format(7, 'x').upper() + "\t:\t" + format(32 + len(data1) + len(data2) + len(data3) + len(data4) - 1, 'x').upper() + ";\n")
+f.write(format(8, 'x').upper() + "\t:\t" + format(32 + len(data1) + len(data2) + len(data3) + len(data4), 'x').upper() + ";\n")
+f.write(format(9, 'x').upper() + "\t:\t" + format(32 + len(data1) + len(data2) + len(data3) + len(data4) + len(data5) - 1, 'x').upper() + ";\n")
 
 for i in range(10, 32):
-    f.write(hex(i) + "\t:\t" + hex(0) + ";\n")
+    f.write(format(i, 'x').upper() + "\t:\t" + format(0, 'x').upper() + ";\n")
 
 # first wave
 for i in range(32, len(datanew)):
-    f.write(hex(i) + "\t:\t" + hex(datanew[i - 32]) + ";\n")
+    f.write(format(i, 'x').upper() + "\t:\t" + format(datanew[i - 32], 'x').upper() + ";\n")
 
 f.write("END;")
