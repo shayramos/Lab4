@@ -1,5 +1,5 @@
 Analysis & Synthesis report for audioProcessor
-Wed Apr 17 23:34:45 2019
+Fri Apr 19 00:22:29 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,9 +10,28 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis IP Cores Summary
-  6. Analysis & Synthesis Messages
-  7. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |audioProcessor|state
+ 10. State Machine - |audioProcessor|memoController:memoInt|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |audioProcessor
+ 17. Parameter Settings for User Entity Instance: codecInterface:codecInt
+ 18. Parameter Settings for User Entity Instance: memoController:memoInt
+ 19. Parameter Settings for User Entity Instance: romMemory:rom|altsyncram:altsyncram_component
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "romMemory:rom"
+ 22. Port Connectivity Checks: "memoController:memoInt"
+ 23. Port Connectivity Checks: "codecInterface:codecInt"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
 
 
 
@@ -38,20 +57,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Wed Apr 17 23:34:45 2019           ;
+; Analysis & Synthesis Status        ; Successful - Fri Apr 19 00:22:29 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; audioProcessor                              ;
 ; Top-level Entity Name              ; audioProcessor                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 18                                          ;
+;     Total combinational functions  ; 18                                          ;
+;     Dedicated logic registers      ; 13                                          ;
+; Total registers                    ; 13                                          ;
+; Total pins                         ; 72                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -149,11 +168,80 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                  ;
++---------------------------------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                    ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ; Library ;
++---------------------------------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; codecInterface.v                                                    ; yes             ; User Verilog HDL File                  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v       ;         ;
+; audioprocessor.v                                                    ; yes             ; User Verilog HDL File                  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v       ;         ;
+; memoController.v                                                    ; yes             ; User Verilog HDL File                  ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v       ;         ;
+; romMemory.v                                                         ; yes             ; User Wizard-Generated File             ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v            ;         ;
+; altsyncram.tdf                                                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc                                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                                                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                                                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal181.inc                                                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; a_rdenreg.inc                                                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                                                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                                                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                                                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_huc1.tdf                                              ; yes             ; Auto-Generated Megafunction            ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf ;         ;
+; /shay/documents/ufba/20191/lab4/lab4/generatemif/initialization.mif ; yes             ; Auto-Found Memory Initialization File  ; /shay/documents/ufba/20191/lab4/lab4/generatemif/initialization.mif          ;         ;
+; db/decode_rsa.tdf                                                   ; yes             ; Auto-Generated Megafunction            ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/decode_rsa.tdf      ;         ;
+; db/mux_qob.tdf                                                      ; yes             ; Auto-Generated Megafunction            ; E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/mux_qob.tdf         ;         ;
++---------------------------------------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 18          ;
+;                                             ;             ;
+; Total combinational functions               ; 18          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 3           ;
+;     -- 3 input functions                    ; 3           ;
+;     -- <=2 input functions                  ; 12          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 7           ;
+;     -- arithmetic mode                      ; 11          ;
+;                                             ;             ;
+; Total registers                             ; 13          ;
+;     -- Dedicated logic registers            ; 13          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 72          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 13          ;
+; Total fan-out                               ; 156         ;
+; Average fan-out                             ; 0.89        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                               ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Entity Name    ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+----------------+--------------+
+; |audioProcessor              ; 18 (0)              ; 13 (0)                    ; 0           ; 0            ; 0       ; 0         ; 72   ; 0            ; |audioProcessor                         ; audioProcessor ; work         ;
+;    |codecInterface:codecInt| ; 18 (18)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |audioProcessor|codecInterface:codecInt ; codecInterface ; work         ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -165,13 +253,350 @@ refer to the applicable agreement for further details.
 +--------+--------------+---------+--------------+--------------+-------------------------------+-----------------+
 
 
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------+
+; State Machine - |audioProcessor|state                                                                 ;
++-------------------------+-----------------+--------------------+-------------------------+------------+
+; Name                    ; state.DATA_SEND ; state.WAITING_DONE ; state.WAITING_INTERFACE ; state.IDLE ;
++-------------------------+-----------------+--------------------+-------------------------+------------+
+; state.IDLE              ; 0               ; 0                  ; 0                       ; 0          ;
+; state.WAITING_INTERFACE ; 0               ; 0                  ; 1                       ; 1          ;
+; state.WAITING_DONE      ; 0               ; 1                  ; 0                       ; 1          ;
+; state.DATA_SEND         ; 1               ; 0                  ; 0                       ; 1          ;
++-------------------------+-----------------+--------------------+-------------------------+------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |audioProcessor|memoController:memoInt|state                                                                                                  ;
++------------------+---------------+-------------+--------------+-------------+-----------------+-------------+----------------+------------------+-------------+
+; Name             ; state.OUTDATA ; state.WAIT3 ; state.ITADDR ; state.WAIT2 ; state.STOREADDR ; state.WAIT1 ; state.READADDR ; state.INPUTSTATE ; state.WAIT4 ;
++------------------+---------------+-------------+--------------+-------------+-----------------+-------------+----------------+------------------+-------------+
+; state.INPUTSTATE ; 0             ; 0           ; 0            ; 0           ; 0               ; 0           ; 0              ; 0                ; 0           ;
+; state.READADDR   ; 0             ; 0           ; 0            ; 0           ; 0               ; 0           ; 1              ; 1                ; 0           ;
+; state.WAIT1      ; 0             ; 0           ; 0            ; 0           ; 0               ; 1           ; 0              ; 1                ; 0           ;
+; state.STOREADDR  ; 0             ; 0           ; 0            ; 0           ; 1               ; 0           ; 0              ; 1                ; 0           ;
+; state.WAIT2      ; 0             ; 0           ; 0            ; 1           ; 0               ; 0           ; 0              ; 1                ; 0           ;
+; state.ITADDR     ; 0             ; 0           ; 1            ; 0           ; 0               ; 0           ; 0              ; 1                ; 0           ;
+; state.WAIT3      ; 0             ; 1           ; 0            ; 0           ; 0               ; 0           ; 0              ; 1                ; 0           ;
+; state.OUTDATA    ; 1             ; 0           ; 0            ; 0           ; 0               ; 0           ; 0              ; 1                ; 0           ;
+; state.WAIT4      ; 0             ; 0           ; 0            ; 0           ; 0               ; 0           ; 0              ; 1                ; 1           ;
++------------------+---------------+-------------+--------------+-------------+-----------------+-------------+----------------+------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                        ;
++--------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                    ; Reason for Removal                     ;
++--------------------------------------------------------------------------------------------------+----------------------------------------+
+; romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|address_reg_a[0..2] ; Lost fanout                            ;
+; romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|rden_a_store        ; Lost fanout                            ;
+; memoController:memoInt|addrOut[0..20]                                                            ; Lost fanout                            ;
+; dataToInterface[0..15]                                                                           ; Stuck at GND due to stuck port data_in ;
+; codecInterface:codecInt|reg_data[0..15]                                                          ; Stuck at GND due to stuck port data_in ;
+; codecInterface:codecInt|bclk_counter[0..7]                                                       ; Stuck at GND due to stuck port data_in ;
+; codecInterface:codecInt|data_index[0..3]                                                         ; Lost fanout                            ;
+; codecInterface:codecInt|bclk                                                                     ; Lost fanout                            ;
+; state~2                                                                                          ; Lost fanout                            ;
+; state~3                                                                                          ; Lost fanout                            ;
+; memoController:memoInt|state~11                                                                  ; Lost fanout                            ;
+; memoController:memoInt|state~12                                                                  ; Lost fanout                            ;
+; memoController:memoInt|state~13                                                                  ; Lost fanout                            ;
+; codecInterface:codecInt|wordSent                                                                 ; Lost fanout                            ;
+; state.IDLE                                                                                       ; Lost fanout                            ;
+; state.WAITING_INTERFACE                                                                          ; Lost fanout                            ;
+; state.WAITING_DONE                                                                               ; Lost fanout                            ;
+; state.DATA_SEND                                                                                  ; Lost fanout                            ;
+; memoController:memoInt|state.WAIT4                                                               ; Lost fanout                            ;
+; memoController:memoInt|state.INPUTSTATE                                                          ; Lost fanout                            ;
+; memoController:memoInt|state.READADDR                                                            ; Lost fanout                            ;
+; memoController:memoInt|state.WAIT1                                                               ; Lost fanout                            ;
+; memoController:memoInt|state.STOREADDR                                                           ; Lost fanout                            ;
+; memoController:memoInt|state.WAIT2                                                               ; Lost fanout                            ;
+; memoController:memoInt|state.ITADDR                                                              ; Lost fanout                            ;
+; memoController:memoInt|state.WAIT3                                                               ; Lost fanout                            ;
+; memoController:memoInt|state.OUTDATA                                                             ; Lost fanout                            ;
+; Total Number of Removed Registers = 89                                                           ;                                        ;
++--------------------------------------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                ;
++-----------------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------+
+; Register name                                                                                 ; Reason for Removal        ; Registers Removed due to This Register                                         ;
++-----------------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------+
+; dataToInterface[0]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[0], codecInterface:codecInt|data_index[3],    ;
+;                                                                                               ; due to stuck port data_in ; codecInterface:codecInt|data_index[2], codecInterface:codecInt|data_index[1],  ;
+;                                                                                               ;                           ; codecInterface:codecInt|data_index[0], codecInterface:codecInt|bclk            ;
+; memoController:memoInt|state~11                                                               ; Lost Fanouts              ; memoController:memoInt|state.READADDR, memoController:memoInt|state.STOREADDR, ;
+;                                                                                               ;                           ; memoController:memoInt|state.ITADDR, memoController:memoInt|state.OUTDATA      ;
+; state~3                                                                                       ; Lost Fanouts              ; codecInterface:codecInt|wordSent, state.WAITING_DONE, state.DATA_SEND          ;
+; state~2                                                                                       ; Lost Fanouts              ; state.IDLE, state.WAITING_INTERFACE                                            ;
+; memoController:memoInt|state~12                                                               ; Lost Fanouts              ; memoController:memoInt|state.WAIT1, memoController:memoInt|state.WAIT3         ;
+; romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|address_reg_a[2] ; Lost Fanouts              ; memoController:memoInt|addrOut[15]                                             ;
+; romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|address_reg_a[1] ; Lost Fanouts              ; memoController:memoInt|addrOut[14]                                             ;
+; romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|address_reg_a[0] ; Lost Fanouts              ; memoController:memoInt|addrOut[13]                                             ;
+; dataToInterface[1]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[1]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[2]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[2]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[3]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[3]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[4]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[4]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[5]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[5]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[6]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[6]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[7]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[7]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[8]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[8]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[9]                                                                            ; Stuck at GND              ; codecInterface:codecInt|reg_data[9]                                            ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[10]                                                                           ; Stuck at GND              ; codecInterface:codecInt|reg_data[10]                                           ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[11]                                                                           ; Stuck at GND              ; codecInterface:codecInt|reg_data[11]                                           ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[12]                                                                           ; Stuck at GND              ; codecInterface:codecInt|reg_data[12]                                           ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[13]                                                                           ; Stuck at GND              ; codecInterface:codecInt|reg_data[13]                                           ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[14]                                                                           ; Stuck at GND              ; codecInterface:codecInt|reg_data[14]                                           ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; dataToInterface[15]                                                                           ; Stuck at GND              ; codecInterface:codecInt|reg_data[15]                                           ;
+;                                                                                               ; due to stuck port data_in ;                                                                                ;
+; memoController:memoInt|state~13                                                               ; Lost Fanouts              ; memoController:memoInt|state.WAIT2                                             ;
++-----------------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 13    ;
+; Number of registers using Synchronous Clear  ; 13    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |audioProcessor|codecInterface:codecInt|lrck_counter[11] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Source assignments for romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------+
+; Assignment                      ; Value              ; From ; To                                    ;
++---------------------------------+--------------------+------+---------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                     ;
++---------------------------------+--------------------+------+---------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |audioProcessor ;
++-------------------+-------+----------------------------------------------------+
+; Parameter Name    ; Value ; Type                                               ;
++-------------------+-------+----------------------------------------------------+
+; IDLE              ; 00    ; Unsigned Binary                                    ;
+; WAITING_INTERFACE ; 01    ; Unsigned Binary                                    ;
+; DATA_SEND         ; 11    ; Unsigned Binary                                    ;
+; WAITING_DONE      ; 10    ; Unsigned Binary                                    ;
++-------------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: codecInterface:codecInt ;
++------------------+----------+----------------------------------------+
+; Parameter Name   ; Value    ; Type                                   ;
++------------------+----------+----------------------------------------+
+; fs               ; 9600     ; Signed Integer                         ;
+; data_width       ; 24       ; Signed Integer                         ;
+; channels_number  ; 2        ; Signed Integer                         ;
+; clk_frequency    ; 49766400 ; Signed Integer                         ;
+; blck_counter_max ; 53       ; Signed Integer                         ;
+; lrck_counter_max ; 2591     ; Signed Integer                         ;
++------------------+----------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memoController:memoInt ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; INPUTSTATE     ; 0000  ; Unsigned Binary                            ;
+; READADDR       ; 0001  ; Unsigned Binary                            ;
+; WAIT1          ; 0010  ; Unsigned Binary                            ;
+; STOREADDR      ; 0011  ; Unsigned Binary                            ;
+; WAIT2          ; 0100  ; Unsigned Binary                            ;
+; ITADDR         ; 0101  ; Unsigned Binary                            ;
+; WAIT3          ; 0110  ; Unsigned Binary                            ;
+; OUTDATA        ; 0111  ; Unsigned Binary                            ;
+; WAIT4          ; 1000  ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: romMemory:rom|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------------------+-------------------+
+; Parameter Name                     ; Value                             ; Type              ;
++------------------------------------+-----------------------------------+-------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                 ; Untyped           ;
+; AUTO_CARRY_CHAINS                  ; ON                                ; AUTO_CARRY        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                               ; IGNORE_CARRY      ;
+; AUTO_CASCADE_CHAINS                ; ON                                ; AUTO_CASCADE      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                               ; IGNORE_CASCADE    ;
+; WIDTH_BYTEENA                      ; 1                                 ; Untyped           ;
+; OPERATION_MODE                     ; ROM                               ; Untyped           ;
+; WIDTH_A                            ; 16                                ; Signed Integer    ;
+; WIDTHAD_A                          ; 16                                ; Signed Integer    ;
+; NUMWORDS_A                         ; 65536                             ; Signed Integer    ;
+; OUTDATA_REG_A                      ; UNREGISTERED                      ; Untyped           ;
+; ADDRESS_ACLR_A                     ; NONE                              ; Untyped           ;
+; OUTDATA_ACLR_A                     ; NONE                              ; Untyped           ;
+; WRCONTROL_ACLR_A                   ; NONE                              ; Untyped           ;
+; INDATA_ACLR_A                      ; NONE                              ; Untyped           ;
+; BYTEENA_ACLR_A                     ; NONE                              ; Untyped           ;
+; WIDTH_B                            ; 1                                 ; Untyped           ;
+; WIDTHAD_B                          ; 1                                 ; Untyped           ;
+; NUMWORDS_B                         ; 1                                 ; Untyped           ;
+; INDATA_REG_B                       ; CLOCK1                            ; Untyped           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                            ; Untyped           ;
+; RDCONTROL_REG_B                    ; CLOCK1                            ; Untyped           ;
+; ADDRESS_REG_B                      ; CLOCK1                            ; Untyped           ;
+; OUTDATA_REG_B                      ; UNREGISTERED                      ; Untyped           ;
+; BYTEENA_REG_B                      ; CLOCK1                            ; Untyped           ;
+; INDATA_ACLR_B                      ; NONE                              ; Untyped           ;
+; WRCONTROL_ACLR_B                   ; NONE                              ; Untyped           ;
+; ADDRESS_ACLR_B                     ; NONE                              ; Untyped           ;
+; OUTDATA_ACLR_B                     ; NONE                              ; Untyped           ;
+; RDCONTROL_ACLR_B                   ; NONE                              ; Untyped           ;
+; BYTEENA_ACLR_B                     ; NONE                              ; Untyped           ;
+; WIDTH_BYTEENA_A                    ; 1                                 ; Signed Integer    ;
+; WIDTH_BYTEENA_B                    ; 1                                 ; Untyped           ;
+; RAM_BLOCK_TYPE                     ; AUTO                              ; Untyped           ;
+; BYTE_SIZE                          ; 8                                 ; Untyped           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                         ; Untyped           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ              ; Untyped           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ              ; Untyped           ;
+; INIT_FILE                          ; ../generateMIF/initialization.mif ; Untyped           ;
+; INIT_FILE_LAYOUT                   ; PORT_A                            ; Untyped           ;
+; MAXIMUM_DEPTH                      ; 0                                 ; Untyped           ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                            ; Untyped           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                            ; Untyped           ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                            ; Untyped           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                            ; Untyped           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                   ; Untyped           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                   ; Untyped           ;
+; ENABLE_ECC                         ; FALSE                             ; Untyped           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                             ; Untyped           ;
+; WIDTH_ECCSTATUS                    ; 3                                 ; Untyped           ;
+; DEVICE_FAMILY                      ; Cyclone IV E                      ; Untyped           ;
+; CBXI_PARAMETER                     ; altsyncram_huc1                   ; Untyped           ;
++------------------------------------+-----------------------------------+-------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                          ;
++-------------------------------------------+-----------------------------------------------+
+; Name                                      ; Value                                         ;
++-------------------------------------------+-----------------------------------------------+
+; Number of entity instances                ; 1                                             ;
+; Entity Instance                           ; romMemory:rom|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                           ;
+;     -- WIDTH_A                            ; 16                                            ;
+;     -- NUMWORDS_A                         ; 65536                                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                  ;
+;     -- WIDTH_B                            ; 1                                             ;
+;     -- NUMWORDS_B                         ; 1                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                        ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                  ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                     ;
++-------------------------------------------+-----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "romMemory:rom"                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (21 bits) is wider than the input port (16 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memoController:memoInt"                                                                                                                                                                       ;
++-----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; addrInitial     ; Input  ; Warning  ; Input port expression (21 bits) is wider than the input port (16 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; dataOut         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; addrOut[20..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++-----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "codecInterface:codecInt"                                                            ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; bclk ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 72                          ;
+; cycloneiii_ff         ; 13                          ;
+;     SCLR              ; 13                          ;
+; cycloneiii_lcell_comb ; 19                          ;
+;     arith             ; 11                          ;
+;         2 data inputs ; 11                          ;
+;     normal            ; 8                           ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 3                           ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.06                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Apr 17 23:34:00 2019
+    Info: Processing started: Fri Apr 19 00:22:17 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off audioProcessor -c audioProcessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -183,60 +608,21 @@ Info (12021): Found 1 design units, including 1 entities, in source file memocon
     Info (12023): Found entity 1: memoController File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file rommemory.v
     Info (12023): Found entity 1: romMemory File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 39
-Warning (10236): Verilog HDL Implicit Net warning at audioprocessor.v(41): created implicit net for "blck" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 41
+Warning (10236): Verilog HDL Implicit Net warning at audioprocessor.v(42): created implicit net for "blck" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 42
 Info (12127): Elaborating entity "audioProcessor" for the top level hierarchy
 Warning (10034): Output port "readdata" at audioprocessor.v(6) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
 Warning (10034): Output port "waitrequest" at audioprocessor.v(7) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 7
 Warning (10034): Output port "bclk" at audioprocessor.v(9) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 9
-Info (12128): Elaborating entity "codecInterface" for hierarchy "codecInterface:codecInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 43
+Info (12128): Elaborating entity "codecInterface" for hierarchy "codecInterface:codecInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 44
 Warning (10858): Verilog HDL warning at codecInterface.v(22): object bclk_counter_max used but never assigned File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 22
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(43): truncated value with size 32 to match size of target (8) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 43
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(66): truncated value with size 32 to match size of target (12) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 66
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(77): truncated value with size 32 to match size of target (4) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 77
 Warning (10030): Net "bclk_counter_max" at codecInterface.v(22) has no driver or initial value, using a default initial value '0' File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 22
-Info (12128): Elaborating entity "memoController" for hierarchy "memoController:memoInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 52
-Warning (10230): Verilog HDL assignment warning at memoController.v(35): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 35
-Warning (10230): Verilog HDL assignment warning at memoController.v(103): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 103
-Warning (10240): Verilog HDL Always Construct warning at memoController.v(91): inferring latch(es) for variable "addrFinal", which holds its previous value in one or more paths through the always construct File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Warning (10240): Verilog HDL Always Construct warning at memoController.v(91): inferring latch(es) for variable "dataOut", which holds its previous value in one or more paths through the always construct File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[0]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[1]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[2]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[3]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[4]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[5]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[6]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[7]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[8]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[9]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[10]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[11]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[12]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[13]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[14]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "dataOut[15]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[0]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[1]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[2]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[3]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[4]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[5]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[6]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[7]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[8]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[9]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[10]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[11]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[12]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[13]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[14]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[15]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[16]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[17]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[18]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[19]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (10041): Inferred latch for "addrFinal[20]" at memoController.v(91) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 91
-Info (12128): Elaborating entity "romMemory" for hierarchy "romMemory:rom" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 57
+Info (12128): Elaborating entity "memoController" for hierarchy "memoController:memoInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 54
+Warning (10230): Verilog HDL assignment warning at memoController.v(43): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 43
+Warning (10230): Verilog HDL assignment warning at memoController.v(47): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 47
+Info (12128): Elaborating entity "romMemory" for hierarchy "romMemory:rom" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 59
 Info (12128): Elaborating entity "altsyncram" for hierarchy "romMemory:rom|altsyncram:altsyncram_component" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
 Info (12130): Elaborated megafunction instantiation "romMemory:rom|altsyncram:altsyncram_component" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
 Info (12133): Instantiated megafunction "romMemory:rom|altsyncram:altsyncram_component" with the following parameter: File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
@@ -257,21 +643,226 @@ Info (12133): Instantiated megafunction "romMemory:rom|altsyncram:altsyncram_com
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_huc1.tdf
     Info (12023): Found entity 1: altsyncram_huc1 File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 31
 Info (12128): Elaborating entity "altsyncram_huc1" for hierarchy "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Error (113012): Address at line 11 exceeds the specified depth (1048576) in the Memory Initialization File "initialization.mif" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/generateMIF/initialization.mif Line: 11
-Error (113000): Memory Initialization File or Hexadecimal (Intel-Format) File "initialization.mif" contains illegal syntax at line 11 File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/generateMIF/initialization.mif Line: 11
-Error (127000): Can't read Memory Initialization File or Hexadecimal (Intel-Format) File ../generateMIF/initialization.mif for ROM instance ALTSYNCRAM. If the file exists, it is not in correct format. File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
-Error (12152): Can't elaborate user hierarchy "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (144001): Generated suppressed messages file E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/output_files/audioProcessor.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 14 warnings
-    Error: Peak virtual memory: 4759 megabytes
-    Error: Processing ended: Wed Apr 17 23:34:46 2019
-    Error: Elapsed time: 00:00:46
-    Error: Total CPU time (on all processors): 00:00:24
-
-
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
-The suppressed messages can be found in E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/output_files/audioProcessor.map.smsg.
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_rsa.tdf
+    Info (12023): Found entity 1: decode_rsa File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/decode_rsa.tdf Line: 22
+Info (12128): Elaborating entity "decode_rsa" for hierarchy "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|decode_rsa:rden_decode" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_qob.tdf
+    Info (12023): Found entity 1: mux_qob File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/mux_qob.tdf Line: 22
+Info (12128): Elaborating entity "mux_qob" for hierarchy "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|mux_qob:mux2" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 42
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a0" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 43
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a1" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 64
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a2" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 85
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a3" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 106
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a4" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 127
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a5" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 148
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a6" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 169
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a7" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 190
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a8" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 211
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a9" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 232
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a10" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 253
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a11" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 274
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a12" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 295
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a13" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 316
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a14" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 337
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a15" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 358
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a16" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 379
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a17" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 400
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a18" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 421
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a19" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 442
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a20" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 463
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a21" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 484
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a22" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 505
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a23" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 526
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a24" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 547
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a25" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 568
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a26" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 589
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a27" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 610
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a28" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 631
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a29" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 652
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a30" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 673
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a31" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 694
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a32" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 715
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a33" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 736
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a34" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 757
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a35" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 778
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a36" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 799
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a37" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 820
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a38" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 841
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a39" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 862
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a40" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 883
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a41" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 904
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a42" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 925
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a43" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 946
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a44" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 967
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a45" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 988
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a46" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1009
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a47" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1030
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a48" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1051
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a49" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1072
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a50" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1093
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a51" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1114
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a52" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1135
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a53" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1156
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a54" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1177
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a55" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1198
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a56" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1219
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a57" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1240
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a58" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1261
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a59" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1282
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a60" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1303
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a61" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1324
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a62" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1345
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a63" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1366
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a64" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1387
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a65" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1408
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a66" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1429
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a67" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1450
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a68" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1471
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a69" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1492
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a70" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1513
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a71" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1534
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a72" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1555
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a73" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1576
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a74" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1597
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a75" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1618
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a76" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1639
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a77" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1660
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a78" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1681
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a79" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1702
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a80" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1723
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a81" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1744
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a82" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1765
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a83" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1786
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a84" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1807
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a85" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1828
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a86" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1849
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a87" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1870
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a88" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1891
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a89" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1912
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a90" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1933
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a91" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1954
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a92" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1975
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a93" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 1996
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a94" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2017
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a95" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2038
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a96" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2059
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a97" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2080
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a98" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2101
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a99" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2122
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a100" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2143
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a101" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2164
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a102" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2185
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a103" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2206
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a104" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2227
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a105" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2248
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a106" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2269
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a107" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2290
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a108" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2311
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a109" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2332
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a110" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2353
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a111" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2374
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a112" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2395
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a113" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2416
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a114" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2437
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a115" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2458
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a116" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2479
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a117" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2500
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a118" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2521
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a119" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2542
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a120" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2563
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a121" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2584
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a122" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2605
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a123" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2626
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a124" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2647
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a125" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2668
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a126" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2689
+        Warning (14320): Synthesized away node "romMemory:rom|altsyncram:altsyncram_component|altsyncram_huc1:auto_generated|ram_block1a127" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/db/altsyncram_huc1.tdf Line: 2710
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "readdata[0]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[1]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[2]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[3]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[4]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[5]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[6]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[7]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[8]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[9]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[10]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[11]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[12]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[13]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[14]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[15]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[16]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[17]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[18]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[19]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[20]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[21]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[22]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[23]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[24]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[25]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[26]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[27]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[28]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[29]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[30]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "readdata[31]" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
+    Warning (13410): Pin "waitrequest" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 7
+    Warning (13410): Pin "bclk" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 9
+    Warning (13410): Pin "codecSerialData" is stuck at GND File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 11
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 49 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 34 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "writedata[0]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[1]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[2]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[3]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[4]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[5]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[6]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[7]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[8]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[9]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[10]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[11]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[12]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[13]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[14]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[15]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[16]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[17]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[18]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[19]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[20]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[21]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[22]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[23]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[24]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[25]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[26]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[27]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[28]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[29]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[30]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "writedata[31]" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 3
+    Warning (15610): No output dependent on input pin "read" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 4
+    Warning (15610): No output dependent on input pin "write" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 5
+Info (21057): Implemented 90 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 36 input pins
+    Info (21059): Implemented 36 output pins
+    Info (21061): Implemented 18 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 214 warnings
+    Info: Peak virtual memory: 4799 megabytes
+    Info: Processing ended: Fri Apr 19 00:22:29 2019
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:25
 
 

@@ -1,119 +1,151 @@
 module memoController(	input clock,
 						input reset,
 						input [15:0] dataIn,
-						input [20:0] addrInitial,
+						input [15:0] addrInitial,
 						input readData,
 						output reg readEn,
 						output reg [15:0] dataOut,
-						output [20:0] addrOut,
+						output reg [20:0] addrOut,
 						output reg available
 						);
+
+	reg [15:0] addrFinal;
+	//de 0 até 15 guarda o endereço inicial, e de 16 até 31 guarda o endereço final
+	reg [31:0] addr;
+	reg [3:0] state, next_state;
+	reg [1:0] first;
 	
-//addrOut é o endereço que está armazenado no addrInitial
-//ainda preciso fazer um acesso antes de tudo para saber qual o endereço inicial da música
+	parameter INPUTSTATE = 4'b0000,
+				READADDR = 4'b0001,
+				WAIT1 = 4'b0010,
+				STOREADDR = 4'b0011,
+				WAIT2 = 4'b0100,
+				ITADDR = 4'b0101,
+				WAIT3 = 4'b0110,
+				OUTDATA = 4'b0111,
+				WAIT4 = 4'b1000;
 
-	reg [20:0] addrFinal;
-	reg [20:0] addr;
-	reg [2:0] state, next_state;
 
-	parameter INICIO = 3'b000,
-				IDLE = 3'b001,
-				READDATA = 3'b010,
-				WAIT = 3'b011,
-				OUTDATA = 3'b100,
-				INPUTSTATE = 3'b101;
-
-		
 	always@(posedge clock) begin
-	
 		if(reset) begin
-			state <= INICIO;
-			addr <= 0;
+			state <= INPUTSTATE;
+			addrOut <= 0;
 		end
 		else begin
 			if(next_state==INPUTSTATE) begin
-				addr <= 0;
+				addrOut <= 0;
 			end
-			
-			if(next_state==INICIO && addr<addrFinal) begin
-				addr <= addr + 1;
+			if(next_state==READADDR) begin
+				if(first==1) begin
+					addrOut <= addrInitial;
+				end
+				else begin
+					addrOut <= addrInitial+1;
+				end
 			end
-			else begin
-				addr <= 0;
+			if(next_state==ITADDR) begin
+				addrOut <= addrOut + 1;
 			end
-			
-			if(next_state==READDATA && addr==0) begin
-				addr <= addrInitial;
-			end
-			state <= next_state;
 		end
 	end
 	
 	//Decodificador de entrada
 	always @ (*) begin
-		next_state = INICIO;
+		next_state = INPUTSTATE;
 		case (state)
 			INPUTSTATE: begin
 				if(readData) begin
-					next_state = INICIO;
+					next_state = READADDR;
 				end
 				else begin
 					next_state = INPUTSTATE;
 				end
 			end
-			INICIO: begin
-				if(readData) begin
-					next_state = READDATA;
+			READADDR: begin
+				next_state = WAIT1;
+			end
+			WAIT1: begin
+				next_state = STOREADDR;
+			end
+			STOREADDR: begin
+				if(first==1) begin
+					next_state = WAIT2;
 				end
 				else begin
-					next_state = INICIO;
+					if(first==2) begin
+						next_state = READADDR;
+					end
 				end
 			end
-			READDATA: begin
-				next_state = WAIT;
+			WAIT2: begin
+				next_state = ITADDR;
 			end
-			WAIT: begin
+			ITADDR: begin
+				next_state = WAIT3;
+			end
+			WAIT3: begin
 				next_state = OUTDATA;
 			end
 			OUTDATA: begin
-				next_state = IDLE;
+				next_state = WAIT4;
 			end
-			IDLE: begin
-				if(addr>addrFinal) begin
-					next_state = INPUTSTATE;
+			WAIT4: begin
+				if(addr[15:0]>=addrFinal && readData==1) begin
+					next_state = WAIT2;
 				end
 				else begin
-					next_state = INICIO;
+					if(addr[15:0]<addrFinal) begin
+						next_state = INPUTSTATE;
+					end
+					else begin 
+						if(readData==0) begin 
+							next_state = WAIT4;
+						end
+					end
 				end
 			end
 		endcase
-	
 	end
 	
 	//Decodificador de saida
    always @ (*) begin
 		readEn = 0;
 		available = 0;
+		first = 1;
+		addr = 0;
+		dataOut = 0;
+		addrFinal = 0;
 		case (state)
 			INPUTSTATE: begin
-				addrFinal = 0;
+				first = 1;
 			end
-			INICIO: begin
-				readEn = 0;
-			end
-			READDATA: begin
+			READADDR: begin
 				readEn = 1;
-				if(addrFinal==0) begin
-					addrFinal = addrInitial + 1;
-				end
 			end
-			WAIT: begin
+			WAIT1: begin
+			end
+			STOREADDR: begin
+				if(first==1) begin
+					addr[15:0] = dataIn;
+					first = 2;
+				end
+				else begin
+					addr[31:16] = dataIn;
+					first = 1;
+				end			end
+			WAIT2: begin
+			end
+			ITADDR: begin
+				readEn = 1;
+			end
+			WAIT3: begin
 			end
 			OUTDATA: begin
-				dataOut[15:0] = dataIn[15:0];
+				dataOut = dataIn;
 				available = 1;
 			end
-			IDLE: begin
+			WAIT4: begin
+				available = 1;
 			end
 		endcase
 	end

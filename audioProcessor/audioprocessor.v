@@ -15,10 +15,6 @@ module audioProcessor(  input clock, //interface para Avalon
                 DATA_SEND = 2'b11,
                 WAITING_DONE = 2'b10;
 
-    //definir memoria
-//	 reg [15:0] memory [0:1048575];
-
-
     reg [31:0] savedWriteData;
     reg [1:0] state, next_state;
     reg [15:0] dataToInterface, dataToInterfaceNext;
@@ -31,6 +27,7 @@ module audioProcessor(  input clock, //interface para Avalon
 	 wire [15:0] dataFromMemory, dataFromController;
 	 //endereço da musica a ser tocada
 	 wire [20:0] addrToController, addrToMemory;
+	 wire readEnable;
 
 	 
     codecInterface codecInt(   .clock(clock),
@@ -47,14 +44,14 @@ module audioProcessor(  input clock, //interface para Avalon
 										.dataIn(dataFromMemory),
 										.addrInitial(addrToController),
 										.readData(readMemoryData),
-										.readEn(read),
+										.readEn(readEnable),
 										.dataOut(dataFromController),
 										.addrOut(addrToMemory),
 										.available(dataEnable));
 										
 	romMemory rom(		.address(addrToMemory),
 							.clock(clock),
-							.rden(read),
+							.rden(readEnable),
 							.q(dataFromMemory));
 	
     always @ (posedge clock) begin
