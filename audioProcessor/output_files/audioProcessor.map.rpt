@@ -1,5 +1,5 @@
 Analysis & Synthesis report for audioProcessor
-Fri Apr 19 00:22:29 2019
+Fri Apr 19 13:21:26 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -57,7 +57,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Apr 19 00:22:29 2019       ;
+; Analysis & Synthesis Status        ; Successful - Fri Apr 19 13:21:26 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; audioProcessor                              ;
 ; Top-level Entity Name              ; audioProcessor                              ;
@@ -586,7 +586,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -596,7 +596,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Apr 19 00:22:17 2019
+    Info: Processing started: Fri Apr 19 13:20:26 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off audioProcessor -c audioProcessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -608,21 +608,21 @@ Info (12021): Found 1 design units, including 1 entities, in source file memocon
     Info (12023): Found entity 1: memoController File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file rommemory.v
     Info (12023): Found entity 1: romMemory File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 39
-Warning (10236): Verilog HDL Implicit Net warning at audioprocessor.v(42): created implicit net for "blck" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 42
+Warning (10236): Verilog HDL Implicit Net warning at audioprocessor.v(38): created implicit net for "blck" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 38
 Info (12127): Elaborating entity "audioProcessor" for the top level hierarchy
 Warning (10034): Output port "readdata" at audioprocessor.v(6) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 6
 Warning (10034): Output port "waitrequest" at audioprocessor.v(7) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 7
 Warning (10034): Output port "bclk" at audioprocessor.v(9) has no driver File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 9
-Info (12128): Elaborating entity "codecInterface" for hierarchy "codecInterface:codecInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 44
+Info (12128): Elaborating entity "codecInterface" for hierarchy "codecInterface:codecInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 40
 Warning (10858): Verilog HDL warning at codecInterface.v(22): object bclk_counter_max used but never assigned File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 22
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(43): truncated value with size 32 to match size of target (8) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 43
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(66): truncated value with size 32 to match size of target (12) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 66
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(77): truncated value with size 32 to match size of target (4) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 77
 Warning (10030): Net "bclk_counter_max" at codecInterface.v(22) has no driver or initial value, using a default initial value '0' File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/codecInterface.v Line: 22
-Info (12128): Elaborating entity "memoController" for hierarchy "memoController:memoInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 54
+Info (12128): Elaborating entity "memoController" for hierarchy "memoController:memoInt" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 50
 Warning (10230): Verilog HDL assignment warning at memoController.v(43): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 43
 Warning (10230): Verilog HDL assignment warning at memoController.v(47): truncated value with size 32 to match size of target (21) File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/memoController.v Line: 47
-Info (12128): Elaborating entity "romMemory" for hierarchy "romMemory:rom" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 59
+Info (12128): Elaborating entity "romMemory" for hierarchy "romMemory:rom" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/audioprocessor.v Line: 55
 Info (12128): Elaborating entity "altsyncram" for hierarchy "romMemory:rom|altsyncram:altsyncram_component" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
 Info (12130): Elaborated megafunction instantiation "romMemory:rom|altsyncram:altsyncram_component" File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
 Info (12133): Instantiated megafunction "romMemory:rom|altsyncram:altsyncram_component" with the following parameter: File: E:/Shay/Documents/UFBA/20191/Lab4/Lab4/audioProcessor/romMemory.v Line: 84
@@ -860,9 +860,9 @@ Info (21057): Implemented 90 device resources after synthesis - the final resour
     Info (21059): Implemented 36 output pins
     Info (21061): Implemented 18 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 214 warnings
-    Info: Peak virtual memory: 4799 megabytes
-    Info: Processing ended: Fri Apr 19 00:22:29 2019
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Peak virtual memory: 4810 megabytes
+    Info: Processing ended: Fri Apr 19 13:21:26 2019
+    Info: Elapsed time: 00:01:00
+    Info: Total CPU time (on all processors): 00:00:41
 
 

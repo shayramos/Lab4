@@ -132,7 +132,10 @@ module memoController(	input clock,
 				else begin
 					addr[31:16] = dataIn;
 					first = 1;
-				end			end
+					addrFinal = addr[31:16];
+//					dataOut = addr[15:0];
+				end
+			end
 			WAIT2: begin
 			end
 			ITADDR: begin
