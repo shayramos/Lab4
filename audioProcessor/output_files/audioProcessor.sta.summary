@@ -3,39 +3,111 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clock'
-Slack : -1.391
-TNS   : -16.844
+Slack : -4.880
+TNS   : -302.211
+
+Type  : Slow 1200mV 85C Model Setup 'codecInterface:codecInt|bclk'
+Slack : -0.046
+TNS   : -0.075
+
+Type  : Slow 1200mV 85C Model Setup 'state[0]'
+Slack : 0.527
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'state[0]'
+Slack : -0.450
+TNS   : -6.231
 
 Type  : Slow 1200mV 85C Model Hold 'clock'
-Slack : 0.342
+Slack : 0.357
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'codecInterface:codecInt|bclk'
+Slack : 0.357
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -16.000
+TNS   : -129.784
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'state[0]'
+Slack : -1.000
+TNS   : -16.187
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'codecInterface:codecInt|bclk'
+Slack : -1.000
+TNS   : -4.000
 
 Type  : Slow 1200mV 0C Model Setup 'clock'
-Slack : -1.160
-TNS   : -13.975
+Slack : -4.257
+TNS   : -263.041
+
+Type  : Slow 1200mV 0C Model Setup 'codecInterface:codecInt|bclk'
+Slack : 0.064
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'state[0]'
+Slack : 0.511
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'state[0]'
+Slack : -0.315
+TNS   : -4.215
 
 Type  : Slow 1200mV 0C Model Hold 'clock'
-Slack : 0.298
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'codecInterface:codecInt|bclk'
+Slack : 0.311
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -16.000
+TNS   : -129.784
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'state[0]'
+Slack : -1.000
+TNS   : -16.240
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'codecInterface:codecInt|bclk'
+Slack : -1.000
+TNS   : -4.000
 
 Type  : Fast 1200mV 0C Model Setup 'clock'
-Slack : -0.309
-TNS   : -3.297
+Slack : -2.436
+TNS   : -128.245
+
+Type  : Fast 1200mV 0C Model Setup 'codecInterface:codecInt|bclk'
+Slack : 0.410
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'state[0]'
+Slack : 0.485
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'state[0]'
+Slack : -0.093
+TNS   : -0.983
 
 Type  : Fast 1200mV 0C Model Hold 'clock'
-Slack : 0.176
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'codecInterface:codecInt|bclk'
+Slack : 0.185
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -17.437
+TNS   : -119.784
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'state[0]'
+Slack : -1.000
+TNS   : -16.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'codecInterface:codecInt|bclk'
+Slack : -1.000
+TNS   : -4.000
 
 ------------------------------------------------------------

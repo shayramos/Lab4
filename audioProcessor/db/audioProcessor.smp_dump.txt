@@ -1,11 +1,4 @@
 
-State Machine - |audioProcessor|state
-Name state.DATA_SEND state.WAITING_DONE state.WAITING_INTERFACE state.IDLE 
-state.IDLE 0 0 0 0 
-state.WAITING_INTERFACE 0 0 1 1 
-state.WAITING_DONE 0 1 0 1 
-state.DATA_SEND 1 0 0 1 
-
 State Machine - |audioProcessor|memoController:memoInt|state
 Name state.OUTDATA state.WAIT3 state.ITADDR state.WAIT2 state.STOREADDR state.WAIT1 state.READADDR state.INPUTSTATE state.WAIT4 
 state.INPUTSTATE 0 0 0 0 0 0 0 0 0 

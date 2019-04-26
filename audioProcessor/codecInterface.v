@@ -35,7 +35,7 @@ module codecInterface(	input clock,
 			bclk_counter <= 0;
 		end
 		else begin
-			if (bclk_counter >= bclk_counter_max) begin
+			if (bclk_counter >= clk_frequency/(fs*data_width*channels_number*2) - 1) begin
 				bclk <= ~bclk;
 				bclk_counter <= 0;
 			end
@@ -52,7 +52,7 @@ module codecInterface(	input clock,
 			lrck_counter <= 0;
 		end
 		else begin
-			if (lrck_counter >= lrck_counter_max) begin
+			if (lrck_counter >= clk_frequency/(fs*2) - 1) begin
 				lrck <= ~lrck;
 				lrck_counter <= 0;
 				if (lrck == 1) begin //na virada de 1 para 0 do lrck a palavra foi enviada 2x

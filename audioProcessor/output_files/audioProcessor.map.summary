@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Fri Apr 19 13:21:26 2019
+Analysis & Synthesis Status : Successful - Thu Apr 25 21:40:18 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : audioProcessor
 Top-level Entity Name : audioProcessor
 Family : Cyclone IV E
-Total logic elements : 18
-    Total combinational functions : 18
-    Dedicated logic registers : 13
-Total registers : 13
-Total pins : 72
+Total logic elements : 159
+    Total combinational functions : 127
+    Dedicated logic registers : 112
+Total registers : 112
+Total pins : 71
 Total virtual pins : 0
-Total memory bits : 0
+Total memory bits : 131,072
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0

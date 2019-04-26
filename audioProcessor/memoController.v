@@ -6,14 +6,17 @@ module memoController(	input clock,
 						output reg readEn,
 						output reg [15:0] dataOut,
 						output reg [20:0] addrOut,
-						output reg available
+						output reg available,
+						output musicEnded
 						);
 
-	reg [15:0] addrFinal;
+	reg [15:0] addrFinal, addrFinal_next;
 	//de 0 até 15 guarda o endereço inicial, e de 16 até 31 guarda o endereço final
 	reg [31:0] addr;
 	reg [3:0] state, next_state;
 	reg [1:0] first;
+	
+	assign musicEnded = addrOut == addrFinal;
 	
 	parameter INPUTSTATE = 4'b0000,
 				READADDR = 4'b0001,
@@ -45,6 +48,9 @@ module memoController(	input clock,
 			end
 			if(next_state==ITADDR) begin
 				addrOut <= addrOut + 1;
+			end
+			if (next_state==READADDR || next_state == INPUTSTATE) begin
+				addrFinal <= addrFinal_next;
 			end
 		end
 	end
@@ -114,7 +120,7 @@ module memoController(	input clock,
 		first = 1;
 		addr = 0;
 		dataOut = 0;
-		addrFinal = 0;
+		addrFinal_next = 0;
 		case (state)
 			INPUTSTATE: begin
 				first = 1;
@@ -132,7 +138,7 @@ module memoController(	input clock,
 				else begin
 					addr[31:16] = dataIn;
 					first = 1;
-					addrFinal = addr[31:16];
+					addrFinal_next = addr[31:16];
 //					dataOut = addr[15:0];
 				end
 			end
