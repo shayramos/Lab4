@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu May 02 22:23:39 2019
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : niosAudio
+Top-level Entity Name : niosAudio
+Family : Cyclone IV E
+Total logic elements : 1,570
+    Total combinational functions : 1,394
+    Dedicated logic registers : 842
+Total registers : 842
+Total pins : 5
+Total virtual pins : 0
+Total memory bits : 731,136
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
