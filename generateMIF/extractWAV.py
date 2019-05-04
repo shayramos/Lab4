@@ -2,10 +2,8 @@ import librosa
 
 
 def twos_comp(val, bits):
-    """compute the 2's complement of int value val"""
-    if (val < 0):
-        val2 = val + 2 ** bits
-        return val2
+    if val < 0:
+        val = val + 2 ** bits
     return val
 
 
@@ -27,14 +25,14 @@ datalist = data1 + data2 + data3 + data4 + data5
 datanew = map(lambda x: twos_comp(x, 16), datalist)
 
 # Mif headers
-DEPTH = 1024 * 1024
+# DEPTH = 65535
 WIDTH = 16
 ADDRESS_RADIX = 'HEX'
 DATA_RADIX = 'HEX'
 
 # Mif file
 f = open("initialization.mif", "w+")
-f.write("DEPTH = %d;" % DEPTH)
+f.write("DEPTH = %d;" % len(datanew))
 f.write('\t\t\t' + '% Memory depth and width are required %' + '\n')
 f.write('\t\t\t\t\t' + '% DEPTH is the number of addresses %' + '\n')
 f.write("WIDTH = %d;" % WIDTH)
