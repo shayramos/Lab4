@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "codecdata_bclk",
+					"strict" : false
+				},
+				{
 					"name" : "codecdata_codecserialdata",
 					"strict" : false
 				},

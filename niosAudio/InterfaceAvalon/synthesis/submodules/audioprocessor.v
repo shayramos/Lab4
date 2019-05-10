@@ -1,11 +1,12 @@
 module audioProcessor(  input clock, //interface para Avalon
                         input reset,
+								input bitclock,
                         input [31:0] writedata, //writedata = endereço do som
                         input read, //
                         input write, //sinal do avalon para startar
                         output [31:0] readdata,
                         output lrck, //saidas para codec
-                        output reg bclk, 
+                        output bclk, 
                         output codecSerialData
                         );
 
@@ -19,7 +20,7 @@ module audioProcessor(  input clock, //interface para Avalon
 					 WAITING_CODEC = 4'b0111,
 					 SEND_CODEC_2 = 4'b1000;
 
-    reg [31:0] savedWriteData;
+	 reg [31:0] savedWriteData;
     reg [3:0] state, next_state;
     reg [15:0] dataToInterface, dataToInterface_next;
     wire interfaceDone;
@@ -35,13 +36,16 @@ module audioProcessor(  input clock, //interface para Avalon
 	 wire readEnable, available, musicEnded;
 	 wire [20:0] addrToMemory;
 
+	 wire whatever;
+	 
+	 assign bclk = bitclock;
 	 
     codecInterface codecInt(   .clock(clock),
                                 .reset(reset),
                                 .dataIn(dataToInterface),
                                 .sendData(dataEnable),
                                 .wordSent(interfaceDone),
-                                .bclk(blck),
+                                .bclk(whatever),
                                 .lrck(lrck),
                                 .data(codecSerialData));
 										  
@@ -171,6 +175,9 @@ module audioProcessor(  input clock, //interface para Avalon
 					dataEnable = 1;
 					if (!musicEnded)
 						readMemoryData = 1;
+				end
+				default:begin
+				
 				end
         endcase
     end

@@ -9,6 +9,14 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element InterfaceAvalon
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
    element audioProcessor_0
    {
       datum _sortIndex
@@ -30,6 +38,14 @@
       datum _sortIndex
       {
          value = "0";
+         type = "int";
+      }
+   }
+   element clk_1
+   {
+      datum _sortIndex
+      {
+         value = "5";
          type = "int";
       }
    }
@@ -132,6 +148,12 @@
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module name="clk_1" kind="clock_source" version="17.1" enabled="1">
+  <parameter name="clockFrequency" value="460800" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="50000000" />
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
  <module
@@ -394,11 +416,22 @@
    version="17.1"
    start="clk_0.clk"
    end="onchip_memory2_1.clk1" />
+ <connection kind="clock" version="17.1" start="clk_0.clk" end="clk_1.clk_in" />
  <connection
    kind="clock"
    version="17.1"
    start="clk_0.clk"
    end="audioProcessor_0.clock" />
+ <connection
+   kind="clock"
+   version="17.1"
+   start="clk_1.clk"
+   end="audioProcessor_0.clock_sink" />
+ <connection
+   kind="reset"
+   version="17.1"
+   start="clk_0.clk_reset"
+   end="clk_1.clk_in_reset" />
  <connection
    kind="reset"
    version="17.1"

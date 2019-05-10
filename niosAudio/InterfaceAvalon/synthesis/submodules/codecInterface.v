@@ -2,7 +2,7 @@ module codecInterface(	input clock,
 						input reset,
 						input [15:0] dataIn,
 						input sendData,
-						output reg bclk,
+						output bclk,
 						output reg lrck,
 						output data,
 						output reg wordSent
@@ -11,17 +11,18 @@ module codecInterface(	input clock,
 	parameter fs = 9600,
 				 data_width = 24,
 				 channels_number = 2,
-				 clk_frequency = 49766400, //usar pll para essa frequencia
-				 blck_counter_max = clk_frequency/(fs*data_width*channels_number*2) - 1, //
-				 lrck_counter_max = clk_frequency/(fs*2) - 1;
+				 clk_frequency = 49766400;
 	
 	reg [3:0] data_index;
 	reg [7:0] bclk_counter;
 	reg [11:0] lrck_counter;
 	reg [15:0] reg_data;
-	reg [7:0] bclk_counter_max;
+	reg [31:0] bclk_counter_max;
+	reg bclk_temp;
 	
 	assign data = reg_data[~data_index];
+	
+	assign bclk = bclk_temp;
 
 	//quando coloca sendData, salva a palavra a ser enviada
 	always @ (posedge sendData) begin
@@ -31,12 +32,12 @@ module codecInterface(	input clock,
 	//calculo do bclk
 	always @ (negedge clock) begin
 		if (reset) begin
-			bclk <= 0;
+			bclk_temp <= 0;
 			bclk_counter <= 0;
 		end
 		else begin
 			if (bclk_counter >= clk_frequency/(fs*data_width*channels_number*2) - 1) begin
-				bclk <= ~bclk;
+				bclk_temp <= ~bclk_temp;
 				bclk_counter <= 0;
 			end
 			else begin

@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>02/05/2019 22:29:57</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1556846997827</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\aluno\Desktop\lab4-master\Lab4-master\niosAudio\software\niosAudio_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>09/05/2019 22:53:58</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1557453238190</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Lab4\niosAudio\software\niosAudio_bsp</BspGeneratedLocation>
         <BspSettingsFile>.\settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\InterfaceAvalon.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>

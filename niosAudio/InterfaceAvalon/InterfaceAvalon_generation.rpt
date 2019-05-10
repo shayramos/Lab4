@@ -1,11 +1,13 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate C:\Users\aluno\Desktop\lab4-master\Lab4-master\niosAudio\InterfaceAvalon.qsys --block-symbol-file --output-directory=C:\Users\aluno\Desktop\lab4-master\Lab4-master\niosAudio\InterfaceAvalon --family="Cyclone IV E" --part=EP4CE115F29C7
+Info: qsys-generate C:\Lab4\niosAudio\InterfaceAvalon.qsys --block-symbol-file --output-directory=C:\Lab4\niosAudio\InterfaceAvalon --family="Cyclone IV E" --part=EP4CE115F29C7
 Progress: Loading niosAudio/InterfaceAvalon.qsys
 Progress: Reading input file
 Progress: Adding audioProcessor_0 [audioProcessor 1.0]
 Progress: Parameterizing module audioProcessor_0
 Progress: Adding clk_0 [clock_source 17.1]
 Progress: Parameterizing module clk_0
+Progress: Adding clk_1 [clock_source 17.1]
+Progress: Parameterizing module clk_1
 Progress: Adding nios2_qsys_0 [altera_nios2_qsys 16.1]
 Progress: Parameterizing module nios2_qsys_0
 Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 17.1]
@@ -21,13 +23,15 @@ Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate C:\Users\aluno\Desktop\lab4-master\Lab4-master\niosAudio\InterfaceAvalon.qsys --synthesis=VERILOG --output-directory=C:\Users\aluno\Desktop\lab4-master\Lab4-master\niosAudio\InterfaceAvalon\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
+Info: qsys-generate C:\Lab4\niosAudio\InterfaceAvalon.qsys --synthesis=VERILOG --output-directory=C:\Lab4\niosAudio\InterfaceAvalon\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
 Progress: Loading niosAudio/InterfaceAvalon.qsys
 Progress: Reading input file
 Progress: Adding audioProcessor_0 [audioProcessor 1.0]
 Progress: Parameterizing module audioProcessor_0
 Progress: Adding clk_0 [clock_source 17.1]
 Progress: Parameterizing module clk_0
+Progress: Adding clk_1 [clock_source 17.1]
+Progress: Parameterizing module clk_1
 Progress: Adding nios2_qsys_0 [altera_nios2_qsys 16.1]
 Progress: Parameterizing module nios2_qsys_0
 Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 17.1]
@@ -42,27 +46,27 @@ Warning: InterfaceAvalon.nios2_qsys_0: Nios II Classic cores are no longer recom
 Info: InterfaceAvalon: Generating InterfaceAvalon "InterfaceAvalon" for QUARTUS_SYNTH
 Info: audioProcessor_0: "InterfaceAvalon" instantiated audioProcessor "audioProcessor_0"
 Info: nios2_qsys_0: Starting RTL generation for module 'InterfaceAvalon_nios2_qsys_0'
-Info: nios2_qsys_0:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/eperlcmd.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=InterfaceAvalon_nios2_qsys_0 --dir=C:/Users/aluno/AppData/Local/Temp/alt8019_3591853194835961794.dir/0004_nios2_qsys_0_gen/ --quartus_bindir=C:/intelfpga_lite/17.1/quartus/bin64 --verilog --config=C:/Users/aluno/AppData/Local/Temp/alt8019_3591853194835961794.dir/0004_nios2_qsys_0_gen//InterfaceAvalon_nios2_qsys_0_processor_configuration.pl  --do_build_sim=0  ]
-Info: nios2_qsys_0: # 2019.05.02 22:18:33 (*) Starting Nios II generation
-Info: nios2_qsys_0: # 2019.05.02 22:18:33 (*)   Checking for plaintext license.
-Info: nios2_qsys_0: # 2019.05.02 22:18:34 (*)   Couldn't query license setup in Quartus directory C:/intelfpga_lite/17.1/quartus/bin64
-Info: nios2_qsys_0: # 2019.05.02 22:18:34 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
-Info: nios2_qsys_0: # 2019.05.02 22:18:34 (*)   LM_LICENSE_FILE environment variable is empty
-Info: nios2_qsys_0: # 2019.05.02 22:18:34 (*)   Plaintext license not found.
-Info: nios2_qsys_0: # 2019.05.02 22:18:34 (*)   No license required to generate encrypted Nios II/e.
-Info: nios2_qsys_0: # 2019.05.02 22:18:34 (*)   Elaborating CPU configuration settings
-Info: nios2_qsys_0: # 2019.05.02 22:18:34 (*)   Creating all objects for CPU
-Info: nios2_qsys_0: # 2019.05.02 22:18:35 (*)   Generating RTL from CPU objects
-Info: nios2_qsys_0: # 2019.05.02 22:18:35 (*)   Creating plain-text RTL
-Info: nios2_qsys_0: # 2019.05.02 22:18:36 (*) Done Nios II generation
+Info: nios2_qsys_0:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/eperlcmd.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=InterfaceAvalon_nios2_qsys_0 --dir=C:/Users/aluno/AppData/Local/Temp/alt8026_4899169452274234326.dir/0003_nios2_qsys_0_gen/ --quartus_bindir=C:/intelfpga_lite/17.1/quartus/bin64 --verilog --config=C:/Users/aluno/AppData/Local/Temp/alt8026_4899169452274234326.dir/0003_nios2_qsys_0_gen//InterfaceAvalon_nios2_qsys_0_processor_configuration.pl  --do_build_sim=0  ]
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*) Starting Nios II generation
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*)   Checking for plaintext license.
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*)   Couldn't query license setup in Quartus directory C:/intelfpga_lite/17.1/quartus/bin64
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*)   LM_LICENSE_FILE environment variable is empty
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*)   Plaintext license not found.
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*)   No license required to generate encrypted Nios II/e.
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*)   Elaborating CPU configuration settings
+Info: nios2_qsys_0: # 2019.05.09 22:49:00 (*)   Creating all objects for CPU
+Info: nios2_qsys_0: # 2019.05.09 22:49:01 (*)   Generating RTL from CPU objects
+Info: nios2_qsys_0: # 2019.05.09 22:49:01 (*)   Creating plain-text RTL
+Info: nios2_qsys_0: # 2019.05.09 22:49:03 (*) Done Nios II generation
 Info: nios2_qsys_0: Done RTL generation for module 'InterfaceAvalon_nios2_qsys_0'
 Info: nios2_qsys_0: "InterfaceAvalon" instantiated altera_nios2_qsys "nios2_qsys_0"
 Info: onchip_memory2_0: Starting RTL generation for module 'InterfaceAvalon_onchip_memory2_0'
-Info: onchip_memory2_0:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=InterfaceAvalon_onchip_memory2_0 --dir=C:/Users/aluno/AppData/Local/Temp/alt8019_3591853194835961794.dir/0005_onchip_memory2_0_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/aluno/AppData/Local/Temp/alt8019_3591853194835961794.dir/0005_onchip_memory2_0_gen//InterfaceAvalon_onchip_memory2_0_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory2_0:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=InterfaceAvalon_onchip_memory2_0 --dir=C:/Users/aluno/AppData/Local/Temp/alt8026_4899169452274234326.dir/0004_onchip_memory2_0_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/aluno/AppData/Local/Temp/alt8026_4899169452274234326.dir/0004_onchip_memory2_0_gen//InterfaceAvalon_onchip_memory2_0_component_configuration.pl  --do_build_sim=0  ]
 Info: onchip_memory2_0: Done RTL generation for module 'InterfaceAvalon_onchip_memory2_0'
 Info: onchip_memory2_0: "InterfaceAvalon" instantiated altera_avalon_onchip_memory2 "onchip_memory2_0"
 Info: onchip_memory2_1: Starting RTL generation for module 'InterfaceAvalon_onchip_memory2_1'
-Info: onchip_memory2_1:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=InterfaceAvalon_onchip_memory2_1 --dir=C:/Users/aluno/AppData/Local/Temp/alt8019_3591853194835961794.dir/0006_onchip_memory2_1_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/aluno/AppData/Local/Temp/alt8019_3591853194835961794.dir/0006_onchip_memory2_1_gen//InterfaceAvalon_onchip_memory2_1_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory2_1:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=InterfaceAvalon_onchip_memory2_1 --dir=C:/Users/aluno/AppData/Local/Temp/alt8026_4899169452274234326.dir/0005_onchip_memory2_1_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/aluno/AppData/Local/Temp/alt8026_4899169452274234326.dir/0005_onchip_memory2_1_gen//InterfaceAvalon_onchip_memory2_1_component_configuration.pl  --do_build_sim=0  ]
 Info: onchip_memory2_1: Done RTL generation for module 'InterfaceAvalon_onchip_memory2_1'
 Info: onchip_memory2_1: "InterfaceAvalon" instantiated altera_avalon_onchip_memory2 "onchip_memory2_1"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
@@ -85,12 +89,12 @@ Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "c
 Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
 Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
-Info: Reusing file C:/Users/aluno/Desktop/lab4-master/Lab4-master/niosAudio/InterfaceAvalon/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: Reusing file C:/Lab4/niosAudio/InterfaceAvalon/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
-Info: Reusing file C:/Users/aluno/Desktop/lab4-master/Lab4-master/niosAudio/InterfaceAvalon/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: Reusing file C:/Lab4/niosAudio/InterfaceAvalon/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
-Info: Reusing file C:/Users/aluno/Desktop/lab4-master/Lab4-master/niosAudio/InterfaceAvalon/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: Reusing file C:/Lab4/niosAudio/InterfaceAvalon/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
 Info: InterfaceAvalon: Done "InterfaceAvalon" with 26 modules, 44 files

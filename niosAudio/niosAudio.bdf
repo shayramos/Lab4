@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 112 288 288 304)
+	(rect 72 288 248 304)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
 	(text "codecdata_bclk" (rect 5 4 81 16)(font "Arial" ))
 	(pt 176 8)
@@ -54,7 +54,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 56 304 288 320)
+	(rect 24 304 256 320)
 	(text "OUTPUT" (rect 193 6 231 16)(font "Arial" (font_size 6)))
 	(text "codecdata_codecserialdata" (rect 5 4 138 16)(font "Arial" ))
 	(pt 232 8)
@@ -71,7 +71,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 112 320 288 336)
+	(rect 56 320 232 336)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
 	(text "codecdata_lrck" (rect 5 4 79 16)(font "Arial" ))
 	(pt 176 8)
@@ -171,5 +171,17 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 232 256)
 	(pt 288 256)
+)
+(connector
+	(pt 288 296)
+	(pt 248 296)
+)
+(connector
+	(pt 288 312)
+	(pt 256 312)
+)
+(connector
+	(pt 288 328)
+	(pt 232 328)
 )
 (junction (pt 232 256))

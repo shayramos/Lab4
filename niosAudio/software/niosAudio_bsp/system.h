@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_qsys_0' in SOPC Builder design 'InterfaceAvalon'
  * SOPC Builder design path: ../../InterfaceAvalon.sopcinfo
  *
- * Generated: Thu May 02 22:29:58 BRT 2019
+ * Generated: Thu May 09 22:53:58 BRT 2019
  */
 
 /*
