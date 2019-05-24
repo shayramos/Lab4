@@ -17,6 +17,14 @@
          type = "String";
       }
    }
+   element InterfaceAvalon
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
    element audioProcessor_0
    {
       datum _sortIndex
@@ -123,6 +131,7 @@
  <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
+ <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
    name="codecdata"
    internal="audioProcessor_0.conduit_end"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="InterfaceAvalon" kind="system" version="17.1" fabric="QSYS">
  <!-- Format version 17.1 590 (Future versions may contain additional information.) -->
- <!-- 2019.05.09.22:50:02 -->
+ <!-- 2019.05.23.22:55:12 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1557452991</value>
+  <value>1558662901</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -10138,5 +10138,5 @@ parameters are a RESULT of the module parameters. -->
   <version>17.1</version>
  </plugin>
  <reportVersion>17.1 590</reportVersion>
- <uniqueIdentifier>B05216FF80DA0000016A9F6EB64D</uniqueIdentifier>
+ <uniqueIdentifier>B05216FF80DA0000016AE78C78C8</uniqueIdentifier>
 </EnsembleReport>

@@ -8,9 +8,8 @@ preplace inst InterfaceAvalon.clk_1 -pg 1 -lvl 2 -y 90
 preplace inst InterfaceAvalon.audioProcessor_0 -pg 1 -lvl 3 -y 190
 preplace inst InterfaceAvalon -pg 1 -lvl 1 -y 40 -regy -20
 preplace netloc EXPORT<net_container>InterfaceAvalon</net_container>(SLAVE)InterfaceAvalon.codecdata,(SLAVE)audioProcessor_0.conduit_end) 1 0 3 NJ 160 NJ 240 NJ
-preplace netloc INTERCONNECT<net_container>InterfaceAvalon</net_container>(MASTER)nios2_qsys_0.data_master,(SLAVE)onchip_memory2_0.s1,(SLAVE)audioProcessor_0.avalon_slave_0,(MASTER)nios2_qsys_0.instruction_master,(SLAVE)onchip_memory2_1.s1,(SLAVE)nios2_qsys_0.jtag_debug_module) 1 1 2 360 380 650
-preplace netloc INTERCONNECT<net_container>InterfaceAvalon</net_container>(SLAVE)onchip_memory2_0.reset1,(SLAVE)audioProcessor_0.reset,(SLAVE)clk_0.clk_in_reset,(SLAVE)onchip_memory2_1.reset1,(SLAVE)clk_1.clk_in_reset,(MASTER)clk_0.clk_reset,(SLAVE)nios2_qsys_0.reset_n,(MASTER)nios2_qsys_0.jtag_debug_module_reset) 1 0 3 100 140 340 180 610
-preplace netloc EXPORT<net_container>InterfaceAvalon</net_container>(SLAVE)InterfaceAvalon.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>InterfaceAvalon</net_container>(SLAVE)audioProcessor_0.clock,(SLAVE)onchip_memory2_0.clk1,(MASTER)clk_0.clk,(SLAVE)clk_1.clk_in,(SLAVE)onchip_memory2_1.clk1,(SLAVE)nios2_qsys_0.clk) 1 1 2 320 160 630
+preplace netloc INTERCONNECT<net_container>InterfaceAvalon</net_container>(SLAVE)clk_1.clk_in_reset,(MASTER)nios2_qsys_0.jtag_debug_module_reset,(SLAVE)nios2_qsys_0.reset_n,(SLAVE)onchip_memory2_1.reset1,(SLAVE)audioProcessor_0.reset,(SLAVE)onchip_memory2_0.reset1,(MASTER)clk_0.clk_reset,(SLAVE)clk_0.clk_in_reset) 1 0 3 100 140 340 80 630
+preplace netloc INTERCONNECT<net_container>InterfaceAvalon</net_container>(MASTER)nios2_qsys_0.data_master,(SLAVE)nios2_qsys_0.jtag_debug_module,(MASTER)nios2_qsys_0.instruction_master,(SLAVE)audioProcessor_0.avalon_slave_0,(SLAVE)onchip_memory2_0.s1,(SLAVE)onchip_memory2_1.s1) 1 1 2 360 380 650
+preplace netloc FAN_OUT<net_container>InterfaceAvalon</net_container>(SLAVE)audioProcessor_0.clock,(SLAVE)clk_1.clk_in,(SLAVE)onchip_memory2_0.clk1,(SLAVE)nios2_qsys_0.clk,(SLAVE)onchip_memory2_1.clk1,(MASTER)clk_0.clk) 1 1 2 320 60 610
 levelinfo -pg 1 0 70 860
 levelinfo -hier InterfaceAvalon 80 130 390 720 850

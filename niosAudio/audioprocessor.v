@@ -1,6 +1,5 @@
 module audioProcessor(  input clock, //interface para Avalon
                         input reset,
-								input bitclock,
                         input [31:0] writedata, //writedata = endereço do som
                         input read, //
                         input write, //sinal do avalon para startar
