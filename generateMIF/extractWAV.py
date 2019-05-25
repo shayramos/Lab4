@@ -7,22 +7,22 @@ def twos_comp(val, bits):
     return val
 
 
-# Downsample 9600 Hz
-y1, sr = librosa.load('smw_1_up.wav', sr=9600)
-y2, sr = librosa.load('smw_bubble_pop.wav', sr=9600)
-y3, sr = librosa.load('smw_coin.wav', sr=9600)
-y4, sr = librosa.load('smw_fireball.wav', sr=9600)
-y5, sr = librosa.load('smw_jump.wav', sr=9600)
+# Upsamble to 48000 Hz
+y1, sr = librosa.load("smw_1_up.wav", sr=48000)
+y2, sr = librosa.load("smw_bubble_pop.wav", sr=48000)
+y3, sr = librosa.load("smw_coin.wav", sr=48000)
+y4, sr = librosa.load("smw_fireball.wav", sr=48000)
+y5, sr = librosa.load("smw_jump.wav", sr=48000)
 
 # dados do wave para uma lista
-data1 = map(lambda x: int(x / max(abs(min(y1.tolist())), max(y1.tolist())) * 32767), y1.tolist())
-data2 = map(lambda x: int(x / max(abs(min(y2.tolist())), max(y2.tolist())) * 32767), y2.tolist())
-data3 = map(lambda x: int(x / max(abs(min(y3.tolist())), max(y3.tolist())) * 32767), y3.tolist())
-data4 = map(lambda x: int(x / max(abs(min(y4.tolist())), max(y4.tolist())) * 32767), y4.tolist())
-data5 = map(lambda x: int(x / max(abs(min(y5.tolist())), max(y5.tolist())) * 32767), y5.tolist())
-datalist = data1 + data2 + data3 + data4 + data5
+data1 = list(map(lambda x: int(x / max(abs(min(y1.tolist())), max(y1.tolist())) * 32767), y1.tolist()))
+data2 = list(map(lambda x: int(x / max(abs(min(y2.tolist())), max(y2.tolist())) * 32767), y2.tolist()))
+data3 = list(map(lambda x: int(x / max(abs(min(y3.tolist())), max(y3.tolist())) * 32767), y3.tolist()))
+data4 = list(map(lambda x: int(x / max(abs(min(y4.tolist())), max(y4.tolist())) * 32767), y4.tolist()))
+data5 = list(map(lambda x: int(x / max(abs(min(y5.tolist())), max(y5.tolist())) * 32767), y5.tolist()))
+dataList = data1 + data2 + data3 + data4 + data5
 
-datanew = map(lambda x: twos_comp(x, 16), datalist)
+dataNew = list(map(lambda x: twos_comp(x, 16), dataList))
 
 # Mif headers
 # DEPTH = 65535
@@ -32,7 +32,7 @@ DATA_RADIX = 'HEX'
 
 # Mif file
 f = open("initialization.mif", "w+")
-f.write("DEPTH = %d;" % len(datanew))
+f.write("DEPTH = %d;" % len(dataNew))
 f.write('\t\t\t' + '% Memory depth and width are required %' + '\n')
 f.write('\t\t\t\t\t' + '% DEPTH is the number of addresses %' + '\n')
 f.write("WIDTH = %d;" % WIDTH)
@@ -63,7 +63,7 @@ for i in range(10, 32):
     f.write(format(i, 'X') + "\t:\t" + format(0, 'X') + ";\n")
 
 # first wave
-for i in range(32, len(datanew)):
-    f.write(format(i, 'X') + "\t:\t" + format(datanew[i - 32], 'X') + ";\n")
+for i in range(32, len(dataNew)):
+    f.write(format(i, 'X') + "\t:\t" + format(dataNew[i - 32], 'X') + ";\n")
 
 f.write("END;")
