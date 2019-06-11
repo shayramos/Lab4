@@ -1,0 +1,67 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do AudioPin_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Lab4/AudioPin {C:/Lab4/AudioPin/memoController.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:32:02 on Jun 10,2019
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Lab4/AudioPin" C:/Lab4/AudioPin/memoController.v 
+# -- Compiling module memoController
+# 
+# Top level modules:
+# 	memoController
+# End time: 21:32:02 on Jun 10,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Lab4/AudioPin {C:/Lab4/AudioPin/codecInterface.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:32:02 on Jun 10,2019
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Lab4/AudioPin" C:/Lab4/AudioPin/codecInterface.v 
+# -- Compiling module codecInterface
+# 
+# Top level modules:
+# 	codecInterface
+# End time: 21:32:02 on Jun 10,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Lab4/AudioPin {C:/Lab4/AudioPin/audioprocessor.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:32:02 on Jun 10,2019
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Lab4/AudioPin" C:/Lab4/AudioPin/audioprocessor.v 
+# -- Compiling module audioProcessor
+# 
+# Top level modules:
+# 	audioProcessor
+# End time: 21:32:02 on Jun 10,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Lab4/AudioPin {C:/Lab4/AudioPin/romMemory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:32:02 on Jun 10,2019
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Lab4/AudioPin" C:/Lab4/AudioPin/romMemory.v 
+# -- Compiling module romMemory
+# 
+# Top level modules:
+# 	romMemory
+# End time: 21:32:02 on Jun 10,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.audioProcessor
+# vsim work.audioProcessor 
+# Start time: 21:32:06 on Jun 10,2019
+# Loading work.audioProcessor
+# Loading work.codecInterface
+# Loading work.memoController
+# Loading work.romMemory
+# ** Error: (vsim-3033) C:/Lab4/AudioPin/romMemory.v(61): Instantiation of 'altsyncram' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /audioProcessor/rom File: C:/Lab4/AudioPin/romMemory.v
+#         Searched libraries:
+#             C:/Lab4/AudioPin/simulation/modelsim/rtl_work
+# Error loading design
+# End time: 21:32:06 on Jun 10,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

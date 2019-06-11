@@ -1,0 +1,102 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Lab4/AudioPin/simulation/modelsim
+vaudioProcessor
+Z1 !s110 1560213122
+!i10b 1
+!s100 ndSgC^=oVgSaFUUmQDj6N2
+Ia;WaChlE3BZ3aS0i@;Jd=0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1559873286
+8C:/Lab4/AudioPin/audioprocessor.v
+FC:/Lab4/AudioPin/audioprocessor.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1560213122.000000
+!s107 C:/Lab4/AudioPin/audioprocessor.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Lab4/AudioPin|C:/Lab4/AudioPin/audioprocessor.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Lab4/AudioPin
+Z7 tCvgOpt 0
+naudio@processor
+vcodecInterface
+R1
+!i10b 1
+!s100 1h<YO[Yj6]RV?zcW[hk9A3
+IOgOX5fN9PF90B4oL;EQ[R1
+R2
+R0
+Z8 w1557449314
+8C:/Lab4/AudioPin/codecInterface.v
+FC:/Lab4/AudioPin/codecInterface.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Lab4/AudioPin/codecInterface.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Lab4/AudioPin|C:/Lab4/AudioPin/codecInterface.v|
+!i113 1
+R5
+R6
+R7
+ncodec@interface
+vmemoController
+R1
+!i10b 1
+!s100 m2@ARNJL[`@O5]AzbK]EI3
+IUY>AlF:`kX1ncZQhAkTVY1
+R2
+R0
+R8
+8C:/Lab4/AudioPin/memoController.v
+FC:/Lab4/AudioPin/memoController.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Lab4/AudioPin/memoController.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Lab4/AudioPin|C:/Lab4/AudioPin/memoController.v|
+!i113 1
+R5
+R6
+R7
+nmemo@controller
+vromMemory
+R1
+!i10b 1
+!s100 J_3PC;4m_b>WNz6^R3Wn>3
+I^_7UY1ACjV5nfSIoL7lzE3
+R2
+R0
+w1560212991
+8C:/Lab4/AudioPin/romMemory.v
+FC:/Lab4/AudioPin/romMemory.v
+L0 39
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Lab4/AudioPin/romMemory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Lab4/AudioPin|C:/Lab4/AudioPin/romMemory.v|
+!i113 1
+R5
+R6
+R7
+nrom@memory
