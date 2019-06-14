@@ -1,0 +1,13 @@
+
+
+C:/Lab4/AudioPin/romMemory.vhd
+
+Jun 13 09PM:52:15>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+romMemory.v
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?

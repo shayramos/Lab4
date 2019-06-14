@@ -4,7 +4,7 @@
 -- MODULE: altsyncram 
 
 -- ============================================================
--- File Name: MemRom.vhd
+-- File Name: romMemory.vhd
 -- Megafunction Name(s):
 -- 			altsyncram
 --
@@ -39,17 +39,18 @@ USE ieee.std_logic_1164.all;
 LIBRARY altera_mf;
 USE altera_mf.altera_mf_components.all;
 
-ENTITY MemRom IS
+ENTITY romMemory IS
 	PORT
 	(
 		address		: IN STD_LOGIC_VECTOR (15 DOWNTO 0);
 		clock		: IN STD_LOGIC  := '1';
+		rden		: IN STD_LOGIC  := '1';
 		q		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
 	);
-END MemRom;
+END romMemory;
 
 
-ARCHITECTURE SYN OF memrom IS
+ARCHITECTURE SYN OF rommemory IS
 
 	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (15 DOWNTO 0);
 
@@ -61,7 +62,7 @@ BEGIN
 		address_aclr_a => "NONE",
 		clock_enable_input_a => "BYPASS",
 		clock_enable_output_a => "BYPASS",
-		init_file => "initialization.mif",
+		init_file => "initialization.hex",
 		intended_device_family => "Cyclone IV E",
 		lpm_hint => "ENABLE_RUNTIME_MOD=NO",
 		lpm_type => "altsyncram",
@@ -76,6 +77,7 @@ BEGIN
 	PORT MAP (
 		address_a => address,
 		clock0 => clock,
+		rden_a => rden,
 		q_a => sub_wire0
 	);
 
@@ -103,7 +105,7 @@ END SYN;
 -- Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 -- Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 -- Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
--- Retrieval info: PRIVATE: MIFfilename STRING "initialization.mif"
+-- Retrieval info: PRIVATE: MIFfilename STRING "initialization.hex"
 -- Retrieval info: PRIVATE: NUMWORDS_A NUMERIC "65536"
 -- Retrieval info: PRIVATE: RAM_BLOCK_TYPE NUMERIC "0"
 -- Retrieval info: PRIVATE: RegAddr NUMERIC "1"
@@ -113,12 +115,12 @@ END SYN;
 -- Retrieval info: PRIVATE: UseDQRAM NUMERIC "0"
 -- Retrieval info: PRIVATE: WidthAddr NUMERIC "16"
 -- Retrieval info: PRIVATE: WidthData NUMERIC "16"
--- Retrieval info: PRIVATE: rden NUMERIC "0"
+-- Retrieval info: PRIVATE: rden NUMERIC "1"
 -- Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 -- Retrieval info: CONSTANT: ADDRESS_ACLR_A STRING "NONE"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
--- Retrieval info: CONSTANT: INIT_FILE STRING "initialization.mif"
+-- Retrieval info: CONSTANT: INIT_FILE STRING "initialization.hex"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 -- Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=NO"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
@@ -132,12 +134,14 @@ END SYN;
 -- Retrieval info: USED_PORT: address 0 0 16 0 INPUT NODEFVAL "address[15..0]"
 -- Retrieval info: USED_PORT: clock 0 0 0 0 INPUT VCC "clock"
 -- Retrieval info: USED_PORT: q 0 0 16 0 OUTPUT NODEFVAL "q[15..0]"
+-- Retrieval info: USED_PORT: rden 0 0 0 0 INPUT VCC "rden"
 -- Retrieval info: CONNECT: @address_a 0 0 16 0 address 0 0 16 0
 -- Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
+-- Retrieval info: CONNECT: @rden_a 0 0 0 0 rden 0 0 0 0
 -- Retrieval info: CONNECT: q 0 0 16 0 @q_a 0 0 16 0
--- Retrieval info: GEN_FILE: TYPE_NORMAL MemRom.vhd TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MemRom.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MemRom.cmp FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MemRom.bsf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL MemRom_inst.vhd FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL romMemory.vhd TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL romMemory.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL romMemory.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL romMemory.bsf TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL romMemory_inst.vhd TRUE
 -- Retrieval info: LIB_FILE: altera_mf

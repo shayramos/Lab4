@@ -86,6 +86,13 @@ refer to the applicable agreement for further details.
 		(text "codecSerialData" (rect 140 75 203 87)(font "Arial" ))
 		(line (pt 224 80)(pt 208 80)(line_width 1))
 	)
+	(port
+		(pt 224 96)
+		(output)
+		(text "codec_clk" (rect 0 0 40 12)(font "Arial" ))
+		(text "codec_clk" (rect 163 91 203 103)(font "Arial" ))
+		(line (pt 224 96)(pt 208 96)(line_width 1))
+	)
 	(parameter
 		"IDLE"
 		"0000"

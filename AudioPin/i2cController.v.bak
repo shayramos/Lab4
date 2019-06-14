@@ -1,0 +1,19 @@
+module i2cController(	input clock,
+								input reset,
+								input [23:0] dataIn,
+								output sclk,
+								output sdata);
+								
+
+	localparam 	START = 3'b000,
+					R_ADDR = 3'b001,
+					RW = 3'b010,
+					ACK1 = 3'b011,
+					DATA1 = 3'b100,
+					ACK2 = 3'b101,
+					DATA2 = 3'b110,
+					END = 3'b111;
+
+	
+
+endmodule

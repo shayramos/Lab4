@@ -1,0 +1,3 @@
+#GitProjectData
+#Thu May 09 22:54:03 BRT 2019
+.gitdir=../../../.git

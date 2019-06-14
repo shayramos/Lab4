@@ -5,8 +5,10 @@ module audioProcessor(  input clock, //interface para Avalon
                         input write, //sinal do avalon para startar
                         output [31:0] readdata,
                         output lrck, //saidas para codec
-                        output reg bclk, 
-                        output codecSerialData
+                        output bclk, 
+                        output codecSerialData,
+								output codec_clk,
+								output sclk
                         );
 
     parameter   IDLE = 4'b0000,
@@ -31,19 +33,39 @@ module audioProcessor(  input clock, //interface para Avalon
 	 reg [15:0] dataStorage, dataStorage_next;
 	 wire [15:0] dataFromController, dataFromMemory;
 	 //endereço da musica a ser tocada
-	 reg [20:0] addrToController, addrToController_next;
+	 reg [15:0] addrToController, addrToController_next;
 	 wire readEnable, available, musicEnded;
-	 wire [20:0] addrToMemory;
+	 wire [15:0] addrToMemory;
+	 wire codecReset, lrck_last;
+	 reg codecCombReset;
+	 wire [15:0] datagerador;
+	 
+	 assign codecReset = reset | codecCombReset;
+	 
+	 geradorsqwave gerador( .clock(clock),
+									.reset(reset),
+									.data(datagerador));
+	 
+	 codecInterface codecInt2( .clock(clock),
+                                .reset(codecReset),
+                                .dataIn(datagerador),
+										  .codec_clk(codec_clk),
+                                .bclk(bclk),
+                                .lrck(lrck),
+										  .lrck_last(lrck_last),
+                                .data(codecSerialData),
+										  .sclk(sclk)
+										  );
 
 	 
-    codecInterface codecInt(   .clock(clock),
-                                .reset(reset),
+    /*codecInterface codecInt(   .clock(clock),
+                                .reset(codecReset),
                                 .dataIn(dataToInterface),
-                                .sendData(dataEnable),
-                                .wordSent(interfaceDone),
-                                .bclk(blck),
+										  .codec_clk(codec_clk),
+                                .bclk(bclk),
                                 .lrck(lrck),
-                                .data(codecSerialData));
+										  .lrck_last(lrck_last),
+                                .data(codecSerialData));*/
 										  
 	memoController memoInt( 	.clock(clock),
 										.reset(reset),
@@ -118,7 +140,7 @@ module audioProcessor(  input clock, //interface para Avalon
                 next_state = WAITING_CODEC;
             end
 				WAITING_CODEC: begin
-                if (interfaceDone) begin
+                if (lrck && !lrck_last) begin
                     next_state = SEND_CODEC_2;
                 end
                 else begin
@@ -144,8 +166,10 @@ module audioProcessor(  input clock, //interface para Avalon
 			addrToController_next = addrToController;
 			dataToInterface_next = dataToInterface;
 			dataStorage_next = dataStorage;
+			codecCombReset = 0;
         case (state)
             IDLE: begin
+					codecCombReset = 0;
             end
             FETCH_MEMORY: begin
 					addrToController_next = {5'b00000, writedata};
@@ -157,7 +181,6 @@ module audioProcessor(  input clock, //interface para Avalon
 					dataToInterface_next = dataFromMemory;
 				end
 				SEND_CODEC_1: begin
-					dataEnable = 1;
 					readMemoryData = 1;
 				end
 				WAITING_MEMORY_2: begin
@@ -168,11 +191,12 @@ module audioProcessor(  input clock, //interface para Avalon
 				WAITING_CODEC: begin
 				end
 				SEND_CODEC_2: begin
-					dataEnable = 1;
 					if (!musicEnded)
 						readMemoryData = 1;
 				end
         endcase
+		  
+		  
     end
 
 endmodule

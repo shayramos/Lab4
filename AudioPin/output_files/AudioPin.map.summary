@@ -1,14 +1,14 @@
-Analysis & Elaboration Status : Successful - Mon Jun 10 21:39:03 2019
+Analysis & Synthesis Status : Successful - Thu Jun 13 22:42:17 2019
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : AudioPin
 Top-level Entity Name : AudioPin
 Family : Cyclone IV E
-Total logic elements : N/A until Partition Merge
-    Total combinational functions : N/A until Partition Merge
-    Dedicated logic registers : N/A until Partition Merge
-Total registers : N/A until Partition Merge
-Total pins : N/A until Partition Merge
-Total virtual pins : N/A until Partition Merge
-Total memory bits : N/A until Partition Merge
-Embedded Multiplier 9-bit elements : N/A until Partition Merge
-Total PLLs : N/A until Partition Merge
+Total logic elements : 63
+    Total combinational functions : 63
+    Dedicated logic registers : 58
+Total registers : 58
+Total pins : 56
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

@@ -4,11 +4,15 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "AUD_BCLK",
+					"strict" : false
+				},
+				{
 					"name" : "AUD_DACLRCK",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_ADCDAT",
+					"name" : "AUD_DACDAT",
 					"strict" : false
 				},
 				{
@@ -17,74 +21,6 @@
 				},
 				{
 					"name" : "SW17",
-					"strict" : false
-				},
-				{
-					"name" : "KEY0",
-					"strict" : false
-				},
-				{
-					"name" : "SW0",
-					"strict" : false
-				},
-				{
-					"name" : "SW1",
-					"strict" : false
-				},
-				{
-					"name" : "SW2",
-					"strict" : false
-				},
-				{
-					"name" : "SW3",
-					"strict" : false
-				},
-				{
-					"name" : "SW4",
-					"strict" : false
-				},
-				{
-					"name" : "SW5",
-					"strict" : false
-				},
-				{
-					"name" : "SW6",
-					"strict" : false
-				},
-				{
-					"name" : "SW7",
-					"strict" : false
-				},
-				{
-					"name" : "SW8",
-					"strict" : false
-				},
-				{
-					"name" : "SW9",
-					"strict" : false
-				},
-				{
-					"name" : "SW10",
-					"strict" : false
-				},
-				{
-					"name" : "SW11",
-					"strict" : false
-				},
-				{
-					"name" : "SW12",
-					"strict" : false
-				},
-				{
-					"name" : "SW13",
-					"strict" : false
-				},
-				{
-					"name" : "SW14",
-					"strict" : false
-				},
-				{
-					"name" : "SW15",
 					"strict" : false
 				}
 			]

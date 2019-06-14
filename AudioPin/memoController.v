@@ -5,7 +5,7 @@ module memoController(	input clock,
 						input readData,
 						output reg readEn,
 						output reg [15:0] dataOut,
-						output reg [20:0] addrOut,
+						output reg [15:0] addrOut,
 						output reg available,
 						output musicEnded
 						);
