@@ -1,4 +1,17 @@
 
+State Machine - |AudioPin|audioProcessor:inst|i2cController:contr|state
+Name state.IDLE state.END state.ACK3 state.DATA2 state.ACK2 state.DATA1 state.ACK1 state.RW state.R_ADDR state.START 
+state.START 0 0 0 0 0 0 0 0 0 0 
+state.R_ADDR 0 0 0 0 0 0 0 0 1 1 
+state.RW 0 0 0 0 0 0 0 1 0 1 
+state.ACK1 0 0 0 0 0 0 1 0 0 1 
+state.DATA1 0 0 0 0 0 1 0 0 0 1 
+state.ACK2 0 0 0 0 1 0 0 0 0 1 
+state.DATA2 0 0 0 1 0 0 0 0 0 1 
+state.ACK3 0 0 1 0 0 0 0 0 0 1 
+state.END 0 1 0 0 0 0 0 0 0 1 
+state.IDLE 1 0 0 0 0 0 0 0 0 1 
+
 State Machine - |AudioPin|audioProcessor:inst|memoController:memoInt|state
 Name state.OUTDATA state.WAIT3 state.ITADDR state.WAIT2 state.STOREADDR state.WAIT1 state.READADDR state.INPUTSTATE state.WAIT4 
 state.INPUTSTATE 0 0 0 0 0 0 0 0 0 

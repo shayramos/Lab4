@@ -1,5 +1,5 @@
 Fitter report for AudioPin
-Thu Jun 13 22:42:27 2019
+Mon Jun 17 21:32:58 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -69,7 +69,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Thu Jun 13 22:42:27 2019       ;
+; Fitter Status                      ; Successful - Mon Jun 17 21:32:58 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; AudioPin                                    ;
 ; Top-level Entity Name              ; AudioPin                                    ;
@@ -3546,15 +3546,15 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 1 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at Y2
 Info (144001): Generated suppressed messages file C:/Lab4/AudioPin/output_files/AudioPin.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 532 warnings
-    Info: Peak virtual memory: 5708 megabytes
-    Info: Processing ended: Thu Jun 13 22:42:27 2019
-    Info: Elapsed time: 00:00:10
+    Info: Peak virtual memory: 5714 megabytes
+    Info: Processing ended: Mon Jun 17 21:32:58 2019
+    Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:13
 
 

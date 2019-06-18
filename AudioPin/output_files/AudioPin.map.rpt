@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AudioPin
-Thu Jun 13 22:42:17 2019
+Mon Jun 17 21:32:48 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -14,22 +14,22 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. State Machine - |AudioPin|audioProcessor:inst|memoController:memoInt|state
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated
- 15. Parameter Settings for User Entity Instance: audioProcessor:inst
- 16. Parameter Settings for User Entity Instance: audioProcessor:inst|codecInterface:codecInt2
- 17. Parameter Settings for User Entity Instance: audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component
- 18. Parameter Settings for User Entity Instance: audioProcessor:inst|memoController:memoInt
- 19. Parameter Settings for User Entity Instance: audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component
- 20. altpll Parameter Settings by Entity Instance
- 21. altsyncram Parameter Settings by Entity Instance
- 22. Port Connectivity Checks: "audioProcessor:inst|memoController:memoInt"
- 23. Port Connectivity Checks: "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll"
- 24. Port Connectivity Checks: "audioProcessor:inst|codecInterface:codecInt2"
+  9. State Machine - |AudioPin|audioProcessor:inst|i2cController:contr|state
+ 10. State Machine - |AudioPin|audioProcessor:inst|memoController:memoInt|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated
+ 16. Parameter Settings for User Entity Instance: audioProcessor:inst
+ 17. Parameter Settings for User Entity Instance: audioProcessor:inst|codecInterface:codecInt2
+ 18. Parameter Settings for User Entity Instance: audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component
+ 19. Parameter Settings for User Entity Instance: audioProcessor:inst|memoController:memoInt
+ 20. Parameter Settings for User Entity Instance: audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component
+ 21. altpll Parameter Settings by Entity Instance
+ 22. altsyncram Parameter Settings by Entity Instance
+ 23. Port Connectivity Checks: "audioProcessor:inst|memoController:memoInt"
+ 24. Port Connectivity Checks: "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll"
  25. Post-Synthesis Netlist Statistics for Top Partition
  26. Elapsed Time Per Partition
  27. Analysis & Synthesis Messages
@@ -58,7 +58,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 13 22:42:17 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun 17 21:32:48 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; AudioPin                                    ;
 ; Top-level Entity Name              ; AudioPin                                    ;
@@ -174,7 +174,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -190,6 +191,7 @@ refer to the applicable agreement for further details.
 ; geradorsqwave.v                  ; yes             ; User Verilog HDL File                  ; C:/Lab4/AudioPin/geradorsqwave.v                                             ;         ;
 ; romMemory.vhd                    ; yes             ; User Wizard-Generated File             ; C:/Lab4/AudioPin/romMemory.vhd                                               ;         ;
 ; clkdiv.vhd                       ; yes             ; User Wizard-Generated File             ; C:/Lab4/AudioPin/clkdiv.vhd                                                  ;         ;
+; i2cController.v                  ; yes             ; User Verilog HDL File                  ; C:/Lab4/AudioPin/i2cController.v                                             ;         ;
 ; altpll.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
 ; aglobal171.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc        ;         ;
 ; stratix_pll.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
@@ -273,6 +275,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |AudioPin|audioProcessor:inst|i2cController:contr|state                                                                          ;
++--------------+------------+-----------+------------+-------------+------------+-------------+------------+----------+--------------+-------------+
+; Name         ; state.IDLE ; state.END ; state.ACK3 ; state.DATA2 ; state.ACK2 ; state.DATA1 ; state.ACK1 ; state.RW ; state.R_ADDR ; state.START ;
++--------------+------------+-----------+------------+-------------+------------+-------------+------------+----------+--------------+-------------+
+; state.START  ; 0          ; 0         ; 0          ; 0           ; 0          ; 0           ; 0          ; 0        ; 0            ; 0           ;
+; state.R_ADDR ; 0          ; 0         ; 0          ; 0           ; 0          ; 0           ; 0          ; 0        ; 1            ; 1           ;
+; state.RW     ; 0          ; 0         ; 0          ; 0           ; 0          ; 0           ; 0          ; 1        ; 0            ; 1           ;
+; state.ACK1   ; 0          ; 0         ; 0          ; 0           ; 0          ; 0           ; 1          ; 0        ; 0            ; 1           ;
+; state.DATA1  ; 0          ; 0         ; 0          ; 0           ; 0          ; 1           ; 0          ; 0        ; 0            ; 1           ;
+; state.ACK2   ; 0          ; 0         ; 0          ; 0           ; 1          ; 0           ; 0          ; 0        ; 0            ; 1           ;
+; state.DATA2  ; 0          ; 0         ; 0          ; 1           ; 0          ; 0           ; 0          ; 0        ; 0            ; 1           ;
+; state.ACK3   ; 0          ; 0         ; 1          ; 0           ; 0          ; 0           ; 0          ; 0        ; 0            ; 1           ;
+; state.END    ; 0          ; 1         ; 0          ; 0           ; 0          ; 0           ; 0          ; 0        ; 0            ; 1           ;
+; state.IDLE   ; 1          ; 0         ; 0          ; 0           ; 0          ; 0           ; 0          ; 0        ; 0            ; 1           ;
++--------------+------------+-----------+------------+-------------+------------+-------------+------------+----------+--------------+-------------+
+
+
+Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; State Machine - |AudioPin|audioProcessor:inst|memoController:memoInt|state                                                                                    ;
 +------------------+---------------+-------------+--------------+-------------+-----------------+-------------+----------------+------------------+-------------+
@@ -301,9 +322,24 @@ Encoding Type:  One-Hot
 ; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|rden_a_store        ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|addrFinal[0..15]                                                          ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|addrOut[0..15]                                                            ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state~2                                                                      ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state~3                                                                      ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state~4                                                                      ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state~5                                                                      ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|state~11                                                                  ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|state~12                                                                  ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|state~13                                                                  ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|dataIndex[0..4]                                                              ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.START                                                                  ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.R_ADDR                                                                 ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.RW                                                                     ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.ACK1                                                                   ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.DATA1                                                                  ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.ACK2                                                                   ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.DATA2                                                                  ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.ACK3                                                                   ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.END                                                                    ; Lost fanout        ;
+; audioProcessor:inst|i2cController:contr|state.IDLE                                                                   ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|state.WAIT4                                                               ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|state.INPUTSTATE                                                          ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|state.READADDR                                                            ; Lost fanout        ;
@@ -313,7 +349,7 @@ Encoding Type:  One-Hot
 ; audioProcessor:inst|memoController:memoInt|state.ITADDR                                                              ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|state.WAIT3                                                               ; Lost fanout        ;
 ; audioProcessor:inst|memoController:memoInt|state.OUTDATA                                                             ; Lost fanout        ;
-; Total Number of Removed Registers = 68                                                                               ;                    ;
+; Total Number of Removed Registers = 87                                                                               ;                    ;
 +----------------------------------------------------------------------------------------------------------------------+--------------------+
 
 
@@ -322,15 +358,28 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------------------------+--------------------+-------------------------------------------------------------+
 ; Register name                                                                                                     ; Reason for Removal ; Registers Removed due to This Register                      ;
 +-------------------------------------------------------------------------------------------------------------------+--------------------+-------------------------------------------------------------+
+; audioProcessor:inst|i2cController:contr|state~2                                                                   ; Lost Fanouts       ; audioProcessor:inst|i2cController:contr|dataIndex[4],       ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|dataIndex[3],       ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|dataIndex[2],       ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|dataIndex[1],       ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|dataIndex[0],       ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.R_ADDR,       ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.RW,           ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.DATA1         ;
 ; audioProcessor:inst|memoController:memoInt|state~11                                                               ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|state.READADDR,  ;
 ;                                                                                                                   ;                    ; audioProcessor:inst|memoController:memoInt|state.STOREADDR, ;
 ;                                                                                                                   ;                    ; audioProcessor:inst|memoController:memoInt|state.ITADDR,    ;
 ;                                                                                                                   ;                    ; audioProcessor:inst|memoController:memoInt|state.OUTDATA    ;
+; audioProcessor:inst|i2cController:contr|state~3                                                                   ; Lost Fanouts       ; audioProcessor:inst|i2cController:contr|state.ACK2,         ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.DATA2         ;
+; audioProcessor:inst|i2cController:contr|state~5                                                                   ; Lost Fanouts       ; audioProcessor:inst|i2cController:contr|state.ACK3,         ;
+;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.END           ;
 ; audioProcessor:inst|memoController:memoInt|state~12                                                               ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|state.WAIT1,     ;
 ;                                                                                                                   ;                    ; audioProcessor:inst|memoController:memoInt|state.WAIT3      ;
 ; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[2] ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|addrOut[15]      ;
 ; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[1] ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|addrOut[14]      ;
 ; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[0] ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|addrOut[13]      ;
+; audioProcessor:inst|i2cController:contr|state~4                                                                   ; Lost Fanouts       ; audioProcessor:inst|i2cController:contr|state.ACK1          ;
 ; audioProcessor:inst|memoController:memoInt|state~13                                                               ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|state.WAIT2      ;
 +-------------------------------------------------------------------------------------------------------------------+--------------------+-------------------------------------------------------------+
 
@@ -356,8 +405,9 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|lrck_counter[1] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|i2cController:contr|dataIndex[1]         ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|dataBuffer[15]  ;
-; 4:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|dataBuffer[8]   ;
+; 4:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|dataBuffer[2]   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 
 
@@ -909,15 +959,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "audioProcessor:inst|codecInterface:codecInt2"                                                            ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                  ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; sdat ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -960,7 +1001,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Jun 13 22:42:06 2019
+    Info: Processing started: Mon Jun 17 21:32:38 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AudioPin -c AudioPin
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -980,6 +1021,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file rommemo
 Info (12021): Found 2 design units, including 1 entities, in source file clkdiv.vhd
     Info (12022): Found design unit 1: clkdiv-SYN File: C:/Lab4/AudioPin/clkdiv.vhd Line: 53
     Info (12023): Found entity 1: clkdiv File: C:/Lab4/AudioPin/clkdiv.vhd Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file i2ccontroller.v
+    Info (12023): Found entity 1: i2cController File: C:/Lab4/AudioPin/i2cController.v Line: 1
 Info (12127): Elaborating entity "AudioPin" for the top level hierarchy
 Warning (275089): Not all bits in bus "KEY[3..0]" are used
 Warning (275080): Converted elements in bus name "KEY" using legacy naming rules. Make any assignments on the new names, not on the original names.
@@ -990,21 +1033,22 @@ Warning (275080): Converted elements in bus name "SW" using legacy naming rules.
     Warning (275081): Converted element name(s) from "SW[17]" to "SW17"
     Warning (275081): Converted element name(s) from "SW[15..0]" to "SW15..0"
 Info (12128): Elaborating entity "audioProcessor" for hierarchy "audioProcessor:inst"
-Warning (10036): Verilog HDL or VHDL warning at audioprocessor.v(29): object "dataEnable" assigned a value but never read File: C:/Lab4/AudioPin/audioprocessor.v Line: 29
-Warning (10230): Verilog HDL assignment warning at audioprocessor.v(175): truncated value with size 21 to match size of target (16) File: C:/Lab4/AudioPin/audioprocessor.v Line: 175
-Warning (10270): Verilog HDL Case Statement warning at audioprocessor.v(170): incomplete case statement has no default case item File: C:/Lab4/AudioPin/audioprocessor.v Line: 170
+Warning (10036): Verilog HDL or VHDL warning at audioprocessor.v(30): object "dataEnable" assigned a value but never read File: C:/Lab4/AudioPin/audioprocessor.v Line: 30
+Warning (10858): Verilog HDL warning at audioprocessor.v(43): object i2cCombReset used but never assigned File: C:/Lab4/AudioPin/audioprocessor.v Line: 43
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(186): truncated value with size 21 to match size of target (16) File: C:/Lab4/AudioPin/audioprocessor.v Line: 186
+Warning (10270): Verilog HDL Case Statement warning at audioprocessor.v(181): incomplete case statement has no default case item File: C:/Lab4/AudioPin/audioprocessor.v Line: 181
+Warning (10030): Net "i2cCombReset" at audioprocessor.v(43) has no driver or initial value, using a default initial value '0' File: C:/Lab4/AudioPin/audioprocessor.v Line: 43
 Warning (10034): Output port "readdata" at audioprocessor.v(6) has no driver File: C:/Lab4/AudioPin/audioprocessor.v Line: 6
-Info (12128): Elaborating entity "geradorsqwave" for hierarchy "audioProcessor:inst|geradorsqwave:gerador" File: C:/Lab4/AudioPin/audioprocessor.v Line: 47
+Info (12128): Elaborating entity "geradorsqwave" for hierarchy "audioProcessor:inst|geradorsqwave:gerador" File: C:/Lab4/AudioPin/audioprocessor.v Line: 52
 Warning (10230): Verilog HDL assignment warning at geradorsqwave.v(10): truncated value with size 32 to match size of target (16) File: C:/Lab4/AudioPin/geradorsqwave.v Line: 10
-Info (12128): Elaborating entity "codecInterface" for hierarchy "audioProcessor:inst|codecInterface:codecInt2" File: C:/Lab4/AudioPin/audioprocessor.v Line: 58
-Warning (10036): Verilog HDL or VHDL warning at codecInterface.v(27): object "codec_clk_cycle_12_5" assigned a value but never read File: C:/Lab4/AudioPin/codecInterface.v Line: 27
-Warning (10036): Verilog HDL or VHDL warning at codecInterface.v(27): object "bclk_posedge" assigned a value but never read File: C:/Lab4/AudioPin/codecInterface.v Line: 27
-Warning (10230): Verilog HDL assignment warning at codecInterface.v(66): truncated value with size 32 to match size of target (2) File: C:/Lab4/AudioPin/codecInterface.v Line: 66
-Warning (10230): Verilog HDL assignment warning at codecInterface.v(69): truncated value with size 32 to match size of target (1) File: C:/Lab4/AudioPin/codecInterface.v Line: 69
-Warning (10230): Verilog HDL assignment warning at codecInterface.v(71): truncated value with size 32 to match size of target (3) File: C:/Lab4/AudioPin/codecInterface.v Line: 71
-Warning (10230): Verilog HDL assignment warning at codecInterface.v(75): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/codecInterface.v Line: 75
-Warning (10034): Output port "sdat" at codecInterface.v(13) has no driver File: C:/Lab4/AudioPin/codecInterface.v Line: 13
-Info (12128): Elaborating entity "clkdiv" for hierarchy "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll" File: C:/Lab4/AudioPin/codecInterface.v Line: 37
+Info (12128): Elaborating entity "codecInterface" for hierarchy "audioProcessor:inst|codecInterface:codecInt2" File: C:/Lab4/AudioPin/audioprocessor.v Line: 62
+Warning (10036): Verilog HDL or VHDL warning at codecInterface.v(25): object "codec_clk_cycle_12_5" assigned a value but never read File: C:/Lab4/AudioPin/codecInterface.v Line: 25
+Warning (10036): Verilog HDL or VHDL warning at codecInterface.v(25): object "bclk_posedge" assigned a value but never read File: C:/Lab4/AudioPin/codecInterface.v Line: 25
+Warning (10230): Verilog HDL assignment warning at codecInterface.v(63): truncated value with size 32 to match size of target (2) File: C:/Lab4/AudioPin/codecInterface.v Line: 63
+Warning (10230): Verilog HDL assignment warning at codecInterface.v(66): truncated value with size 32 to match size of target (1) File: C:/Lab4/AudioPin/codecInterface.v Line: 66
+Warning (10230): Verilog HDL assignment warning at codecInterface.v(68): truncated value with size 32 to match size of target (3) File: C:/Lab4/AudioPin/codecInterface.v Line: 68
+Warning (10230): Verilog HDL assignment warning at codecInterface.v(72): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/codecInterface.v Line: 72
+Info (12128): Elaborating entity "clkdiv" for hierarchy "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll" File: C:/Lab4/AudioPin/codecInterface.v Line: 35
 Info (12128): Elaborating entity "altpll" for hierarchy "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component" File: C:/Lab4/AudioPin/clkdiv.vhd Line: 140
 Info (12130): Elaborated megafunction instantiation "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component" File: C:/Lab4/AudioPin/clkdiv.vhd Line: 140
 Info (12133): Instantiated megafunction "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component" with the following parameter: File: C:/Lab4/AudioPin/clkdiv.vhd Line: 140
@@ -1066,10 +1110,10 @@ Info (12133): Instantiated megafunction "audioProcessor:inst|codecInterface:code
 Info (12021): Found 1 design units, including 1 entities, in source file db/clkdiv_altpll.v
     Info (12023): Found entity 1: clkdiv_altpll File: C:/Lab4/AudioPin/db/clkdiv_altpll.v Line: 30
 Info (12128): Elaborating entity "clkdiv_altpll" for hierarchy "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component|clkdiv_altpll:auto_generated" File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "memoController" for hierarchy "audioProcessor:inst|memoController:memoInt" File: C:/Lab4/AudioPin/audioprocessor.v Line: 79
+Info (12128): Elaborating entity "memoController" for hierarchy "audioProcessor:inst|memoController:memoInt" File: C:/Lab4/AudioPin/audioprocessor.v Line: 83
 Warning (10230): Verilog HDL assignment warning at memoController.v(46): truncated value with size 32 to match size of target (16) File: C:/Lab4/AudioPin/memoController.v Line: 46
 Warning (10230): Verilog HDL assignment warning at memoController.v(50): truncated value with size 32 to match size of target (16) File: C:/Lab4/AudioPin/memoController.v Line: 50
-Info (12128): Elaborating entity "romMemory" for hierarchy "audioProcessor:inst|romMemory:rom" File: C:/Lab4/AudioPin/audioprocessor.v Line: 84
+Info (12128): Elaborating entity "romMemory" for hierarchy "audioProcessor:inst|romMemory:rom" File: C:/Lab4/AudioPin/audioprocessor.v Line: 88
 Info (12128): Elaborating entity "altsyncram" for hierarchy "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component" File: C:/Lab4/AudioPin/romMemory.vhd Line: 60
 Info (12130): Elaborated megafunction instantiation "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component" File: C:/Lab4/AudioPin/romMemory.vhd Line: 60
 Info (12133): Instantiated megafunction "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component" with the following parameter: File: C:/Lab4/AudioPin/romMemory.vhd Line: 60
@@ -1132,6 +1176,11 @@ Info (12128): Elaborating entity "decode_rsa" for hierarchy "audioProcessor:inst
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_qob.tdf
     Info (12023): Found entity 1: mux_qob File: C:/Lab4/AudioPin/db/mux_qob.tdf Line: 22
 Info (12128): Elaborating entity "mux_qob" for hierarchy "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|mux_qob:mux2" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 42
+Info (12128): Elaborating entity "i2cController" for hierarchy "audioProcessor:inst|i2cController:contr" File: C:/Lab4/AudioPin/audioprocessor.v Line: 95
+Warning (10230): Verilog HDL assignment warning at i2cController.v(95): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 95
+Warning (10230): Verilog HDL assignment warning at i2cController.v(99): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 99
+Warning (10230): Verilog HDL assignment warning at i2cController.v(106): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 106
+Warning (10230): Verilog HDL assignment warning at i2cController.v(113): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 113
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a0" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 43
@@ -1262,7 +1311,7 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a125" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2793
         Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a126" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2815
         Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a127" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2837
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "readdata[31]" is stuck at GND
     Warning (13410): Pin "readdata[30]" is stuck at GND
@@ -1297,7 +1346,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "readdata[1]" is stuck at GND
     Warning (13410): Pin "readdata[0]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 68 registers lost all their fanouts during netlist optimizations.
+Info (17049): 87 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 18 input pin(s) that do not drive logic
@@ -1324,10 +1373,10 @@ Info (21057): Implemented 120 device resources after synthesis - the final resou
     Info (21059): Implemented 36 output pins
     Info (21061): Implemented 63 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 206 warnings
-    Info: Peak virtual memory: 4833 megabytes
-    Info: Processing ended: Thu Jun 13 22:42:17 2019
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 211 warnings
+    Info: Peak virtual memory: 4834 megabytes
+    Info: Processing ended: Mon Jun 17 21:32:48 2019
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:20
 
 

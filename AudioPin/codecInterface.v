@@ -6,9 +6,7 @@ module codecInterface(	input clock,
 						output codec_clk,
 						output lrck,
 						output reg lrck_last,
-						output data,
-						output sclk,
-						output sdat
+						output data
 						//output reg wordSent
 						);
 	
@@ -37,7 +35,6 @@ module codecInterface(	input clock,
 					);
 	
 	
-	assign sclk = codec_clk;
 	
 	//quando coloca sendData, salva a palavra a ser enviada
 //	always @ (posedge sendData) begin

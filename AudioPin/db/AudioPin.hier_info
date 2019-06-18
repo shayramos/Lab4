@@ -113,8 +113,9 @@ readdata[31] <= <GND>
 lrck <= codecInterface:codecInt2.lrck
 bclk <= codecInterface:codecInt2.bclk
 codecSerialData <= codecInterface:codecInt2.data
-codec_clk <= codecInterface:codecInt2.codec_clk
-sclk <= codecInterface:codecInt2.sclk
+codec_clk <= codec_clk.DB_MAX_OUTPUT_PORT_TYPE
+sclk <= i2cController:contr.sclk
+sdata <= i2cController:contr.sdata
 
 
 |AudioPin|audioProcessor:inst|geradorsqwave:gerador
@@ -208,8 +209,6 @@ codec_clk <= clkdiv:pll.c0
 lrck <= lrck_counter[4].DB_MAX_OUTPUT_PORT_TYPE
 lrck_last <= lrck_last~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data <= dataBuffer[31].DB_MAX_OUTPUT_PORT_TYPE
-sclk <= clkdiv:pll.c0
-sdat <= <GND>
 
 
 |AudioPin|audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll
@@ -3140,5 +3139,56 @@ sel[2] => result_node[1].IN0
 sel[2] => _.IN0
 sel[2] => result_node[0].IN0
 sel[2] => _.IN0
+
+
+|AudioPin|audioProcessor:inst|i2cController:contr
+clock12_5 => sclk.DATAA
+clock12_5 => dataIndex[0].CLK
+clock12_5 => dataIndex[1].CLK
+clock12_5 => dataIndex[2].CLK
+clock12_5 => dataIndex[3].CLK
+clock12_5 => dataIndex[4].CLK
+clock12_5 => state~1.DATAIN
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => state.OUTPUTSELECT
+reset => dataIndex.OUTPUTSELECT
+reset => dataIndex.OUTPUTSELECT
+reset => dataIndex.OUTPUTSELECT
+reset => dataIndex.OUTPUTSELECT
+reset => dataIndex.OUTPUTSELECT
+reset => state.IDLE.DATAIN
+dataIn[0] => Mux0.IN31
+dataIn[1] => Mux0.IN30
+dataIn[2] => Mux0.IN29
+dataIn[3] => Mux0.IN28
+dataIn[4] => Mux0.IN27
+dataIn[5] => Mux0.IN26
+dataIn[6] => Mux0.IN25
+dataIn[7] => Mux0.IN24
+dataIn[8] => Mux0.IN23
+dataIn[9] => Mux0.IN22
+dataIn[10] => Mux0.IN21
+dataIn[11] => Mux0.IN20
+dataIn[12] => Mux0.IN19
+dataIn[13] => Mux0.IN18
+dataIn[14] => Mux0.IN17
+dataIn[15] => Mux0.IN16
+dataIn[16] => Mux0.IN15
+dataIn[17] => Mux0.IN14
+dataIn[18] => Mux0.IN13
+dataIn[19] => Mux0.IN12
+dataIn[20] => Mux0.IN11
+dataIn[21] => Mux0.IN10
+dataIn[22] => Mux0.IN9
+dataIn[23] => Mux0.IN8
+sclk <= sclk.DB_MAX_OUTPUT_PORT_TYPE
+sdata <= Selector3.DB_MAX_OUTPUT_PORT_TYPE
 
 
