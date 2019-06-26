@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 dC:/Lab4/AudioPin/simulation/modelsim
 vaudioProcessor
-Z1 !s110 1560476734
+Z1 !s110 1561511317
 !i10b 1
-!s100 hTh6?o5cmd1B5cI0>_@h<2
-IY=MfaSCo[jR206O<cz_YO0
+!s100 HXkFn9_;<4JM<^J<RIE6k3
+IW@;>g56RL91TfZl1Bkd742
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1560476435
+w1561510598
 8C:/Lab4/AudioPin/audioprocessor.v
 FC:/Lab4/AudioPin/audioprocessor.v
 L0 1
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1560476734.000000
+Z4 !s108 1561511317.000000
 !s107 C:/Lab4/AudioPin/audioprocessor.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Lab4/AudioPin|C:/Lab4/AudioPin/audioprocessor.v|
 !i113 1
@@ -44,14 +44,14 @@ VFhZ;kj0FzJMB_oa]4Uh[f2
 !s100 _HmD?<G2O:Z3<kBDea`dU1
 Z13 OV;C;10.5b;63
 31
-R1
+Z14 !s110 1561511318
 !i10b 1
-R4
-Z14 !s90 -reportprogress|300|-93|-work|work|C:/Lab4/AudioPin/clkdiv.vhd|
-Z15 !s107 C:/Lab4/AudioPin/clkdiv.vhd|
+Z15 !s108 1561511318.000000
+Z16 !s90 -reportprogress|300|-93|-work|work|C:/Lab4/AudioPin/clkdiv.vhd|
+Z17 !s107 C:/Lab4/AudioPin/clkdiv.vhd|
 !i113 1
-Z16 o-93 -work work
-Z17 tExplicit 1 CvgOpt 0
+Z18 o-93 -work work
+Z19 tExplicit 1 CvgOpt 0
 Asyn
 R9
 R10
@@ -62,14 +62,14 @@ VQb`VK0B1A?RPCgiE4JEJ=3
 !s100 P3NezPm5BE>X;_i3ER>OL0
 R13
 31
-R1
-!i10b 1
-R4
 R14
+!i10b 1
 R15
-!i113 1
 R16
 R17
+!i113 1
+R18
+R19
 vclkdiv_altpll
 R1
 !i10b 1
@@ -95,11 +95,11 @@ R7
 vcodecInterface
 R1
 !i10b 1
-!s100 ?A=G25CS4e=@QNXGTe0SX0
-In47[HC64`9R<I]R=7Q6B50
+!s100 YbDljJ[alU:[TgISfGccS0
+I=KWMf1Me`fZjhYNF<J5<K0
 R2
 R0
-w1560476512
+w1560817954
 8C:/Lab4/AudioPin/codecInterface.v
 FC:/Lab4/AudioPin/codecInterface.v
 L0 1
@@ -118,11 +118,11 @@ ncodec@interface
 vgeradorsqwave
 R1
 !i10b 1
-!s100 ><aRaad0PDMNIYXYcKHno0
-I[M6JXHgelzUD^b`<B7kMb0
+!s100 OOX`QM6?DHkYkGh2QU6g50
+I8AIaTBTaC^IEHh7U0oQf61
 R2
 R0
-w1560472797
+w1561508787
 8C:/Lab4/AudioPin/geradorsqwave.v
 FC:/Lab4/AudioPin/geradorsqwave.v
 L0 1
@@ -137,6 +137,29 @@ R4
 R5
 R6
 R7
+vi2cController
+R1
+!i10b 1
+!s100 I5PC@YeAXRL?koJHcTGf;0
+IWINcP>@WWbl=`;cW2VUA41
+R2
+R0
+w1561507207
+8C:/Lab4/AudioPin/i2cController.v
+FC:/Lab4/AudioPin/i2cController.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Lab4/AudioPin/i2cController.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Lab4/AudioPin|C:/Lab4/AudioPin/i2cController.v|
+!i113 1
+R5
+R6
+R7
+ni2c@controller
 vmemoController
 R1
 !i10b 1
@@ -152,7 +175,7 @@ R3
 r1
 !s85 0
 31
-R4
+!s108 1561511316.000000
 !s107 C:/Lab4/AudioPin/memoController.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Lab4/AudioPin|C:/Lab4/AudioPin/memoController.v|
 !i113 1
@@ -161,29 +184,29 @@ R6
 R7
 nmemo@controller
 Erommemory
-Z18 w1560473857
-Z19 DPx9 altera_mf 20 altera_mf_components 0 22 Sn8Ol<dGSW99iM6NfOU>g1
+Z20 w1560473857
+Z21 DPx9 altera_mf 20 altera_mf_components 0 22 Sn8Ol<dGSW99iM6NfOU>g1
 R9
 R10
 R0
-Z20 8C:/Lab4/AudioPin/romMemory.vhd
-Z21 FC:/Lab4/AudioPin/romMemory.vhd
+Z22 8C:/Lab4/AudioPin/romMemory.vhd
+Z23 FC:/Lab4/AudioPin/romMemory.vhd
 l0
 L42
 V9S_D=Z]obIohdNAUz_5V?2
 !s100 A6EeemI0DODWbB5L180`63
 R13
 31
-R1
+R14
 !i10b 1
-R4
-Z22 !s90 -reportprogress|300|-93|-work|work|C:/Lab4/AudioPin/romMemory.vhd|
-Z23 !s107 C:/Lab4/AudioPin/romMemory.vhd|
+R15
+Z24 !s90 -reportprogress|300|-93|-work|work|C:/Lab4/AudioPin/romMemory.vhd|
+Z25 !s107 C:/Lab4/AudioPin/romMemory.vhd|
 !i113 1
-R16
-R17
-Asyn
+R18
 R19
+Asyn
+R21
 R9
 R10
 DEx4 work 9 rommemory 0 22 9S_D=Z]obIohdNAUz_5V?2
@@ -193,11 +216,11 @@ VlWE>mkNoc:GM:F`G5R4ZS0
 !s100 dX]9dTZYA8`YYO]^Jj]EO1
 R13
 31
-R1
+R14
 !i10b 1
-R4
-R22
-R23
+R15
+R24
+R25
 !i113 1
-R16
-R17
+R18
+R19

@@ -1,0 +1,37 @@
+module fetchMemory(input clock, input reset, input start, input [15:0]addr, output reg [15:0]dataOut, output _end);
+
+
+reg[1:0] state, next_state;
+reg[15:0] dataOut_next;
+
+parameter 	IDLE = 2'b00,
+				SET_ADDR = 2'b01,
+				READ = 2'b10,
+				END = 2'b11;
+				
+
+always@(posedge clock) begin
+
+	if(reset) begin
+		dataOut <= 0;
+		state <= 0;
+	end
+	else begin
+		dataOut <= dataOut_next;
+		state <= next_state;
+	end
+end
+
+always@(*) begin
+	case(state)
+	
+	endcase
+end
+
+always@(*) begin
+	case(state)
+	
+	endcase
+end
+
+endmodule

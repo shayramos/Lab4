@@ -3,36 +3,72 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : 16.850
-TNS   : 0.000
+Slack : -4.104
+TNS   : -80.651
+
+Type  : Slow 1200mV 85C Model Setup 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : -1.072
+TNS   : -4.769
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.402
+Slack : 0.404
 TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : -1.285
+TNS   : -8.995
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : 9.663
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : 17.148
-TNS   : 0.000
+Slack : -3.674
+TNS   : -69.353
+
+Type  : Slow 1200mV 0C Model Setup 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : -0.855
+TNS   : -3.664
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.354
+Slack : 0.356
 TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : 0.367
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : -1.285
+TNS   : -8.995
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : 9.674
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : 18.458
-TNS   : 0.000
+Slack : -1.916
+TNS   : -37.957
+
+Type  : Fast 1200mV 0C Model Setup 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : -0.013
+TNS   : -0.013
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.181
+Slack : 0.183
 TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : 0.188
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1'
+Slack : -1.000
+TNS   : -7.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : 9.265

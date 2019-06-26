@@ -3,7 +3,7 @@ module i2cController(	input clock12_5,
 								input [23:0] dataIn,
 								output sclk,
 								output reg sdata,
-								output finished
+								output reg finished
 								);
 								
 

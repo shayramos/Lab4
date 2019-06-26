@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AudioPin
-Mon Jun 17 21:32:48 2019
+Tue Jun 25 22:38:16 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -28,11 +28,13 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  20. Parameter Settings for User Entity Instance: audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component
  21. altpll Parameter Settings by Entity Instance
  22. altsyncram Parameter Settings by Entity Instance
- 23. Port Connectivity Checks: "audioProcessor:inst|memoController:memoInt"
- 24. Port Connectivity Checks: "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
+ 23. Port Connectivity Checks: "audioProcessor:inst|i2cController:contr"
+ 24. Port Connectivity Checks: "audioProcessor:inst|memoController:memoInt"
+ 25. Port Connectivity Checks: "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -58,15 +60,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 17 21:32:48 2019       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jun 25 22:38:16 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; AudioPin                                    ;
 ; Top-level Entity Name              ; AudioPin                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 63                                          ;
-;     Total combinational functions  ; 63                                          ;
-;     Dedicated logic registers      ; 58                                          ;
-; Total registers                    ; 58                                          ;
+; Total logic elements               ; 53                                          ;
+;     Total combinational functions  ; 53                                          ;
+;     Dedicated logic registers      ; 49                                          ;
+; Total registers                    ; 49                                          ;
 ; Total pins                         ; 56                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -218,20 +220,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 63         ;
+; Estimated Total logic elements              ; 53         ;
 ;                                             ;            ;
-; Total combinational functions               ; 63         ;
+; Total combinational functions               ; 53         ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 34         ;
-;     -- 3 input functions                    ; 3          ;
-;     -- <=2 input functions                  ; 26         ;
+;     -- 4 input functions                    ; 33         ;
+;     -- 3 input functions                    ; 4          ;
+;     -- <=2 input functions                  ; 16         ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
 ;     -- normal mode                          ; 44         ;
-;     -- arithmetic mode                      ; 19         ;
+;     -- arithmetic mode                      ; 9          ;
 ;                                             ;            ;
-; Total registers                             ; 58         ;
-;     -- Dedicated logic registers            ; 58         ;
+; Total registers                             ; 49         ;
+;     -- Dedicated logic registers            ; 49         ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 56         ;
@@ -242,9 +244,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; SW17~input ;
-; Maximum fan-out                             ; 62         ;
-; Total fan-out                               ; 462        ;
-; Average fan-out                             ; 1.97       ;
+; Maximum fan-out                             ; 51         ;
+; Total fan-out                               ; 415        ;
+; Average fan-out                             ; 1.93       ;
 +---------------------------------------------+------------+
 
 
@@ -253,13 +255,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                    ; Entity Name    ; Library Name ;
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------+----------------+--------------+
-; |AudioPin                                     ; 63 (0)              ; 58 (0)                    ; 0           ; 0            ; 0       ; 0         ; 56   ; 0            ; |AudioPin                                                                                                              ; AudioPin       ; work         ;
-;    |audioProcessor:inst|                      ; 63 (0)              ; 58 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst                                                                                          ; audioProcessor ; work         ;
-;       |codecInterface:codecInt2|              ; 47 (47)             ; 42 (42)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2                                                                 ; codecInterface ; work         ;
+; |AudioPin                                     ; 53 (0)              ; 49 (0)                    ; 0           ; 0            ; 0       ; 0         ; 56   ; 0            ; |AudioPin                                                                                                              ; AudioPin       ; work         ;
+;    |audioProcessor:inst|                      ; 53 (0)              ; 49 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst                                                                                          ; audioProcessor ; work         ;
+;       |codecInterface:codecInt2|              ; 46 (46)             ; 42 (42)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2                                                                 ; codecInterface ; work         ;
 ;          |clkdiv:pll|                         ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll                                                      ; clkdiv         ; work         ;
 ;             |altpll:altpll_component|         ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component                              ; altpll         ; work         ;
 ;                |clkdiv_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component|clkdiv_altpll:auto_generated ; clkdiv_altpll  ; work         ;
-;       |geradorsqwave:gerador|                 ; 16 (16)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst|geradorsqwave:gerador                                                                    ; geradorsqwave  ; work         ;
+;       |geradorsqwave:gerador|                 ; 7 (7)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AudioPin|audioProcessor:inst|geradorsqwave:gerador                                                                    ; geradorsqwave  ; work         ;
 +-----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -311,77 +313,97 @@ Encoding Type:  One-Hot
 +------------------+---------------+-------------+--------------+-------------+-----------------+-------------+----------------+------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                        ;
-+----------------------------------------------------------------------------------------------------------------------+--------------------+
-; Register name                                                                                                        ; Reason for Removal ;
-+----------------------------------------------------------------------------------------------------------------------+--------------------+
-; audioProcessor:inst|state[0..3]                                                                                      ; Lost fanout        ;
-; audioProcessor:inst|addrToController[0..15]                                                                          ; Lost fanout        ;
-; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[0..2] ; Lost fanout        ;
-; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|rden_a_store        ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|addrFinal[0..15]                                                          ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|addrOut[0..15]                                                            ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state~2                                                                      ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state~3                                                                      ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state~4                                                                      ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state~5                                                                      ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state~11                                                                  ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state~12                                                                  ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state~13                                                                  ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|dataIndex[0..4]                                                              ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.START                                                                  ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.R_ADDR                                                                 ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.RW                                                                     ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.ACK1                                                                   ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.DATA1                                                                  ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.ACK2                                                                   ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.DATA2                                                                  ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.ACK3                                                                   ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.END                                                                    ; Lost fanout        ;
-; audioProcessor:inst|i2cController:contr|state.IDLE                                                                   ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.WAIT4                                                               ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.INPUTSTATE                                                          ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.READADDR                                                            ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.WAIT1                                                               ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.STOREADDR                                                           ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.WAIT2                                                               ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.ITADDR                                                              ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.WAIT3                                                               ; Lost fanout        ;
-; audioProcessor:inst|memoController:memoInt|state.OUTDATA                                                             ; Lost fanout        ;
-; Total Number of Removed Registers = 87                                                                               ;                    ;
-+----------------------------------------------------------------------------------------------------------------------+--------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                           ;
++---------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                                       ; Reason for Removal                     ;
++---------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; audioProcessor:inst|addrToController[0]                                                                             ; Stuck at GND due to stuck port data_in ;
+; audioProcessor:inst|memoController:memoInt|addrFinal[0..15]                                                         ; Stuck at GND due to stuck port data_in ;
+; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[1]   ; Lost fanout                            ;
+; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|rden_a_store       ; Lost fanout                            ;
+; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[0,2] ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state~2                                                                     ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state~3                                                                     ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state~4                                                                     ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state~5                                                                     ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state~11                                                                 ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state~12                                                                 ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state~13                                                                 ; Lost fanout                            ;
+; audioProcessor:inst|state[0..3]                                                                                     ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|dataIndex[0..4]                                                             ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|addrOut[0..15]                                                           ; Lost fanout                            ;
+; audioProcessor:inst|addrToController[1..15]                                                                         ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.START                                                                 ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.R_ADDR                                                                ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.RW                                                                    ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.ACK1                                                                  ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.DATA1                                                                 ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.ACK2                                                                  ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.DATA2                                                                 ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.ACK3                                                                  ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.END                                                                   ; Lost fanout                            ;
+; audioProcessor:inst|i2cController:contr|state.IDLE                                                                  ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.WAIT4                                                              ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.INPUTSTATE                                                         ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.READADDR                                                           ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.WAIT1                                                              ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.STOREADDR                                                          ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.WAIT2                                                              ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.ITADDR                                                             ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.WAIT3                                                              ; Lost fanout                            ;
+; audioProcessor:inst|memoController:memoInt|state.OUTDATA                                                            ; Lost fanout                            ;
+; Total Number of Removed Registers = 87                                                                              ;                                        ;
++---------------------------------------------------------------------------------------------------------------------+----------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                          ;
-+-------------------------------------------------------------------------------------------------------------------+--------------------+-------------------------------------------------------------+
-; Register name                                                                                                     ; Reason for Removal ; Registers Removed due to This Register                      ;
-+-------------------------------------------------------------------------------------------------------------------+--------------------+-------------------------------------------------------------+
-; audioProcessor:inst|i2cController:contr|state~2                                                                   ; Lost Fanouts       ; audioProcessor:inst|i2cController:contr|dataIndex[4],       ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|dataIndex[3],       ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|dataIndex[2],       ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|dataIndex[1],       ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|dataIndex[0],       ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.R_ADDR,       ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.RW,           ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.DATA1         ;
-; audioProcessor:inst|memoController:memoInt|state~11                                                               ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|state.READADDR,  ;
-;                                                                                                                   ;                    ; audioProcessor:inst|memoController:memoInt|state.STOREADDR, ;
-;                                                                                                                   ;                    ; audioProcessor:inst|memoController:memoInt|state.ITADDR,    ;
-;                                                                                                                   ;                    ; audioProcessor:inst|memoController:memoInt|state.OUTDATA    ;
-; audioProcessor:inst|i2cController:contr|state~3                                                                   ; Lost Fanouts       ; audioProcessor:inst|i2cController:contr|state.ACK2,         ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.DATA2         ;
-; audioProcessor:inst|i2cController:contr|state~5                                                                   ; Lost Fanouts       ; audioProcessor:inst|i2cController:contr|state.ACK3,         ;
-;                                                                                                                   ;                    ; audioProcessor:inst|i2cController:contr|state.END           ;
-; audioProcessor:inst|memoController:memoInt|state~12                                                               ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|state.WAIT1,     ;
-;                                                                                                                   ;                    ; audioProcessor:inst|memoController:memoInt|state.WAIT3      ;
-; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[2] ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|addrOut[15]      ;
-; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[1] ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|addrOut[14]      ;
-; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[0] ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|addrOut[13]      ;
-; audioProcessor:inst|i2cController:contr|state~4                                                                   ; Lost Fanouts       ; audioProcessor:inst|i2cController:contr|state.ACK1          ;
-; audioProcessor:inst|memoController:memoInt|state~13                                                               ; Lost Fanouts       ; audioProcessor:inst|memoController:memoInt|state.WAIT2      ;
-+-------------------------------------------------------------------------------------------------------------------+--------------------+-------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                         ;
++-------------------------------------------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                                                                                                     ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++-------------------------------------------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; audioProcessor:inst|addrToController[0]                                                                           ; Stuck at GND              ; audioProcessor:inst|state[3], audioProcessor:inst|state[2],                         ;
+;                                                                                                                   ; due to stuck port data_in ; audioProcessor:inst|state[1], audioProcessor:inst|state[0],                         ;
+;                                                                                                                   ;                           ; audioProcessor:inst|memoController:memoInt|addrOut[1],                              ;
+;                                                                                                                   ;                           ; audioProcessor:inst|memoController:memoInt|addrOut[10],                             ;
+;                                                                                                                   ;                           ; audioProcessor:inst|addrToController[1], audioProcessor:inst|addrToController[9],   ;
+;                                                                                                                   ;                           ; audioProcessor:inst|addrToController[10], audioProcessor:inst|addrToController[11], ;
+;                                                                                                                   ;                           ; audioProcessor:inst|addrToController[12], audioProcessor:inst|addrToController[13], ;
+;                                                                                                                   ;                           ; audioProcessor:inst|addrToController[14], audioProcessor:inst|addrToController[15], ;
+;                                                                                                                   ;                           ; audioProcessor:inst|memoController:memoInt|state.WAIT4,                             ;
+;                                                                                                                   ;                           ; audioProcessor:inst|memoController:memoInt|state.INPUTSTATE                         ;
+; audioProcessor:inst|i2cController:contr|state~2                                                                   ; Lost Fanouts              ; audioProcessor:inst|i2cController:contr|dataIndex[4],                               ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|dataIndex[3],                               ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|dataIndex[2],                               ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|dataIndex[1],                               ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|dataIndex[0],                               ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|state.R_ADDR,                               ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|state.RW,                                   ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|state.DATA1                                 ;
+; audioProcessor:inst|memoController:memoInt|state~11                                                               ; Lost Fanouts              ; audioProcessor:inst|memoController:memoInt|state.READADDR,                          ;
+;                                                                                                                   ;                           ; audioProcessor:inst|memoController:memoInt|state.STOREADDR,                         ;
+;                                                                                                                   ;                           ; audioProcessor:inst|memoController:memoInt|state.ITADDR,                            ;
+;                                                                                                                   ;                           ; audioProcessor:inst|memoController:memoInt|state.OUTDATA                            ;
+; audioProcessor:inst|i2cController:contr|state~3                                                                   ; Lost Fanouts              ; audioProcessor:inst|i2cController:contr|state.ACK2,                                 ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|state.DATA2                                 ;
+; audioProcessor:inst|i2cController:contr|state~5                                                                   ; Lost Fanouts              ; audioProcessor:inst|i2cController:contr|state.ACK3,                                 ;
+;                                                                                                                   ;                           ; audioProcessor:inst|i2cController:contr|state.END                                   ;
+; audioProcessor:inst|memoController:memoInt|state~12                                                               ; Lost Fanouts              ; audioProcessor:inst|memoController:memoInt|state.WAIT1,                             ;
+;                                                                                                                   ;                           ; audioProcessor:inst|memoController:memoInt|state.WAIT3                              ;
+; audioProcessor:inst|memoController:memoInt|addrFinal[10]                                                          ; Stuck at GND              ; audioProcessor:inst|memoController:memoInt|addrOut[15]                              ;
+;                                                                                                                   ; due to stuck port data_in ;                                                                                     ;
+; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[1] ; Lost Fanouts              ; audioProcessor:inst|memoController:memoInt|addrOut[14]                              ;
+; audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|address_reg_a[0] ; Lost Fanouts              ; audioProcessor:inst|memoController:memoInt|addrOut[13]                              ;
+; audioProcessor:inst|i2cController:contr|state~4                                                                   ; Lost Fanouts              ; audioProcessor:inst|i2cController:contr|state.ACK1                                  ;
+; audioProcessor:inst|memoController:memoInt|state~13                                                               ; Lost Fanouts              ; audioProcessor:inst|memoController:memoInt|state.WAIT2                              ;
+; audioProcessor:inst|memoController:memoInt|addrOut[2]                                                             ; Lost Fanouts              ; audioProcessor:inst|addrToController[2]                                             ;
+; audioProcessor:inst|memoController:memoInt|addrOut[3]                                                             ; Lost Fanouts              ; audioProcessor:inst|addrToController[3]                                             ;
+; audioProcessor:inst|memoController:memoInt|addrOut[4]                                                             ; Lost Fanouts              ; audioProcessor:inst|addrToController[4]                                             ;
+; audioProcessor:inst|memoController:memoInt|addrOut[5]                                                             ; Lost Fanouts              ; audioProcessor:inst|addrToController[5]                                             ;
+; audioProcessor:inst|memoController:memoInt|addrOut[6]                                                             ; Lost Fanouts              ; audioProcessor:inst|addrToController[6]                                             ;
+; audioProcessor:inst|memoController:memoInt|addrOut[7]                                                             ; Lost Fanouts              ; audioProcessor:inst|addrToController[7]                                             ;
+; audioProcessor:inst|memoController:memoInt|addrOut[8]                                                             ; Lost Fanouts              ; audioProcessor:inst|addrToController[8]                                             ;
++-------------------------------------------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -389,8 +411,8 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 58    ;
-; Number of registers using Synchronous Clear  ; 52    ;
+; Total registers                              ; 49    ;
+; Number of registers using Synchronous Clear  ; 44    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -404,10 +426,10 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|lrck_counter[1] ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|i2cController:contr|dataIndex[1]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|dataBuffer[15]  ;
-; 4:1                ; 29 bits   ; 58 LEs        ; 58 LEs               ; 0 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|dataBuffer[2]   ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|lrck_counter[3] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|i2cController:contr|dataIndex[4]         ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; Yes        ; |AudioPin|audioProcessor:inst|codecInterface:codecInt2|dataBuffer[23]  ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 30 LEs               ; 15 LEs                 ; Yes        ; |AudioPin|audioProcessor:inst|memoController:memoInt|addrOut[6]        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 
 
@@ -422,19 +444,32 @@ Encoding Type:  One-Hot
 
 +------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: audioProcessor:inst ;
-+------------------+-------+---------------------------------------+
-; Parameter Name   ; Value ; Type                                  ;
-+------------------+-------+---------------------------------------+
-; IDLE             ; 0000  ; Unsigned Binary                       ;
-; FETCH_MEMORY     ; 0001  ; Unsigned Binary                       ;
-; WAITING_MEMORY_1 ; 0011  ; Unsigned Binary                       ;
-; WAITING_DONE_1   ; 0010  ; Unsigned Binary                       ;
-; SEND_CODEC_1     ; 0100  ; Unsigned Binary                       ;
-; WAITING_MEMORY_2 ; 0101  ; Unsigned Binary                       ;
-; WAITING_DONE_2   ; 0110  ; Unsigned Binary                       ;
-; WAITING_CODEC    ; 0111  ; Unsigned Binary                       ;
-; SEND_CODEC_2     ; 1000  ; Unsigned Binary                       ;
-+------------------+-------+---------------------------------------+
++-------------------------------+-------+--------------------------+
+; Parameter Name                ; Value ; Type                     ;
++-------------------------------+-------+--------------------------+
+; BEGIN                         ; 00000 ; Unsigned Binary          ;
+; FETCH_MEMORY                  ; 0001  ; Unsigned Binary          ;
+; WAITING_MEMORY_1              ; 0011  ; Unsigned Binary          ;
+; WAITING_DONE_1                ; 0010  ; Unsigned Binary          ;
+; SEND_CODEC_1                  ; 0100  ; Unsigned Binary          ;
+; WAITING_MEMORY_2              ; 0101  ; Unsigned Binary          ;
+; WAITING_DONE_2                ; 0110  ; Unsigned Binary          ;
+; WAITING_CODEC                 ; 0111  ; Unsigned Binary          ;
+; SEND_CODEC_2                  ; 1000  ; Unsigned Binary          ;
+; CONFIG_RESET                  ; 01001 ; Unsigned Binary          ;
+; SEND_CONFIG_RESET             ; 01010 ; Unsigned Binary          ;
+; CONFIG_LH_OUT                 ; 01011 ; Unsigned Binary          ;
+; SEND_CONFIG_LH_OUT            ; 01100 ; Unsigned Binary          ;
+; CONFIG_RH_OUT                 ; 01101 ; Unsigned Binary          ;
+; SEND_CONFIG_RH_OUT            ; 01110 ; Unsigned Binary          ;
+; CONFIG_ANALOG_AUDIO_PATH      ; 01111 ; Unsigned Binary          ;
+; SEND_CONFIG_ANALOG_AUDIO_PATH ; 10000 ; Unsigned Binary          ;
+; CONFIG_DAI                    ; 10001 ; Unsigned Binary          ;
+; SEND_CONFIG_DAI               ; 10010 ; Unsigned Binary          ;
+; CONFIG_SAMPL_CONTROL          ; 10011 ; Unsigned Binary          ;
+; SEND_CONFIG_SAMPL_CONTROL     ; 10100 ; Unsigned Binary          ;
+; IDLE                          ; 0000  ; Unsigned Binary          ;
++-------------------------------+-------+--------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -941,6 +976,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-------------------------------------------------------------------+
 
 
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "audioProcessor:inst|i2cController:contr" ;
++----------------+-------+----------+---------------------------------+
+; Port           ; Type  ; Severity ; Details                         ;
++----------------+-------+----------+---------------------------------+
+; dataIn[23..21] ; Input ; Info     ; Stuck at GND                    ;
+; dataIn[16..7]  ; Input ; Info     ; Stuck at GND                    ;
++----------------+-------+----------+---------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "audioProcessor:inst|memoController:memoInt"                                            ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
@@ -965,24 +1010,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 56                          ;
-; cycloneiii_ff         ; 58                          ;
-;     ENA               ; 2                           ;
-;     ENA SCLR          ; 34                          ;
-;     SCLR              ; 18                          ;
-;     plain             ; 4                           ;
-; cycloneiii_lcell_comb ; 64                          ;
-;     arith             ; 19                          ;
-;         2 data inputs ; 19                          ;
+; cycloneiii_ff         ; 49                          ;
+;     ENA SCLR          ; 36                          ;
+;     SCLR              ; 8                           ;
+;     plain             ; 5                           ;
+; cycloneiii_lcell_comb ; 54                          ;
+;     arith             ; 9                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 1                           ;
 ;     normal            ; 45                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 5                           ;
+;         2 data inputs ; 6                           ;
 ;         3 data inputs ; 3                           ;
-;         4 data inputs ; 34                          ;
+;         4 data inputs ; 33                          ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.50                        ;
-; Average LUT depth     ; 1.39                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.13                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1001,7 +1046,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Jun 17 21:32:38 2019
+    Info: Processing started: Tue Jun 25 22:38:05 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AudioPin -c AudioPin
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1013,6 +1058,38 @@ Info (12021): Found 1 design units, including 1 entities, in source file audiopr
     Info (12023): Found entity 1: audioProcessor File: C:/Lab4/AudioPin/audioprocessor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file audiopin.bdf
     Info (12023): Found entity 1: AudioPin
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(25): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 25
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(26): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 26
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(27): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 27
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(28): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 28
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(29): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 29
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(30): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 30
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(31): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 31
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(32): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 32
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(33): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 33
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(34): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 34
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(35): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 35
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(36): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 36
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(37): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 37
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(38): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 38
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(39): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 39
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(40): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 40
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(41): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 41
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(42): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 42
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(43): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 43
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(44): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 44
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(45): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 45
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(46): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 46
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(47): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 47
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(48): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 48
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(49): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 49
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(50): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 50
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(51): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 51
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(52): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 52
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(53): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 53
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(54): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 54
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(55): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 55
+Warning (10229): Verilog HDL Expression warning at geradorsqwave.v(56): truncated literal to match 16 bits File: C:/Lab4/AudioPin/geradorsqwave.v Line: 56
 Info (12021): Found 1 design units, including 1 entities, in source file geradorsqwave.v
     Info (12023): Found entity 1: geradorsqwave File: C:/Lab4/AudioPin/geradorsqwave.v Line: 1
 Info (12021): Found 2 design units, including 1 entities, in source file rommemory.vhd
@@ -1023,6 +1100,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file clkdiv.
     Info (12023): Found entity 1: clkdiv File: C:/Lab4/AudioPin/clkdiv.vhd Line: 42
 Info (12021): Found 1 design units, including 1 entities, in source file i2ccontroller.v
     Info (12023): Found entity 1: i2cController File: C:/Lab4/AudioPin/i2cController.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fetchmemory.v
+    Info (12023): Found entity 1: fetchMemory File: C:/Lab4/AudioPin/fetchMemory.v Line: 1
 Info (12127): Elaborating entity "AudioPin" for the top level hierarchy
 Warning (275089): Not all bits in bus "KEY[3..0]" are used
 Warning (275080): Converted elements in bus name "KEY" using legacy naming rules. Make any assignments on the new names, not on the original names.
@@ -1033,15 +1112,32 @@ Warning (275080): Converted elements in bus name "SW" using legacy naming rules.
     Warning (275081): Converted element name(s) from "SW[17]" to "SW17"
     Warning (275081): Converted element name(s) from "SW[15..0]" to "SW15..0"
 Info (12128): Elaborating entity "audioProcessor" for hierarchy "audioProcessor:inst"
-Warning (10036): Verilog HDL or VHDL warning at audioprocessor.v(30): object "dataEnable" assigned a value but never read File: C:/Lab4/AudioPin/audioprocessor.v Line: 30
-Warning (10858): Verilog HDL warning at audioprocessor.v(43): object i2cCombReset used but never assigned File: C:/Lab4/AudioPin/audioprocessor.v Line: 43
-Warning (10230): Verilog HDL assignment warning at audioprocessor.v(186): truncated value with size 21 to match size of target (16) File: C:/Lab4/AudioPin/audioprocessor.v Line: 186
-Warning (10270): Verilog HDL Case Statement warning at audioprocessor.v(181): incomplete case statement has no default case item File: C:/Lab4/AudioPin/audioprocessor.v Line: 181
-Warning (10030): Net "i2cCombReset" at audioprocessor.v(43) has no driver or initial value, using a default initial value '0' File: C:/Lab4/AudioPin/audioprocessor.v Line: 43
+Warning (10036): Verilog HDL or VHDL warning at audioprocessor.v(43): object "dataEnable" assigned a value but never read File: C:/Lab4/AudioPin/audioprocessor.v Line: 43
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(113): truncated value with size 5 to match size of target (4) File: C:/Lab4/AudioPin/audioprocessor.v Line: 113
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(131): truncated value with size 5 to match size of target (4) File: C:/Lab4/AudioPin/audioprocessor.v Line: 131
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(135): truncated value with size 5 to match size of target (4) File: C:/Lab4/AudioPin/audioprocessor.v Line: 135
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(141): truncated value with size 5 to match size of target (4) File: C:/Lab4/AudioPin/audioprocessor.v Line: 141
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(145): truncated value with size 5 to match size of target (4) File: C:/Lab4/AudioPin/audioprocessor.v Line: 145
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(151): truncated value with size 5 to match size of target (4) File: C:/Lab4/AudioPin/audioprocessor.v Line: 151
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(155): truncated value with size 5 to match size of target (4) File: C:/Lab4/AudioPin/audioprocessor.v Line: 155
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(161): truncated value with size 5 to match size of target (4) File: C:/Lab4/AudioPin/audioprocessor.v Line: 161
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(163): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 163
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(170): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 170
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(173): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 173
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(180): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 180
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(183): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 183
+Warning (10272): Verilog HDL Case Statement warning at audioprocessor.v(190): case item expression covers a value already covered by a previous case item File: C:/Lab4/AudioPin/audioprocessor.v Line: 190
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(281): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 281
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(284): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 284
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(287): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 287
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(290): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 290
+Warning (10199): Verilog HDL Case Statement warning at audioprocessor.v(293): case item expression never matches the case expression File: C:/Lab4/AudioPin/audioprocessor.v Line: 293
+Warning (10230): Verilog HDL assignment warning at audioprocessor.v(300): truncated value with size 17 to match size of target (16) File: C:/Lab4/AudioPin/audioprocessor.v Line: 300
+Warning (10272): Verilog HDL Case Statement warning at audioprocessor.v(296): case item expression covers a value already covered by a previous case item File: C:/Lab4/AudioPin/audioprocessor.v Line: 296
 Warning (10034): Output port "readdata" at audioprocessor.v(6) has no driver File: C:/Lab4/AudioPin/audioprocessor.v Line: 6
-Info (12128): Elaborating entity "geradorsqwave" for hierarchy "audioProcessor:inst|geradorsqwave:gerador" File: C:/Lab4/AudioPin/audioprocessor.v Line: 52
-Warning (10230): Verilog HDL assignment warning at geradorsqwave.v(10): truncated value with size 32 to match size of target (16) File: C:/Lab4/AudioPin/geradorsqwave.v Line: 10
-Info (12128): Elaborating entity "codecInterface" for hierarchy "audioProcessor:inst|codecInterface:codecInt2" File: C:/Lab4/AudioPin/audioprocessor.v Line: 62
+Info (12128): Elaborating entity "geradorsqwave" for hierarchy "audioProcessor:inst|geradorsqwave:gerador" File: C:/Lab4/AudioPin/audioprocessor.v Line: 64
+Warning (10230): Verilog HDL assignment warning at geradorsqwave.v(14): truncated value with size 32 to match size of target (6) File: C:/Lab4/AudioPin/geradorsqwave.v Line: 14
+Info (12128): Elaborating entity "codecInterface" for hierarchy "audioProcessor:inst|codecInterface:codecInt2" File: C:/Lab4/AudioPin/audioprocessor.v Line: 74
 Warning (10036): Verilog HDL or VHDL warning at codecInterface.v(25): object "codec_clk_cycle_12_5" assigned a value but never read File: C:/Lab4/AudioPin/codecInterface.v Line: 25
 Warning (10036): Verilog HDL or VHDL warning at codecInterface.v(25): object "bclk_posedge" assigned a value but never read File: C:/Lab4/AudioPin/codecInterface.v Line: 25
 Warning (10230): Verilog HDL assignment warning at codecInterface.v(63): truncated value with size 32 to match size of target (2) File: C:/Lab4/AudioPin/codecInterface.v Line: 63
@@ -1110,10 +1206,10 @@ Info (12133): Instantiated megafunction "audioProcessor:inst|codecInterface:code
 Info (12021): Found 1 design units, including 1 entities, in source file db/clkdiv_altpll.v
     Info (12023): Found entity 1: clkdiv_altpll File: C:/Lab4/AudioPin/db/clkdiv_altpll.v Line: 30
 Info (12128): Elaborating entity "clkdiv_altpll" for hierarchy "audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component|clkdiv_altpll:auto_generated" File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
-Info (12128): Elaborating entity "memoController" for hierarchy "audioProcessor:inst|memoController:memoInt" File: C:/Lab4/AudioPin/audioprocessor.v Line: 83
+Info (12128): Elaborating entity "memoController" for hierarchy "audioProcessor:inst|memoController:memoInt" File: C:/Lab4/AudioPin/audioprocessor.v Line: 95
 Warning (10230): Verilog HDL assignment warning at memoController.v(46): truncated value with size 32 to match size of target (16) File: C:/Lab4/AudioPin/memoController.v Line: 46
 Warning (10230): Verilog HDL assignment warning at memoController.v(50): truncated value with size 32 to match size of target (16) File: C:/Lab4/AudioPin/memoController.v Line: 50
-Info (12128): Elaborating entity "romMemory" for hierarchy "audioProcessor:inst|romMemory:rom" File: C:/Lab4/AudioPin/audioprocessor.v Line: 88
+Info (12128): Elaborating entity "romMemory" for hierarchy "audioProcessor:inst|romMemory:rom" File: C:/Lab4/AudioPin/audioprocessor.v Line: 100
 Info (12128): Elaborating entity "altsyncram" for hierarchy "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component" File: C:/Lab4/AudioPin/romMemory.vhd Line: 60
 Info (12130): Elaborated megafunction instantiation "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component" File: C:/Lab4/AudioPin/romMemory.vhd Line: 60
 Info (12133): Instantiated megafunction "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component" with the following parameter: File: C:/Lab4/AudioPin/romMemory.vhd Line: 60
@@ -1176,11 +1272,11 @@ Info (12128): Elaborating entity "decode_rsa" for hierarchy "audioProcessor:inst
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_qob.tdf
     Info (12023): Found entity 1: mux_qob File: C:/Lab4/AudioPin/db/mux_qob.tdf Line: 22
 Info (12128): Elaborating entity "mux_qob" for hierarchy "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|mux_qob:mux2" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 42
-Info (12128): Elaborating entity "i2cController" for hierarchy "audioProcessor:inst|i2cController:contr" File: C:/Lab4/AudioPin/audioprocessor.v Line: 95
-Warning (10230): Verilog HDL assignment warning at i2cController.v(95): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 95
-Warning (10230): Verilog HDL assignment warning at i2cController.v(99): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 99
-Warning (10230): Verilog HDL assignment warning at i2cController.v(106): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 106
-Warning (10230): Verilog HDL assignment warning at i2cController.v(113): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 113
+Info (12128): Elaborating entity "i2cController" for hierarchy "audioProcessor:inst|i2cController:contr" File: C:/Lab4/AudioPin/audioprocessor.v Line: 108
+Warning (10230): Verilog HDL assignment warning at i2cController.v(98): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 98
+Warning (10230): Verilog HDL assignment warning at i2cController.v(102): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 102
+Warning (10230): Verilog HDL assignment warning at i2cController.v(109): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 109
+Warning (10230): Verilog HDL assignment warning at i2cController.v(116): truncated value with size 32 to match size of target (5) File: C:/Lab4/AudioPin/i2cController.v Line: 116
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a0" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 43
@@ -1311,6 +1407,136 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a125" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2793
         Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a126" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2815
         Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a127" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2837
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a31" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 725
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a15" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 373
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a47" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1077
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a63" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1429
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a95" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2133
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a79" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1781
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a111" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2485
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a127" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2837
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a30" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 703
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a14" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 351
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a46" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1055
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a62" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1407
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a94" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2111
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a78" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1759
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a110" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2463
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a126" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2815
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a29" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 681
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a13" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 329
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a45" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1033
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a61" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1385
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a93" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2089
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a77" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1737
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a109" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2441
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a125" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2793
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a28" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 659
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a12" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 307
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a44" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1011
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a60" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1363
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a92" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2067
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a76" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1715
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a108" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2419
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a124" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2771
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a27" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 637
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a11" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 285
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a43" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 989
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a59" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1341
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a91" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2045
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a75" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1693
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a107" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2397
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a123" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2749
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a26" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 615
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a10" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 263
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a42" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 967
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a58" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1319
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a90" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2023
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a74" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1671
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a106" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2375
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a122" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2727
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a25" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 593
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a9" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 241
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a41" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 945
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a57" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1297
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a89" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2001
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a73" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1649
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a105" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2353
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a121" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2705
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a24" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 571
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a8" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 219
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a40" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 923
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a56" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1275
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a88" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1979
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a72" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1627
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a104" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2331
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a120" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2683
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a23" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 549
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a7" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 197
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a39" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 901
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a55" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1253
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a87" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1957
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a71" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1605
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a103" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2309
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a119" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2661
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a22" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 527
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a6" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 175
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a38" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 879
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a54" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1231
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a86" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1935
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a70" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1583
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a102" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2287
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a118" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2639
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a21" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 505
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a5" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 153
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a37" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 857
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a53" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1209
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a85" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1913
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a69" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1561
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a101" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2265
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a117" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2617
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a20" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 483
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a4" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 131
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a36" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 835
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a52" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1187
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a84" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1891
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a68" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1539
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a100" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2243
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a116" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2595
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a19" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 461
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a3" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 109
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a35" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 813
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a51" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1165
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a83" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1869
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a67" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1517
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a99" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2221
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a115" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2573
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a18" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 439
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a2" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 87
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a34" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 791
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a50" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1143
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a82" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1847
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a66" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1495
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a98" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2199
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a114" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2551
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a17" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 417
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a1" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 65
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a33" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 769
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a49" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1121
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a81" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1825
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a65" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1473
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a97" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2177
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a113" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2529
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a16" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 395
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a0" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 43
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a32" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 747
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a48" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1099
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a80" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1803
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a64" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 1451
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a96" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2155
+        Warning (14320): Synthesized away node "audioProcessor:inst|romMemory:rom|altsyncram:altsyncram_component|altsyncram_cjt3:auto_generated|ram_block1a112" File: C:/Lab4/AudioPin/db/altsyncram_cjt3.tdf Line: 2507
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "readdata[31]" is stuck at GND
@@ -1346,37 +1572,44 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "readdata[1]" is stuck at GND
     Warning (13410): Pin "readdata[0]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 87 registers lost all their fanouts during netlist optimizations.
+Info (17049): 70 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Lab4/AudioPin/output_files/AudioPin.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 18 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY3"
     Warning (15610): No output dependent on input pin "KEY0"
     Warning (15610): No output dependent on input pin "SW15"
-    Warning (15610): No output dependent on input pin "SW14"
-    Warning (15610): No output dependent on input pin "SW13"
-    Warning (15610): No output dependent on input pin "SW12"
-    Warning (15610): No output dependent on input pin "SW11"
-    Warning (15610): No output dependent on input pin "SW10"
-    Warning (15610): No output dependent on input pin "SW9"
-    Warning (15610): No output dependent on input pin "SW8"
-    Warning (15610): No output dependent on input pin "SW7"
-    Warning (15610): No output dependent on input pin "SW6"
-    Warning (15610): No output dependent on input pin "SW5"
-    Warning (15610): No output dependent on input pin "SW4"
-    Warning (15610): No output dependent on input pin "SW3"
-    Warning (15610): No output dependent on input pin "SW2"
-    Warning (15610): No output dependent on input pin "SW1"
     Warning (15610): No output dependent on input pin "SW0"
-Info (21057): Implemented 120 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "SW1"
+    Warning (15610): No output dependent on input pin "SW2"
+    Warning (15610): No output dependent on input pin "SW3"
+    Warning (15610): No output dependent on input pin "SW4"
+    Warning (15610): No output dependent on input pin "SW5"
+    Warning (15610): No output dependent on input pin "SW6"
+    Warning (15610): No output dependent on input pin "SW7"
+    Warning (15610): No output dependent on input pin "SW8"
+    Warning (15610): No output dependent on input pin "SW9"
+    Warning (15610): No output dependent on input pin "SW10"
+    Warning (15610): No output dependent on input pin "SW11"
+    Warning (15610): No output dependent on input pin "SW12"
+    Warning (15610): No output dependent on input pin "SW13"
+    Warning (15610): No output dependent on input pin "SW14"
+Info (21057): Implemented 110 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 20 input pins
     Info (21059): Implemented 36 output pins
-    Info (21061): Implemented 63 logic cells
+    Info (21061): Implemented 53 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 211 warnings
-    Info: Peak virtual memory: 4834 megabytes
-    Info: Processing ended: Mon Jun 17 21:32:48 2019
-    Info: Elapsed time: 00:00:10
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 390 warnings
+    Info: Peak virtual memory: 4835 megabytes
+    Info: Processing ended: Tue Jun 25 22:38:16 2019
+    Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:20
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Lab4/AudioPin/output_files/AudioPin.map.smsg.
 
 
