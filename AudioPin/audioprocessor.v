@@ -81,7 +81,7 @@ module audioProcessor(  input clock, //interface para Avalon
                                 .bclk(bclk),
                                 .lrck(lrck),
 										  .lrck_last(lrck_last),
-                                .data(codecSerialData));*/
+                                .data(codecSerialData));
 										  
 	memoController memoInt( 	.clock(clock),
 										.reset(reset),
@@ -92,12 +92,16 @@ module audioProcessor(  input clock, //interface para Avalon
 										.dataOut(dataFromController),
 										.addrOut(addrToMemory),
 										.available(available),
-										.musicEnded(musicEnded));
+										.musicEnded(musicEnded));*/
 										
-	romMemory rom(		.address(addrToMemory),
-							.clock(clock),
-							.rden(readEnable),
-							.q(dataFromMemory));
+										
+	controllerMemory memoInt( 	.clock(clock),
+										.reset(reset),
+										.indiceMemory(writedata),
+										.next(readMemoryData),
+										.dataOut(dataFromMemory),
+										.finishMusic(musicEnded)
+									);										
 							
 	i2cController contr( 	.clock12_5(codec_clk),
 									.reset(i2cReset),

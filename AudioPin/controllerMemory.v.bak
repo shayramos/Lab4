@@ -1,0 +1,5 @@
+module controllerMemory(input clock, input reset, input[4:0] indiceMemory, 
+								//input [15:0]addr, input [15:0]dataIn, 
+								output reg [15:0]dataOut, output finishMusic);
+
+output reg [15:0]dataOut;

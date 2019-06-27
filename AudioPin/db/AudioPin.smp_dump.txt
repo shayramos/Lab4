@@ -12,14 +12,16 @@ state.ACK3 0 0 1 0 0 0 0 0 0 1
 state.END 0 1 0 0 0 0 0 0 0 1 
 state.IDLE 1 0 0 0 0 0 0 0 0 1 
 
-State Machine - |AudioPin|audioProcessor:inst|memoController:memoInt|state
-Name state.OUTDATA state.WAIT3 state.ITADDR state.WAIT2 state.STOREADDR state.WAIT1 state.READADDR state.INPUTSTATE state.WAIT4 
-state.INPUTSTATE 0 0 0 0 0 0 0 0 0 
-state.READADDR 0 0 0 0 0 0 1 1 0 
-state.WAIT1 0 0 0 0 0 1 0 1 0 
-state.STOREADDR 0 0 0 0 1 0 0 1 0 
-state.WAIT2 0 0 0 1 0 0 0 1 0 
-state.ITADDR 0 0 1 0 0 0 0 1 0 
-state.WAIT3 0 1 0 0 0 0 0 1 0 
-state.OUTDATA 1 0 0 0 0 0 0 1 0 
-state.WAIT4 0 0 0 0 0 0 0 1 1 
+State Machine - |AudioPin|audioProcessor:inst|controllerMemory:memoInt|state
+Name state.GET_FINAL state.WAIT_ADDR state.GET_INITIAL state.000 
+state.000 0 0 0 0 
+state.GET_INITIAL 0 0 1 1 
+state.WAIT_ADDR 0 1 0 1 
+state.GET_FINAL 1 0 0 1 
+
+State Machine - |AudioPin|audioProcessor:inst|controllerMemory:memoInt|fetchMemory:ftMem|state
+Name state.END state.READ state.SET_ADDR state.00 
+state.00 0 0 0 0 
+state.SET_ADDR 0 0 1 1 
+state.READ 0 1 0 1 
+state.END 1 0 0 1 

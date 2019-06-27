@@ -1,5 +1,5 @@
 Fitter report for AudioPin
-Tue Jun 25 22:38:32 2019
+Wed Jun 26 21:52:20 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -71,7 +71,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Tue Jun 25 22:38:32 2019       ;
+; Fitter Status                      ; Successful - Wed Jun 26 21:52:20 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; AudioPin                                    ;
 ; Top-level Entity Name              ; AudioPin                                    ;
@@ -2325,6 +2325,16 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; KEY3         ; Incomplete set of assignments ;
 ; KEY0         ; Incomplete set of assignments ;
 ; SW15         ; Incomplete set of assignments ;
+; SW14         ; Incomplete set of assignments ;
+; SW13         ; Incomplete set of assignments ;
+; SW12         ; Incomplete set of assignments ;
+; SW11         ; Incomplete set of assignments ;
+; SW10         ; Incomplete set of assignments ;
+; SW9          ; Incomplete set of assignments ;
+; SW8          ; Incomplete set of assignments ;
+; SW7          ; Incomplete set of assignments ;
+; SW6          ; Incomplete set of assignments ;
+; SW5          ; Incomplete set of assignments ;
 ; AUD_DACLRCK  ; Missing drive strength        ;
 ; AUD_XCK      ; Missing drive strength        ;
 ; AUD_DACDAT   ; Missing drive strength        ;
@@ -2365,16 +2375,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; SW2          ; Incomplete set of assignments ;
 ; SW3          ; Incomplete set of assignments ;
 ; SW4          ; Incomplete set of assignments ;
-; SW5          ; Incomplete set of assignments ;
-; SW6          ; Incomplete set of assignments ;
-; SW7          ; Incomplete set of assignments ;
-; SW8          ; Incomplete set of assignments ;
-; SW9          ; Incomplete set of assignments ;
-; SW10         ; Incomplete set of assignments ;
-; SW11         ; Incomplete set of assignments ;
-; SW12         ; Incomplete set of assignments ;
-; SW13         ; Incomplete set of assignments ;
-; SW14         ; Incomplete set of assignments ;
 ; SW17         ; Incomplete set of assignments ;
 ; readdata[31] ; Missing location assignment   ;
 ; readdata[30] ; Missing location assignment   ;
@@ -2436,6 +2436,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; KEY3         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
 ; KEY0         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
 ; SW15         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW14         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW13         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW12         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW11         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW10         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW9          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW8          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW7          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW6          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
+; SW5          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
 ; AUD_DACLRCK  ; Output   ; --            ; --            ; --                    ; (0) 0 ps ; --   ;
 ; AUD_XCK      ; Output   ; --            ; --            ; --                    ; --       ; --   ;
 ; AUD_DACDAT   ; Output   ; --            ; --            ; --                    ; (0) 0 ps ; --   ;
@@ -2476,16 +2486,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SW2          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
 ; SW3          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
 ; SW4          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW5          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW6          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW7          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW8          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW9          ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW10         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW11         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW12         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW13         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
-; SW14         ; Input    ; --            ; --            ; --                    ; --       ; --   ;
 ; CLOCK_50     ; Input    ; (0) 0 ps      ; --            ; --                    ; --       ; --   ;
 ; SW17         ; Input    ; (6) 1314 ps   ; --            ; --                    ; --       ; --   ;
 +--------------+----------+---------------+---------------+-----------------------+----------+------+
@@ -2499,21 +2499,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; KEY3                                                                                                                     ;                   ;         ;
 ; KEY0                                                                                                                     ;                   ;         ;
 ; SW15                                                                                                                     ;                   ;         ;
+; SW14                                                                                                                     ;                   ;         ;
+; SW13                                                                                                                     ;                   ;         ;
+; SW12                                                                                                                     ;                   ;         ;
+; SW11                                                                                                                     ;                   ;         ;
+; SW10                                                                                                                     ;                   ;         ;
+; SW9                                                                                                                      ;                   ;         ;
+; SW8                                                                                                                      ;                   ;         ;
+; SW7                                                                                                                      ;                   ;         ;
+; SW6                                                                                                                      ;                   ;         ;
+; SW5                                                                                                                      ;                   ;         ;
 ; SW0                                                                                                                      ;                   ;         ;
 ; SW1                                                                                                                      ;                   ;         ;
 ; SW2                                                                                                                      ;                   ;         ;
 ; SW3                                                                                                                      ;                   ;         ;
 ; SW4                                                                                                                      ;                   ;         ;
-; SW5                                                                                                                      ;                   ;         ;
-; SW6                                                                                                                      ;                   ;         ;
-; SW7                                                                                                                      ;                   ;         ;
-; SW8                                                                                                                      ;                   ;         ;
-; SW9                                                                                                                      ;                   ;         ;
-; SW10                                                                                                                     ;                   ;         ;
-; SW11                                                                                                                     ;                   ;         ;
-; SW12                                                                                                                     ;                   ;         ;
-; SW13                                                                                                                     ;                   ;         ;
-; SW14                                                                                                                     ;                   ;         ;
 ; CLOCK_50                                                                                                                 ;                   ;         ;
 ; SW17                                                                                                                     ;                   ;         ;
 ;      - audioProcessor:inst|codecInterface:codecInt2|bclk_counter[2]~_Duplicate_1                                         ; 0                 ; 6       ;
@@ -2560,7 +2560,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - audioProcessor:inst|geradorsqwave:gerador|ramp[2]                                                                 ; 0                 ; 6       ;
 ;      - audioProcessor:inst|geradorsqwave:gerador|ramp[1]                                                                 ; 0                 ; 6       ;
 ;      - audioProcessor:inst|geradorsqwave:gerador|ramp[0]                                                                 ; 0                 ; 6       ;
-;      - audioProcessor:inst|codecInterface:codecInt2|lrck_counter[3]~15                                                   ; 0                 ; 6       ;
+;      - audioProcessor:inst|codecInterface:codecInt2|lrck_counter[1]~15                                                   ; 0                 ; 6       ;
 ;      - audioProcessor:inst|codecInterface:codecInt2|bclk_counter~0                                                       ; 0                 ; 6       ;
 ;      - audioProcessor:inst|codecInterface:codecInt2|bclk_last~0                                                          ; 0                 ; 6       ;
 ;      - audioProcessor:inst|codecInterface:codecInt2|lrck_last~0                                                          ; 0                 ; 6       ;
@@ -2580,8 +2580,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; CLOCK_50                                                                  ; PIN_Y2           ; 2       ; Clock                     ; no     ; --                   ; --               ; --                        ;
 ; CLOCK_50                                                                  ; PIN_Y2           ; 44      ; Clock                     ; yes    ; Global Clock         ; GCLK4            ; --                        ;
 ; SW17                                                                      ; PIN_Y23          ; 53      ; Async. clear, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; audioProcessor:inst|codecInterface:codecInt2|dataBuffer[23]~1             ; LCCOMB_X1_Y53_N2 ; 31      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; audioProcessor:inst|codecInterface:codecInt2|lrck_counter[3]~15           ; LCCOMB_X1_Y53_N4 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; audioProcessor:inst|codecInterface:codecInt2|dataBuffer[28]~1             ; LCCOMB_X1_Y53_N2 ; 31      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; audioProcessor:inst|codecInterface:codecInt2|lrck_counter[1]~15           ; LCCOMB_X1_Y53_N4 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
 ; audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~_Duplicate_1 ; FF_X1_Y53_N27    ; 7       ; Clock                     ; yes    ; Global Clock         ; GCLK2            ; --                        ;
 +---------------------------------------------------------------------------+------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
@@ -2788,6 +2788,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; KEY3               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; KEY0               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW15               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW14               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW13               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW12               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW11               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW10               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW9                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW8                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW7                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW6                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; SW5                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; AUD_DACLRCK        ; Pass         ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; AUD_XCK            ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; AUD_DACDAT         ; Pass         ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -2828,16 +2838,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SW2                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW3                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW4                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW5                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW6                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW7                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW8                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW9                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW10               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW11               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW12               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW13               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; SW14               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; CLOCK_50           ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; SW17               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
@@ -2956,7 +2956,7 @@ Info (176353): Automatically promoted node audioProcessor:inst|codecInterface:co
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node audioProcessor:inst|codecInterface:codecInt2|lrck_counter[4]~13 File: C:/Lab4/AudioPin/codecInterface.v Line: 44
         Info (176357): Destination node audioProcessor:inst|codecInterface:codecInt2|dataBuffer~0 File: C:/Lab4/AudioPin/codecInterface.v Line: 30
-        Info (176357): Destination node audioProcessor:inst|codecInterface:codecInt2|dataBuffer[23]~1 File: C:/Lab4/AudioPin/codecInterface.v Line: 44
+        Info (176357): Destination node audioProcessor:inst|codecInterface:codecInt2|dataBuffer[28]~1 File: C:/Lab4/AudioPin/codecInterface.v Line: 44
         Info (176357): Destination node audioProcessor:inst|codecInterface:codecInt2|dataBuffer~2 File: C:/Lab4/AudioPin/codecInterface.v Line: 30
         Info (176357): Destination node audioProcessor:inst|codecInterface:codecInt2|lrck_last~0 File: C:/Lab4/AudioPin/codecInterface.v Line: 8
         Info (176357): Destination node audioProcessor:inst|codecInterface:codecInt2|dataBuffer~3 File: C:/Lab4/AudioPin/codecInterface.v Line: 30
@@ -3512,9 +3512,9 @@ Warning (169177): 1 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2
     Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at Y2
 Info (144001): Generated suppressed messages file C:/Lab4/AudioPin/output_files/AudioPin.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 512 warnings
-    Info: Peak virtual memory: 5711 megabytes
-    Info: Processing ended: Tue Jun 25 22:38:32 2019
-    Info: Elapsed time: 00:00:15
+    Info: Peak virtual memory: 5709 megabytes
+    Info: Processing ended: Wed Jun 26 21:52:21 2019
+    Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:19
 
 

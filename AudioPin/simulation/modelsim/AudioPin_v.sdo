@@ -29,7 +29,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "AudioPin")
-  (DATE "06/25/2019 22:38:43")
+  (DATE "06/26/2019 21:52:29")
   (VENDOR "Altera")
   (PROGRAM "Quartus Prime")
   (VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition")
@@ -237,7 +237,7 @@
   )
   (CELL
     (CELLTYPE "cycloneive_lcell_comb")
-    (INSTANCE inst\|codecInt2\|lrck_counter\[3\]\~15)
+    (INSTANCE inst\|codecInt2\|lrck_counter\[1\]\~15)
     (DELAY
       (ABSOLUTE
         (PORT datab (294:294:294) (379:379:379))
@@ -767,7 +767,7 @@
   )
   (CELL
     (CELLTYPE "cycloneive_lcell_comb")
-    (INSTANCE inst\|codecInt2\|dataBuffer\[23\]\~1)
+    (INSTANCE inst\|codecInt2\|dataBuffer\[28\]\~1)
     (DELAY
       (ABSOLUTE
         (PORT dataa (538:538:538) (603:603:603))

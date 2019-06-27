@@ -1,5 +1,5 @@
 Assembler report for AudioPin
-Tue Jun 25 22:38:37 2019
+Wed Jun 26 21:52:24 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Jun 25 22:38:37 2019 ;
+; Assembler Status      ; Successful - Wed Jun 26 21:52:24 2019 ;
 ; Revision Name         ; AudioPin                              ;
 ; Top-level Entity Name ; AudioPin                              ;
 ; Family                ; Cyclone IV E                          ;
@@ -77,14 +77,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Jun 25 22:38:34 2019
+    Info: Processing started: Wed Jun 26 21:52:21 2019
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off AudioPin -c AudioPin
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4698 megabytes
-    Info: Processing ended: Tue Jun 25 22:38:37 2019
+    Info: Peak virtual memory: 4701 megabytes
+    Info: Processing ended: Wed Jun 26 21:52:24 2019
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

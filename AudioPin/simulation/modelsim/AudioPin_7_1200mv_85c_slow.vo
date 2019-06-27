@@ -16,7 +16,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
-// DATE "06/25/2019 22:38:43"
+// DATE "06/26/2019 21:52:29"
 
 // 
 // Device: Altera EP4CE115F29C7 Package FBGA780
@@ -85,6 +85,16 @@ output 	[31:0] readdata;
 // KEY3	=>  Location: PIN_R24,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // KEY0	=>  Location: PIN_M23,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // SW15	=>  Location: PIN_AA22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW14	=>  Location: PIN_AA23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW13	=>  Location: PIN_AA24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW12	=>  Location: PIN_AB23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW11	=>  Location: PIN_AB24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW10	=>  Location: PIN_AC24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW9	=>  Location: PIN_AB25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW8	=>  Location: PIN_AC25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW7	=>  Location: PIN_AB26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW6	=>  Location: PIN_AD26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW5	=>  Location: PIN_AC26,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // AUD_DACLRCK	=>  Location: PIN_E3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
 // AUD_XCK	=>  Location: PIN_E1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
 // AUD_DACDAT	=>  Location: PIN_D1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
@@ -125,16 +135,6 @@ output 	[31:0] readdata;
 // SW2	=>  Location: PIN_AC27,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // SW3	=>  Location: PIN_AD27,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // SW4	=>  Location: PIN_AB27,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW5	=>  Location: PIN_AC26,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW6	=>  Location: PIN_AD26,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW7	=>  Location: PIN_AB26,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW8	=>  Location: PIN_AC25,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW9	=>  Location: PIN_AB25,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW10	=>  Location: PIN_AC24,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW11	=>  Location: PIN_AB24,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW12	=>  Location: PIN_AB23,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW13	=>  Location: PIN_AA24,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW14	=>  Location: PIN_AA23,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // CLOCK_50	=>  Location: PIN_Y2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 // SW17	=>  Location: PIN_Y23,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
@@ -157,21 +157,21 @@ initial $sdf_annotate("AudioPin_7_1200mv_85c_v_slow.sdo");
 wire \KEY3~input_o ;
 wire \KEY0~input_o ;
 wire \SW15~input_o ;
+wire \SW14~input_o ;
+wire \SW13~input_o ;
+wire \SW12~input_o ;
+wire \SW11~input_o ;
+wire \SW10~input_o ;
+wire \SW9~input_o ;
+wire \SW8~input_o ;
+wire \SW7~input_o ;
+wire \SW6~input_o ;
+wire \SW5~input_o ;
 wire \SW0~input_o ;
 wire \SW1~input_o ;
 wire \SW2~input_o ;
 wire \SW3~input_o ;
 wire \SW4~input_o ;
-wire \SW5~input_o ;
-wire \SW6~input_o ;
-wire \SW7~input_o ;
-wire \SW8~input_o ;
-wire \SW9~input_o ;
-wire \SW10~input_o ;
-wire \SW11~input_o ;
-wire \SW12~input_o ;
-wire \SW13~input_o ;
-wire \SW14~input_o ;
 wire \~ALTERA_ASDO_DATA1~~ibuf_o ;
 wire \~ALTERA_ASDO_DATA1~~padout ;
 wire \~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
@@ -192,7 +192,7 @@ wire \inst|codecInt2|Add0~0_combout ;
 wire \inst|codecInt2|lrck_counter[4]~_Duplicate_1feeder_combout ;
 wire \inst|codecInt2|bclk_last~0_combout ;
 wire \inst|codecInt2|bclk_last~q ;
-wire \inst|codecInt2|lrck_counter[3]~15_combout ;
+wire \inst|codecInt2|lrck_counter[1]~15_combout ;
 wire \inst|codecInt2|lrck_counter[4]~_Duplicate_1_q ;
 wire \inst|codecInt2|lrck_counter[0]~5_combout ;
 wire \inst|codecInt2|lrck_counter[0]~6 ;
@@ -226,7 +226,7 @@ wire \inst|codecInt2|lrck_posedge~combout ;
 wire \inst|codecInt2|dataBuffer~32_combout ;
 wire \inst|codecInt2|dataBuffer~33_combout ;
 wire \inst|codecInt2|dataBuffer~31_combout ;
-wire \inst|codecInt2|dataBuffer[23]~1_combout ;
+wire \inst|codecInt2|dataBuffer[28]~1_combout ;
 wire \inst|codecInt2|dataBuffer~30_combout ;
 wire \inst|codecInt2|dataBuffer~29_combout ;
 wire \inst|codecInt2|dataBuffer~28_combout ;
@@ -953,20 +953,20 @@ defparam \inst|codecInt2|bclk_last .power_up = "low";
 // synopsys translate_on
 
 // Location: LCCOMB_X1_Y53_N4
-cycloneive_lcell_comb \inst|codecInt2|lrck_counter[3]~15 (
+cycloneive_lcell_comb \inst|codecInt2|lrck_counter[1]~15 (
 // Equation(s):
-// \inst|codecInt2|lrck_counter[3]~15_combout  = (\SW17~input_o ) # ((!\inst|codecInt2|bclk_counter[2]~_Duplicate_1_q  & \inst|codecInt2|bclk_last~q ))
+// \inst|codecInt2|lrck_counter[1]~15_combout  = (\SW17~input_o ) # ((!\inst|codecInt2|bclk_counter[2]~_Duplicate_1_q  & \inst|codecInt2|bclk_last~q ))
 
 	.dataa(gnd),
 	.datab(\inst|codecInt2|bclk_counter[2]~_Duplicate_1_q ),
 	.datac(\SW17~input_o ),
 	.datad(\inst|codecInt2|bclk_last~q ),
 	.cin(gnd),
-	.combout(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.combout(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.cout());
 // synopsys translate_off
-defparam \inst|codecInt2|lrck_counter[3]~15 .lut_mask = 16'hF3F0;
-defparam \inst|codecInt2|lrck_counter[3]~15 .sum_lutc_input = "datac";
+defparam \inst|codecInt2|lrck_counter[1]~15 .lut_mask = 16'hF3F0;
+defparam \inst|codecInt2|lrck_counter[1]~15 .sum_lutc_input = "datac";
 // synopsys translate_on
 
 // Location: FF_X1_Y53_N27
@@ -978,7 +978,7 @@ dffeas \inst|codecInt2|lrck_counter[4]~_Duplicate_1 (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.ena(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|lrck_counter[4]~_Duplicate_1_q ),
@@ -1015,7 +1015,7 @@ dffeas \inst|codecInt2|lrck_counter[0] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.ena(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|lrck_counter [0]),
@@ -1052,7 +1052,7 @@ dffeas \inst|codecInt2|lrck_counter[1] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.ena(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|lrck_counter [1]),
@@ -1089,7 +1089,7 @@ dffeas \inst|codecInt2|lrck_counter[2] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.ena(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|lrck_counter [2]),
@@ -1126,7 +1126,7 @@ dffeas \inst|codecInt2|lrck_counter[3] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.ena(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|lrck_counter [3]),
@@ -1162,7 +1162,7 @@ dffeas \inst|codecInt2|lrck_counter[4] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.ena(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|lrck_counter [4]),
@@ -1652,12 +1652,12 @@ defparam \inst|codecInt2|dataBuffer~32 .sum_lutc_input = "datac";
 // Location: LCCOMB_X1_Y53_N6
 cycloneive_lcell_comb \inst|codecInt2|dataBuffer~33 (
 // Equation(s):
-// \inst|codecInt2|dataBuffer~33_combout  = (\inst|codecInt2|dataBuffer~32_combout ) # ((\inst|codecInt2|lrck_posedge~combout  & (\inst|codecInt2|dataBuffer [0] & !\inst|codecInt2|lrck_counter[3]~15_combout )))
+// \inst|codecInt2|dataBuffer~33_combout  = (\inst|codecInt2|dataBuffer~32_combout ) # ((\inst|codecInt2|lrck_posedge~combout  & (\inst|codecInt2|dataBuffer [0] & !\inst|codecInt2|lrck_counter[1]~15_combout )))
 
 	.dataa(\inst|codecInt2|lrck_posedge~combout ),
 	.datab(\inst|codecInt2|dataBuffer~32_combout ),
 	.datac(\inst|codecInt2|dataBuffer [0]),
-	.datad(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.datad(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.cin(gnd),
 	.combout(\inst|codecInt2|dataBuffer~33_combout ),
 	.cout());
@@ -1704,20 +1704,20 @@ defparam \inst|codecInt2|dataBuffer~31 .sum_lutc_input = "datac";
 // synopsys translate_on
 
 // Location: LCCOMB_X1_Y53_N2
-cycloneive_lcell_comb \inst|codecInt2|dataBuffer[23]~1 (
+cycloneive_lcell_comb \inst|codecInt2|dataBuffer[28]~1 (
 // Equation(s):
-// \inst|codecInt2|dataBuffer[23]~1_combout  = (\inst|codecInt2|lrck_counter[3]~15_combout ) # ((!\inst|codecInt2|lrck_last~q  & \inst|codecInt2|lrck_counter[4]~_Duplicate_1_q ))
+// \inst|codecInt2|dataBuffer[28]~1_combout  = (\inst|codecInt2|lrck_counter[1]~15_combout ) # ((!\inst|codecInt2|lrck_last~q  & \inst|codecInt2|lrck_counter[4]~_Duplicate_1_q ))
 
 	.dataa(\inst|codecInt2|lrck_last~q ),
 	.datab(gnd),
-	.datac(\inst|codecInt2|lrck_counter[3]~15_combout ),
+	.datac(\inst|codecInt2|lrck_counter[1]~15_combout ),
 	.datad(\inst|codecInt2|lrck_counter[4]~_Duplicate_1_q ),
 	.cin(gnd),
-	.combout(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.combout(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.cout());
 // synopsys translate_off
-defparam \inst|codecInt2|dataBuffer[23]~1 .lut_mask = 16'hF5F0;
-defparam \inst|codecInt2|dataBuffer[23]~1 .sum_lutc_input = "datac";
+defparam \inst|codecInt2|dataBuffer[28]~1 .lut_mask = 16'hF5F0;
+defparam \inst|codecInt2|dataBuffer[28]~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
 // Location: FF_X1_Y54_N23
@@ -1729,7 +1729,7 @@ dffeas \inst|codecInt2|dataBuffer[1] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [1]),
@@ -1766,7 +1766,7 @@ dffeas \inst|codecInt2|dataBuffer[2] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [2]),
@@ -1803,7 +1803,7 @@ dffeas \inst|codecInt2|dataBuffer[3] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [3]),
@@ -1840,7 +1840,7 @@ dffeas \inst|codecInt2|dataBuffer[4] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [4]),
@@ -1877,7 +1877,7 @@ dffeas \inst|codecInt2|dataBuffer[5] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [5]),
@@ -1914,7 +1914,7 @@ dffeas \inst|codecInt2|dataBuffer[6] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [6]),
@@ -1951,7 +1951,7 @@ dffeas \inst|codecInt2|dataBuffer[7] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [7]),
@@ -1988,7 +1988,7 @@ dffeas \inst|codecInt2|dataBuffer[8] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [8]),
@@ -2025,7 +2025,7 @@ dffeas \inst|codecInt2|dataBuffer[9] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [9]),
@@ -2062,7 +2062,7 @@ dffeas \inst|codecInt2|dataBuffer[10] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [10]),
@@ -2099,7 +2099,7 @@ dffeas \inst|codecInt2|dataBuffer[11] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [11]),
@@ -2136,7 +2136,7 @@ dffeas \inst|codecInt2|dataBuffer[12] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [12]),
@@ -2173,7 +2173,7 @@ dffeas \inst|codecInt2|dataBuffer[13] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [13]),
@@ -2210,7 +2210,7 @@ dffeas \inst|codecInt2|dataBuffer[14] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [14]),
@@ -2247,7 +2247,7 @@ dffeas \inst|codecInt2|dataBuffer[15] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [15]),
@@ -2284,7 +2284,7 @@ dffeas \inst|codecInt2|dataBuffer[16] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [16]),
@@ -2321,7 +2321,7 @@ dffeas \inst|codecInt2|dataBuffer[17] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [17]),
@@ -2358,7 +2358,7 @@ dffeas \inst|codecInt2|dataBuffer[18] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [18]),
@@ -2395,7 +2395,7 @@ dffeas \inst|codecInt2|dataBuffer[19] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [19]),
@@ -2432,7 +2432,7 @@ dffeas \inst|codecInt2|dataBuffer[20] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [20]),
@@ -2469,7 +2469,7 @@ dffeas \inst|codecInt2|dataBuffer[21] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [21]),
@@ -2506,7 +2506,7 @@ dffeas \inst|codecInt2|dataBuffer[22] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [22]),
@@ -2543,7 +2543,7 @@ dffeas \inst|codecInt2|dataBuffer[23] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [23]),
@@ -2580,7 +2580,7 @@ dffeas \inst|codecInt2|dataBuffer[24] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [24]),
@@ -2617,7 +2617,7 @@ dffeas \inst|codecInt2|dataBuffer[25] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [25]),
@@ -2654,7 +2654,7 @@ dffeas \inst|codecInt2|dataBuffer[26] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [26]),
@@ -2691,7 +2691,7 @@ dffeas \inst|codecInt2|dataBuffer[27] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [27]),
@@ -2728,7 +2728,7 @@ dffeas \inst|codecInt2|dataBuffer[28] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [28]),
@@ -2765,7 +2765,7 @@ dffeas \inst|codecInt2|dataBuffer[29] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [29]),
@@ -2802,7 +2802,7 @@ dffeas \inst|codecInt2|dataBuffer[30] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [30]),
@@ -2839,7 +2839,7 @@ dffeas \inst|codecInt2|dataBuffer[31] (
 	.aload(gnd),
 	.sclr(\SW17~input_o ),
 	.sload(gnd),
-	.ena(\inst|codecInt2|dataBuffer[23]~1_combout ),
+	.ena(\inst|codecInt2|dataBuffer[28]~1_combout ),
 	.devclrn(devclrn),
 	.devpor(devpor),
 	.q(\inst|codecInt2|dataBuffer [31]),
@@ -2877,6 +2877,106 @@ cycloneive_io_ibuf \SW15~input (
 // synopsys translate_off
 defparam \SW15~input .bus_hold = "false";
 defparam \SW15~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y10_N8
+cycloneive_io_ibuf \SW14~input (
+	.i(SW14),
+	.ibar(gnd),
+	.o(\SW14~input_o ));
+// synopsys translate_off
+defparam \SW14~input .bus_hold = "false";
+defparam \SW14~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y9_N22
+cycloneive_io_ibuf \SW13~input (
+	.i(SW13),
+	.ibar(gnd),
+	.o(\SW13~input_o ));
+// synopsys translate_off
+defparam \SW13~input .bus_hold = "false";
+defparam \SW13~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y7_N15
+cycloneive_io_ibuf \SW12~input (
+	.i(SW12),
+	.ibar(gnd),
+	.o(\SW12~input_o ));
+// synopsys translate_off
+defparam \SW12~input .bus_hold = "false";
+defparam \SW12~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y5_N15
+cycloneive_io_ibuf \SW11~input (
+	.i(SW11),
+	.ibar(gnd),
+	.o(\SW11~input_o ));
+// synopsys translate_off
+defparam \SW11~input .bus_hold = "false";
+defparam \SW11~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y4_N15
+cycloneive_io_ibuf \SW10~input (
+	.i(SW10),
+	.ibar(gnd),
+	.o(\SW10~input_o ));
+// synopsys translate_off
+defparam \SW10~input .bus_hold = "false";
+defparam \SW10~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y16_N8
+cycloneive_io_ibuf \SW9~input (
+	.i(SW9),
+	.ibar(gnd),
+	.o(\SW9~input_o ));
+// synopsys translate_off
+defparam \SW9~input .bus_hold = "false";
+defparam \SW9~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y4_N22
+cycloneive_io_ibuf \SW8~input (
+	.i(SW8),
+	.ibar(gnd),
+	.o(\SW8~input_o ));
+// synopsys translate_off
+defparam \SW8~input .bus_hold = "false";
+defparam \SW8~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y15_N1
+cycloneive_io_ibuf \SW7~input (
+	.i(SW7),
+	.ibar(gnd),
+	.o(\SW7~input_o ));
+// synopsys translate_off
+defparam \SW7~input .bus_hold = "false";
+defparam \SW7~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y10_N1
+cycloneive_io_ibuf \SW6~input (
+	.i(SW6),
+	.ibar(gnd),
+	.o(\SW6~input_o ));
+// synopsys translate_off
+defparam \SW6~input .bus_hold = "false";
+defparam \SW6~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X115_Y11_N8
+cycloneive_io_ibuf \SW5~input (
+	.i(SW5),
+	.ibar(gnd),
+	.o(\SW5~input_o ));
+// synopsys translate_off
+defparam \SW5~input .bus_hold = "false";
+defparam \SW5~input .simulate_z_as = "z";
 // synopsys translate_on
 
 // Location: IOIBUF_X115_Y17_N1
@@ -2927,106 +3027,6 @@ cycloneive_io_ibuf \SW4~input (
 // synopsys translate_off
 defparam \SW4~input .bus_hold = "false";
 defparam \SW4~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y11_N8
-cycloneive_io_ibuf \SW5~input (
-	.i(SW5),
-	.ibar(gnd),
-	.o(\SW5~input_o ));
-// synopsys translate_off
-defparam \SW5~input .bus_hold = "false";
-defparam \SW5~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y10_N1
-cycloneive_io_ibuf \SW6~input (
-	.i(SW6),
-	.ibar(gnd),
-	.o(\SW6~input_o ));
-// synopsys translate_off
-defparam \SW6~input .bus_hold = "false";
-defparam \SW6~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y15_N1
-cycloneive_io_ibuf \SW7~input (
-	.i(SW7),
-	.ibar(gnd),
-	.o(\SW7~input_o ));
-// synopsys translate_off
-defparam \SW7~input .bus_hold = "false";
-defparam \SW7~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y4_N22
-cycloneive_io_ibuf \SW8~input (
-	.i(SW8),
-	.ibar(gnd),
-	.o(\SW8~input_o ));
-// synopsys translate_off
-defparam \SW8~input .bus_hold = "false";
-defparam \SW8~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y16_N8
-cycloneive_io_ibuf \SW9~input (
-	.i(SW9),
-	.ibar(gnd),
-	.o(\SW9~input_o ));
-// synopsys translate_off
-defparam \SW9~input .bus_hold = "false";
-defparam \SW9~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y4_N15
-cycloneive_io_ibuf \SW10~input (
-	.i(SW10),
-	.ibar(gnd),
-	.o(\SW10~input_o ));
-// synopsys translate_off
-defparam \SW10~input .bus_hold = "false";
-defparam \SW10~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y5_N15
-cycloneive_io_ibuf \SW11~input (
-	.i(SW11),
-	.ibar(gnd),
-	.o(\SW11~input_o ));
-// synopsys translate_off
-defparam \SW11~input .bus_hold = "false";
-defparam \SW11~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y7_N15
-cycloneive_io_ibuf \SW12~input (
-	.i(SW12),
-	.ibar(gnd),
-	.o(\SW12~input_o ));
-// synopsys translate_off
-defparam \SW12~input .bus_hold = "false";
-defparam \SW12~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y9_N22
-cycloneive_io_ibuf \SW13~input (
-	.i(SW13),
-	.ibar(gnd),
-	.o(\SW13~input_o ));
-// synopsys translate_off
-defparam \SW13~input .bus_hold = "false";
-defparam \SW13~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X115_Y10_N8
-cycloneive_io_ibuf \SW14~input (
-	.i(SW14),
-	.ibar(gnd),
-	.o(\SW14~input_o ));
-// synopsys translate_off
-defparam \SW14~input .bus_hold = "false";
-defparam \SW14~input .simulate_z_as = "z";
 // synopsys translate_on
 
 endmodule
