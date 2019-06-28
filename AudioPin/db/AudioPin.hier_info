@@ -1,25 +1,25 @@
 |AudioPin
 AUD_BCLK <= audioProcessor:inst.bclk
 CLOCK_50 => audioProcessor:inst.clock
-SW17 => audioProcessor:inst.reset
-KEY3 => audioProcessor:inst.read
-KEY0 => portaNot.IN0
-SW15 => audioProcessor:inst.writedata[15]
-SW14 => audioProcessor:inst.writedata[14]
-SW13 => audioProcessor:inst.writedata[13]
-SW12 => audioProcessor:inst.writedata[12]
-SW11 => audioProcessor:inst.writedata[11]
-SW10 => audioProcessor:inst.writedata[10]
-SW9 => audioProcessor:inst.writedata[9]
-SW8 => audioProcessor:inst.writedata[8]
-SW7 => audioProcessor:inst.writedata[7]
-SW6 => audioProcessor:inst.writedata[6]
-SW5 => audioProcessor:inst.writedata[5]
-SW4 => audioProcessor:inst.writedata[4]
-SW3 => audioProcessor:inst.writedata[3]
-SW2 => audioProcessor:inst.writedata[2]
-SW1 => audioProcessor:inst.writedata[1]
-SW0 => audioProcessor:inst.writedata[0]
+SW[0] => audioProcessor:inst.writedata[0]
+SW[1] => audioProcessor:inst.writedata[1]
+SW[2] => audioProcessor:inst.writedata[2]
+SW[3] => audioProcessor:inst.writedata[3]
+SW[4] => audioProcessor:inst.writedata[4]
+SW[5] => audioProcessor:inst.writedata[5]
+SW[6] => audioProcessor:inst.writedata[6]
+SW[7] => audioProcessor:inst.writedata[7]
+SW[8] => audioProcessor:inst.writedata[8]
+SW[9] => audioProcessor:inst.writedata[9]
+SW[10] => audioProcessor:inst.writedata[10]
+SW[11] => audioProcessor:inst.writedata[11]
+SW[12] => audioProcessor:inst.writedata[12]
+SW[13] => audioProcessor:inst.writedata[13]
+SW[14] => audioProcessor:inst.writedata[14]
+SW[15] => audioProcessor:inst.writedata[15]
+SW[16] => portaNot.IN0
+SW[17] => audioProcessor:inst.reset
+KEY[3] => audioProcessor:inst.read
 AUD_DACLRCK <= audioProcessor:inst.lrck
 AUD_XCK <= audioProcessor:inst.codec_clk
 AUD_DACDAT <= audioProcessor:inst.codecSerialData
@@ -59,25 +59,26 @@ readdata[31] <= audioProcessor:inst.readdata[31]
 
 |AudioPin|audioProcessor:inst
 clock => clock.IN2
-reset => reset.IN2
+reset => reset.IN1
 writedata[0] => writedata[0].IN1
 writedata[1] => writedata[1].IN1
 writedata[2] => writedata[2].IN1
 writedata[3] => writedata[3].IN1
 writedata[4] => writedata[4].IN1
-writedata[5] => writedata[5].IN1
-writedata[6] => writedata[6].IN1
-writedata[7] => writedata[7].IN1
-writedata[8] => writedata[8].IN1
-writedata[9] => writedata[9].IN1
-writedata[10] => writedata[10].IN1
-writedata[11] => writedata[11].IN1
-writedata[12] => writedata[12].IN1
-writedata[13] => writedata[13].IN1
-writedata[14] => writedata[14].IN1
-writedata[15] => writedata[15].IN1
+writedata[5] => ~NO_FANOUT~
+writedata[6] => ~NO_FANOUT~
+writedata[7] => ~NO_FANOUT~
+writedata[8] => ~NO_FANOUT~
+writedata[9] => ~NO_FANOUT~
+writedata[10] => ~NO_FANOUT~
+writedata[11] => ~NO_FANOUT~
+writedata[12] => ~NO_FANOUT~
+writedata[13] => ~NO_FANOUT~
+writedata[14] => ~NO_FANOUT~
+writedata[15] => ~NO_FANOUT~
 read => ~NO_FANOUT~
-write => ~NO_FANOUT~
+write => next_state.GET_INDEX.DATAB
+write => Selector0.IN1
 readdata[0] <= <GND>
 readdata[1] <= <GND>
 readdata[2] <= <GND>
@@ -111,47 +112,14 @@ readdata[29] <= <GND>
 readdata[30] <= <GND>
 readdata[31] <= <GND>
 lrck <= lrck.DB_MAX_OUTPUT_PORT_TYPE
-bclk <= codecInterface:codecInt2.bclk
-codecSerialData <= codecInterface:codecInt2.data
+bclk <= codecInterface:codecInt.bclk
+codecSerialData <= codecInterface:codecInt.data
 codec_clk <= codec_clk.DB_MAX_OUTPUT_PORT_TYPE
 sclk <= i2cController:contr.sclk
 sdata <= i2cController:contr.sdata
 
 
-|AudioPin|audioProcessor:inst|geradorsqwave:gerador
-clock => count.CLK
-clock => ramp[0].CLK
-clock => ramp[1].CLK
-clock => ramp[2].CLK
-clock => ramp[3].CLK
-clock => ramp[4].CLK
-clock => ramp[5].CLK
-reset => ramp.OUTPUTSELECT
-reset => ramp.OUTPUTSELECT
-reset => ramp.OUTPUTSELECT
-reset => ramp.OUTPUTSELECT
-reset => ramp.OUTPUTSELECT
-reset => ramp.OUTPUTSELECT
-reset => count.OUTPUTSELECT
-data[0] <= Ram0.DATAOUT
-data[1] <= Ram0.DATAOUT1
-data[2] <= Ram0.DATAOUT2
-data[3] <= Ram0.DATAOUT3
-data[4] <= Ram0.DATAOUT4
-data[5] <= Ram0.DATAOUT5
-data[6] <= Ram0.DATAOUT6
-data[7] <= Ram0.DATAOUT7
-data[8] <= Ram0.DATAOUT8
-data[9] <= Ram0.DATAOUT9
-data[10] <= Ram0.DATAOUT10
-data[11] <= Ram0.DATAOUT11
-data[12] <= Ram0.DATAOUT12
-data[13] <= Ram0.DATAOUT13
-data[14] <= Ram0.DATAOUT14
-data[15] <= Ram0.DATAOUT15
-
-
-|AudioPin|audioProcessor:inst|codecInterface:codecInt2
+|AudioPin|audioProcessor:inst|codecInterface:codecInt
 clock => clock.IN1
 reset => reset.IN1
 dataIn[0] => dataBufferNext[16].DATAB
@@ -193,14 +161,14 @@ lrck_last <= lrck_last~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data <= dataBuffer[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|AudioPin|audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll
+|AudioPin|audioProcessor:inst|codecInterface:codecInt|clkdiv:pll
 areset => altpll:altpll_component.areset
 inclk0 => altpll:altpll_component.inclk[0]
 c0 <= altpll:altpll_component.clk[0]
 locked <= altpll:altpll_component.locked
 
 
-|AudioPin|audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component
+|AudioPin|audioProcessor:inst|codecInterface:codecInt|clkdiv:pll|altpll:altpll_component
 inclk[0] => clkdiv_altpll:auto_generated.inclk[0]
 inclk[1] => clkdiv_altpll:auto_generated.inclk[1]
 fbin => ~NO_FANOUT~
@@ -260,7 +228,7 @@ fref <= <GND>
 icdrclk <= <GND>
 
 
-|AudioPin|audioProcessor:inst|codecInterface:codecInt2|clkdiv:pll|altpll:altpll_component|clkdiv_altpll:auto_generated
+|AudioPin|audioProcessor:inst|codecInterface:codecInt|clkdiv:pll|altpll:altpll_component|clkdiv_altpll:auto_generated
 areset => pll_lock_sync.ACLR
 areset => pll1.ARESET
 clk[0] <= pll1.CLK
@@ -276,12 +244,15 @@ locked <= locked.DB_MAX_OUTPUT_PORT_TYPE
 |AudioPin|audioProcessor:inst|controllerMemory:memoInt
 clock => clock.IN2
 reset => reset.IN1
-indiceMemory[0] => Selector5.IN2
-indiceMemory[1] => Selector7.IN2
-indiceMemory[2] => Selector8.IN2
-indiceMemory[3] => Selector9.IN2
-indiceMemory[4] => Selector10.IN2
-next => next.IN1
+indiceMemory[0] => indiceMemory_next[0].DATAB
+indiceMemory[1] => indiceMemory_next[1].DATAB
+indiceMemory[2] => indiceMemory_next[2].DATAB
+indiceMemory[3] => indiceMemory_next[3].DATAB
+indiceMemory[4] => indiceMemory_next[4].DATAB
+start => next_state.GET_INITIAL.DATAB
+start => Selector0.IN1
+lrck => always1.IN1
+lrck_last => always1.IN1
 dataOut[0] <= dataOut[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dataOut[1] <= dataOut[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dataOut[2] <= dataOut[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -406,7 +377,7 @@ addrOut[13] <= addrOut.DB_MAX_OUTPUT_PORT_TYPE
 addrOut[14] <= addrOut.DB_MAX_OUTPUT_PORT_TYPE
 addrOut[15] <= addrOut.DB_MAX_OUTPUT_PORT_TYPE
 _end <= _end.DB_MAX_OUTPUT_PORT_TYPE
-read <= read$latch.DB_MAX_OUTPUT_PORT_TYPE
+read <= addrOut.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |AudioPin|audioProcessor:inst|controllerMemory:memoInt|romMemory:rom

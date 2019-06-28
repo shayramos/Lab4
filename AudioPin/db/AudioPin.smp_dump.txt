@@ -1,4 +1,22 @@
 
+State Machine - |AudioPin|audioProcessor:inst|state
+Name state.SEND_CONFIG_SAMPL_CONTROL state.CONFIG_SAMPL_CONTROL state.SEND_CONFIG_DAI state.CONFIG_DAI state.SEND_CONFIG_ANALOG_AUDIO_PATH state.CONFIG_ANALOG_AUDIO_PATH state.SEND_CONFIG_RH_OUT state.CONFIG_RH_OUT state.SEND_CONFIG_LH_OUT state.CONFIG_LH_OUT state.SEND_CONFIG_RESET state.CONFIG_RESET state.WAIT_MUSIC state.GET_INDEX state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.GET_INDEX 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.WAIT_MUSIC 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.CONFIG_RESET 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.SEND_CONFIG_RESET 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.CONFIG_LH_OUT 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.SEND_CONFIG_LH_OUT 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.CONFIG_RH_OUT 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.SEND_CONFIG_RH_OUT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.CONFIG_ANALOG_AUDIO_PATH 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.SEND_CONFIG_ANALOG_AUDIO_PATH 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.CONFIG_DAI 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.SEND_CONFIG_DAI 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.CONFIG_SAMPL_CONTROL 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.SEND_CONFIG_SAMPL_CONTROL 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
 State Machine - |AudioPin|audioProcessor:inst|i2cController:contr|state
 Name state.IDLE state.END state.ACK3 state.DATA2 state.ACK2 state.DATA1 state.ACK1 state.RW state.R_ADDR state.START 
 state.START 0 0 0 0 0 0 0 0 0 0 
@@ -13,11 +31,15 @@ state.END 0 1 0 0 0 0 0 0 0 1
 state.IDLE 1 0 0 0 0 0 0 0 0 1 
 
 State Machine - |AudioPin|audioProcessor:inst|controllerMemory:memoInt|state
-Name state.GET_FINAL state.WAIT_ADDR state.GET_INITIAL state.000 
-state.000 0 0 0 0 
-state.GET_INITIAL 0 0 1 1 
-state.WAIT_ADDR 0 1 0 1 
-state.GET_FINAL 1 0 0 1 
+Name state.SET_BEGINNING state.WAIT_ADDR state.GET_ADDR state.WAIT_FINAL state.GET_FINAL state.WAIT_INITIAL state.GET_INITIAL state.000 
+state.000 0 0 0 0 0 0 0 0 
+state.GET_INITIAL 0 0 0 0 0 0 1 1 
+state.WAIT_INITIAL 0 0 0 0 0 1 0 1 
+state.GET_FINAL 0 0 0 0 1 0 0 1 
+state.WAIT_FINAL 0 0 0 1 0 0 0 1 
+state.GET_ADDR 0 0 1 0 0 0 0 1 
+state.WAIT_ADDR 0 1 0 0 0 0 0 1 
+state.SET_BEGINNING 1 0 0 0 0 0 0 1 
 
 State Machine - |AudioPin|audioProcessor:inst|controllerMemory:memoInt|fetchMemory:ftMem|state
 Name state.END state.READ state.SET_ADDR state.00 

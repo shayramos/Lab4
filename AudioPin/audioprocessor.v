@@ -12,95 +12,77 @@ module audioProcessor(  input clock, //interface para Avalon
 								output sdata
                         );
 
-    parameter   BEGIN = 								5'b00000,
-                FETCH_MEMORY = 						5'b00001,
-                WAITING_MEMORY_1 = 					5'b00011,
-                WAITING_DONE_1 = 					5'b00010,
-					 SEND_CODEC_1 = 						5'b00100,
-					 WAITING_MEMORY_2 = 					5'b00101,
-                WAITING_DONE_2 = 					5'b00110,
-					 WAITING_CODEC = 						5'b00111,
-					 SEND_CODEC_2 = 						5'b01000,
-					 CONFIG_RESET = 						5'b01001,
-					 SEND_CONFIG_RESET = 				5'b01010,
-					 CONFIG_LH_OUT = 						5'b01011,
-					 SEND_CONFIG_LH_OUT = 				5'b01100,
-					 CONFIG_RH_OUT = 						5'b01101,
-					 SEND_CONFIG_RH_OUT = 				5'b01110,
-					 CONFIG_ANALOG_AUDIO_PATH = 		5'b01111,
-					 SEND_CONFIG_ANALOG_AUDIO_PATH = 5'b10000,
-					 CONFIG_DAI = 							5'b10001,
-					 SEND_CONFIG_DAI = 					5'b10010,
-					 CONFIG_SAMPL_CONTROL = 			5'b10011,
-					 SEND_CONFIG_SAMPL_CONTROL = 		5'b10100,
-					 IDLE = 									5'b10101;
+    parameter   BEGIN = 								5'h0,
+                GET_INDEX = 							5'h1,
+                WAIT_MUSIC = 							5'h2,
+					 CONFIG_RESET = 						5'h3,
+					 SEND_CONFIG_RESET = 				5'h4,
+					 CONFIG_LH_OUT = 						5'h5,
+					 SEND_CONFIG_LH_OUT = 				5'h6,
+					 CONFIG_RH_OUT = 						5'h7,
+					 SEND_CONFIG_RH_OUT = 				5'h8,
+					 CONFIG_ANALOG_AUDIO_PATH = 		5'h9,
+					 SEND_CONFIG_ANALOG_AUDIO_PATH = 5'hA,
+					 CONFIG_DAI = 							5'hB,
+					 SEND_CONFIG_DAI = 					5'hC,
+					 CONFIG_SAMPL_CONTROL = 			5'hD,
+					 SEND_CONFIG_SAMPL_CONTROL = 		5'hE,
+					 IDLE = 									5'hF;
 
     //reg [31:0] savedWriteData;
-    reg [3:0] state, next_state;
-    reg [15:0] dataToInterface, dataToInterface_next;
-    wire interfaceDone;
+    reg [4:0] state, next_state;
 	 //indica que a palavra está disponível
-	 reg dataEnable;
 	 //sinal que diz para o controlador ler a palavra da memoria
 	 reg readMemoryData;
 	 //palavra da memoria
-	 reg [15:0] dataStorage, dataStorage_next;
-	 wire [15:0] dataFromController, dataFromMemory;
+	 wire [15:0] dataFromMemory;
 	 //endereço da musica a ser tocada
-	 reg [15:0] addrToController, addrToController_next;
-	 wire readEnable, available, musicEnded;
-	 wire [15:0] addrToMemory;
+	 wire musicEnded;
 	 wire codecReset, lrck_last;
 	 reg codecCombReset, i2cCombReset;
-	 wire [15:0] datagerador;
+	 
 	 wire i2cReset, i2cFinished;	 
 	 reg [23:0] codecConfig;
 	 
 	 assign i2cReset = reset | i2cCombReset;
 	 assign codecReset = reset | codecCombReset;
 	 
+	 
+	 /*wire [15:0] datagerador;
 	 geradorsqwave gerador( .clock(lrck),
 									.reset(reset),
 									.data(datagerador));
 	 
 	 codecInterface codecInt2( .clock(clock),
-                                .reset(codecReset),
+                                .reset(reset),
                                 .dataIn(datagerador),
 										  .codec_clk(codec_clk),
                                 .bclk(bclk),
                                 .lrck(lrck),
 										  .lrck_last(lrck_last),
                                 .data(codecSerialData)
-										  );
+										  );*/
 
 	 
-    /*codecInterface codecInt(   .clock(clock),
+    codecInterface codecInt(   .clock(clock),
                                 .reset(codecReset),
-                                .dataIn(dataToInterface),
+                                .dataIn(dataFromMemory),
 										  .codec_clk(codec_clk),
                                 .bclk(bclk),
                                 .lrck(lrck),
 										  .lrck_last(lrck_last),
                                 .data(codecSerialData));
 										  
-	memoController memoInt( 	.clock(clock),
-										.reset(reset),
-										.dataIn(dataFromMemory),
-										.addrInitial(addrToController),
-										.readData(readMemoryData),
-										.readEn(readEnable),
-										.dataOut(dataFromController),
-										.addrOut(addrToMemory),
-										.available(available),
-										.musicEnded(musicEnded));*/
 										
 										
 	controllerMemory memoInt( 	.clock(clock),
 										.reset(reset),
-										.indiceMemory(writedata),
-										.next(readMemoryData),
+										.indiceMemory(writedata[4:0]),
+										.start(readMemoryData),
 										.dataOut(dataFromMemory),
-										.finishMusic(musicEnded)
+										.finishMusic(musicEnded),
+										.lrck(lrck),
+										.lrck_last(lrck_last)
 									);										
 							
 	i2cController contr( 	.clock12_5(codec_clk),
@@ -113,18 +95,10 @@ module audioProcessor(  input clock, //interface para Avalon
 	
     always @ (posedge clock) begin
         if (reset) begin
-            dataToInterface <= 0;
             state <= BEGIN;
         end
         else begin
             state <= next_state;
-				addrToController <= addrToController_next;
-				if (next_state > SEND_CODEC_1) begin
-					dataToInterface <= dataStorage_next;
-				end else begin
-					dataToInterface <= dataToInterface_next;
-				end
-				dataStorage <= dataStorage_next;
         end
     end
     
@@ -133,6 +107,9 @@ module audioProcessor(  input clock, //interface para Avalon
         case (state)
 				BEGIN: begin
 					next_state = CONFIG_RESET;
+				end
+				CONFIG_RESET: begin
+					next_state = SEND_CONFIG_RESET;
 				end
 				SEND_CONFIG_RESET: begin
 					if (i2cFinished) begin
@@ -184,7 +161,7 @@ module audioProcessor(  input clock, //interface para Avalon
 				CONFIG_SAMPL_CONTROL: begin
 					next_state = SEND_CONFIG_SAMPL_CONTROL;
 				end
-				SEND_CONFIG_SAMPL_CONTROL : begin
+				SEND_CONFIG_SAMPL_CONTROL: begin
 					if (i2cFinished) begin
 						next_state = IDLE;
 					end else begin
@@ -193,67 +170,28 @@ module audioProcessor(  input clock, //interface para Avalon
 				end
             IDLE: begin
                 if (write) begin
-                    next_state = FETCH_MEMORY;
+                    next_state = GET_INDEX;
                 end
                 else begin
                     next_state = IDLE;
                 end
             end
-            FETCH_MEMORY: begin
-                next_state = WAITING_MEMORY_1;
+            GET_INDEX: begin
+                next_state = WAIT_MUSIC;
             end
-				WAITING_MEMORY_1: begin
-                if (available) begin
-                    next_state = WAITING_DONE_1;
-                end
-                else begin
-                    next_state = WAITING_MEMORY_1;
-                end
-				end 
-            WAITING_DONE_1: begin
-                next_state = SEND_CODEC_1;
-            end
-				SEND_CODEC_1: begin
-					next_state = WAITING_MEMORY_2;
-				end
-				WAITING_MEMORY_2: begin
-                if (available) begin
-                    next_state = WAITING_DONE_2;
-                end
-                else begin
-                    next_state = WAITING_MEMORY_2;
-                end
-				end 
-            WAITING_DONE_2: begin
-                next_state = WAITING_CODEC;
-            end
-				WAITING_CODEC: begin
-                if (lrck && !lrck_last) begin
-                    next_state = SEND_CODEC_2;
-                end
-                else begin
-                    next_state = WAITING_CODEC;
-                end
-				end
-				SEND_CODEC_2: begin
+				WAIT_MUSIC: begin
                 if (musicEnded) begin
-                    next_state = IDLE;
-                end
-                else begin
-                    next_state = WAITING_MEMORY_2;
-                end
-				end
-            default: next_state = IDLE;
+						next_state = IDLE;
+					 end else begin
+						next_state = WAIT_MUSIC;
+					 end
+				end 
         endcase
     end
 
     //Decodificador de saida
     always @ (*) begin
 			readMemoryData = 0;
-			dataEnable = 0;
-			addrToController_next = addrToController;
-			dataToInterface_next = dataToInterface;
-			dataStorage_next = dataStorage;
 			codecCombReset = 0;
 			codecConfig = 24'b0;
 			i2cCombReset = 1'b0;
@@ -294,34 +232,16 @@ module audioProcessor(  input clock, //interface para Avalon
 				CONFIG_SAMPL_CONTROL: begin
 					i2cCombReset = 1;
 				end
-				SEND_CONFIG_SAMPL_CONTROL : begin
+				SEND_CONFIG_SAMPL_CONTROL: begin
 					codecConfig = 	24'b000100000000000000000000;
 				end
             IDLE: begin
 					codecCombReset = 0;
             end
-            FETCH_MEMORY: begin
-					addrToController_next = {writedata, 1'b0};
+            GET_INDEX: begin
                readMemoryData = 1;
             end
-				WAITING_MEMORY_1: begin
-				end 
-            WAITING_DONE_1: begin
-					dataToInterface_next = dataFromController;
-				end
-				SEND_CODEC_1: begin
-					readMemoryData = 1;
-				end
-				WAITING_MEMORY_2: begin
-				end 
-            WAITING_DONE_2: begin
-					dataStorage_next = dataFromController;
-            end
-				WAITING_CODEC: begin
-				end
-				SEND_CODEC_2: begin
-					if (!musicEnded)
-						readMemoryData = 1;
+				WAIT_MUSIC: begin
 				end
         endcase
 		  

@@ -48,9 +48,9 @@ end
 always@(*) begin
 	dataOut_next = dataOut;
 	addrOut = 0;
+	read = 0;
 	case(state)	
 		IDLE: begin
-			read = 0;
 		end
 		SET_ADDR: begin
 			read = 1;
