@@ -9,7 +9,9 @@ module audioProcessor(  input clock, //interface para Avalon
                         output codecSerialData,
 								output codec_clk,
 								output sclk,
-								output sdata
+								output sdata,
+								output [15:0] addr,
+								output [15:0] dataParallel
                         );
 
     parameter   BEGIN = 								5'h0,
@@ -47,6 +49,7 @@ module audioProcessor(  input clock, //interface para Avalon
 	 assign i2cReset = reset | i2cCombReset;
 	 assign codecReset = reset | codecCombReset;
 	 assign controllerReset = reset | readMemoryData;
+	 assign dataParallel = dataFromMemory;
 	 
 	 /*wire [15:0] datagerador;
 	 geradorsqwave gerador( .clock(lrck),
@@ -81,7 +84,8 @@ module audioProcessor(  input clock, //interface para Avalon
 										.dataOut(dataFromMemory),
 										.finishMusic(musicEnded),
 										.lrck(lrck),
-										.lrck_last(lrck_last)
+										.lrck_last(lrck_last),
+										.addr(addr)
 									);										
 							
 	i2cController contr( 	.clock12_5(codec_clk),

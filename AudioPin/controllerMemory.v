@@ -1,13 +1,13 @@
 module controllerMemory(input clock, input reset, input[4:0] indiceMemory, input lrck, input lrck_last,
 								//input [15:0]addr, input [15:0]dataIn, 
-								output reg [15:0]dataOut, output finishMusic);
+								output reg [15:0]dataOut, output finishMusic, output reg [15:0] addr);
 
 reg [15:0]finalPosition, finalPosition_next, initialPosition, initialPosition_next;
 wire [15:0] fetchOut;
 reg next, finishMusicNext;
 
 reg [4:0] indiceMemory_next, indiceMemory_reg;
-reg [15:0]addr, addr_next;
+reg [15:0] addr_next;
 
 reg [3:0] state, next_state;
 reg [15:0] dataOut_next;
@@ -50,7 +50,12 @@ parameter 	BEGIN = 4'b0000,
 always@(posedge clock) begin
 	if(reset) begin
 		dataOut <= 0;
-		state <= BEGIN;
+		if (next_state == END) begin
+			state <= BEGIN;
+		end
+		else begin
+			state <= END;
+		end
 		finalPosition <= 0;
 		addr <= 0;
 		indiceMemory_reg <= 0;

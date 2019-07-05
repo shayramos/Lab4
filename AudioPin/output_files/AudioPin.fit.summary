@@ -1,16 +1,16 @@
-Fitter Status : Successful - Thu Jul 04 21:06:01 2019
+Fitter Status : Successful - Thu Jul 04 22:38:59 2019
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : AudioPin
 Top-level Entity Name : AudioPin
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 261 / 114,480 ( < 1 % )
-    Total combinational functions : 249 / 114,480 ( < 1 % )
-    Dedicated logic registers : 139 / 114,480 ( < 1 % )
-Total registers : 139
-Total pins : 73 / 529 ( 14 % )
+Total logic elements : 1,590 / 114,480 ( 1 % )
+    Total combinational functions : 1,225 / 114,480 ( 1 % )
+    Dedicated logic registers : 1,085 / 114,480 ( < 1 % )
+Total registers : 1085
+Total pins : 90 / 529 ( 17 % )
 Total virtual pins : 0
-Total memory bits : 1,048,576 / 3,981,312 ( 26 % )
+Total memory bits : 1,050,624 / 3,981,312 ( 26 % )
 Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
 Total PLLs : 1 / 4 ( 25 % )

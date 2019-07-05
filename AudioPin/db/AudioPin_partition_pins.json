@@ -16,115 +16,151 @@
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[0]",
+					"name" : "I2C_SCLK",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[15]",
+					"name" : "I2C_SDAT",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[14]",
+					"name" : "addr[15]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[13]",
+					"name" : "addr[14]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[12]",
+					"name" : "addr[13]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[11]",
+					"name" : "addr[12]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[10]",
+					"name" : "addr[11]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[9]",
+					"name" : "addr[10]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[8]",
+					"name" : "addr[9]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[7]",
+					"name" : "addr[8]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[6]",
+					"name" : "addr[7]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[5]",
+					"name" : "addr[6]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[4]",
+					"name" : "addr[5]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[3]",
+					"name" : "addr[4]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[2]",
+					"name" : "addr[3]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[1]",
+					"name" : "addr[2]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[0]",
+					"name" : "addr[1]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[15]",
+					"name" : "addr[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[14]",
+					"name" : "dataParallel[15]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[13]",
+					"name" : "dataParallel[14]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[12]",
+					"name" : "dataParallel[13]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[11]",
+					"name" : "dataParallel[12]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[10]",
+					"name" : "dataParallel[11]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[9]",
+					"name" : "dataParallel[10]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[8]",
+					"name" : "dataParallel[9]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[7]",
+					"name" : "dataParallel[8]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[6]",
+					"name" : "dataParallel[7]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[5]",
+					"name" : "dataParallel[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dataParallel[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dataParallel[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dataParallel[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dataParallel[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dataParallel[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dataParallel[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
+					"name" : "SW[17]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[16]",
 					"strict" : false
 				},
 				{
@@ -148,11 +184,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLOCK_50",
+					"name" : "altera_reserved_tms",
 					"strict" : false
 				},
 				{
-					"name" : "SW[17]",
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
 					"strict" : false
 				}
 			]

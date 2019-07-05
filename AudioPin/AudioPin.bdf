@@ -181,9 +181,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 680 40 856 56)
+	(rect 704 232 880 248)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[0]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "addr[15..0]" (rect 90 0 143 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -197,9 +197,41 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 536 -264 712 -248)
+	(rect 984 96 1160 112)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDR[15..0]" (rect 90 0 145 17)(font "Intel Clear" ))
+	(text "I2C_SCLK" (rect 90 0 141 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 704 160 880 176)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "I2C_SDAT" (rect 90 0 141 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 600 264 784 280)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "dataParallel[15..0]" (rect 90 0 178 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -237,9 +269,9 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 360 -184 584 -40)
+	(rect 360 -184 584 24)
 	(text "audioProcessor" (rect 5 0 80 12)(font "Arial" ))
-	(text "inst" (rect 8 128 25 140)(font "Arial" ))
+	(text "inst2" (rect 8 192 30 209)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -310,55 +342,118 @@ refer to the applicable agreement for further details.
 		(text "codec_clk" (rect 162 91 211 103)(font "Arial" ))
 		(line (pt 224 96)(pt 208 96))
 	)
+	(port
+		(pt 224 112)
+		(output)
+		(text "sclk" (rect 0 0 20 12)(font "Arial" ))
+		(text "sclk" (rect 187 107 207 119)(font "Arial" ))
+		(line (pt 224 112)(pt 208 112))
+	)
+	(port
+		(pt 224 128)
+		(output)
+		(text "sdata" (rect 0 0 27 12)(font "Arial" ))
+		(text "sdata" (rect 181 123 208 135)(font "Arial" ))
+		(line (pt 224 128)(pt 208 128))
+	)
+	(port
+		(pt 224 144)
+		(output)
+		(text "addr[15..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "addr[15..0]" (rect 159 139 212 151)(font "Arial" ))
+		(line (pt 224 144)(pt 208 144)(line_width 3))
+	)
+	(port
+		(pt 224 160)
+		(output)
+		(text "dataParallel[15..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "dataParallel[15..0]" (rect 129 155 217 167)(font "Arial" ))
+		(line (pt 224 160)(pt 208 160)(line_width 3))
+	)
+	(parameter
+		"BEGIN"
+		"00000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"GET_INDEX"
+		"00001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"WAIT_MUSIC"
+		"00010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"CONFIG_RESET"
+		"00011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SEND_CONFIG_RESET"
+		"00100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"CONFIG_LH_OUT"
+		"00101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SEND_CONFIG_LH_OUT"
+		"00110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"CONFIG_RH_OUT"
+		"00111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SEND_CONFIG_RH_OUT"
+		"01000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"CONFIG_ANALOG_AUDIO_PATH"
+		"01001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SEND_CONFIG_ANALOG_AUDIO_PATH"
+		"01010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"CONFIG_DAI"
+		"01011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SEND_CONFIG_DAI"
+		"01100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"CONFIG_SAMPL_CONTROL"
+		"01101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"SEND_CONFIG_SAMPL_CONTROL"
+		"01110"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
 		"IDLE"
-		"0000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"FETCH_MEMORY"
-		"0001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WAITING_MEMORY_1"
-		"0011"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WAITING_DONE_1"
-		"0010"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"SEND_CODEC_1"
-		"0100"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WAITING_MEMORY_2"
-		"0101"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WAITING_DONE_2"
-		"0110"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WAITING_CODEC"
-		"0111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"SEND_CODEC_2"
-		"1000"
+		"01111"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing
-		(rectangle (rect 16 16 208 128))
+		(rectangle (rect 16 16 208 192))
 	)
-	(annotation_block (parameter)(rect 584 -376 824 -184))
+	(annotation_block (parameter)(rect 584 -512 920 -184))
 )
 (connector
 	(pt 704 -152)
@@ -424,18 +519,6 @@ refer to the applicable agreement for further details.
 	(pt 264 -80)
 )
 (connector
-	(pt 592 -88)
-	(pt 592 -32)
-)
-(connector
-	(pt 584 -88)
-	(pt 592 -88)
-)
-(connector
-	(pt 592 -32)
-	(pt 688 -32)
-)
-(connector
 	(pt 264 -88)
 	(pt 296 -88)
 )
@@ -474,22 +557,6 @@ refer to the applicable agreement for further details.
 	(pt 728 -144)
 )
 (connector
-	(pt 632 -104)
-	(pt 632 48)
-)
-(connector
-	(pt 632 48)
-	(pt 680 48)
-)
-(connector
-	(pt 680 -104)
-	(pt 632 -104)
-)
-(connector
-	(pt 632 -104)
-	(pt 584 -104)
-)
-(connector
 	(pt 232 -152)
 	(pt 232 -144)
 )
@@ -498,24 +565,77 @@ refer to the applicable agreement for further details.
 	(pt 224 -144)
 )
 (connector
-	(pt 304 -120)
-	(pt 304 -256)
-	(bus)
-)
-(connector
-	(pt 304 -256)
-	(pt 536 -256)
-	(bus)
-)
-(connector
 	(pt 248 -120)
-	(pt 304 -120)
-	(bus)
-)
-(connector
-	(pt 304 -120)
 	(pt 360 -120)
 	(bus)
 )
-(junction (pt 632 -104))
-(junction (pt 304 -120))
+(connector
+	(pt 616 -88)
+	(pt 616 -32)
+)
+(connector
+	(pt 584 -88)
+	(pt 616 -88)
+)
+(connector
+	(pt 688 -32)
+	(pt 616 -32)
+)
+(connector
+	(pt 584 -72)
+	(pt 608 -72)
+)
+(connector
+	(pt 608 -72)
+	(pt 608 104)
+)
+(connector
+	(pt 608 104)
+	(pt 984 104)
+)
+(connector
+	(pt 656 -56)
+	(pt 656 168)
+)
+(connector
+	(pt 584 -56)
+	(pt 656 -56)
+)
+(connector
+	(pt 704 168)
+	(pt 656 168)
+)
+(connector
+	(pt 584 -104)
+	(pt 680 -104)
+)
+(connector
+	(pt 600 -40)
+	(pt 600 240)
+	(bus)
+)
+(connector
+	(pt 584 -40)
+	(pt 600 -40)
+	(bus)
+)
+(connector
+	(pt 704 240)
+	(pt 600 240)
+	(bus)
+)
+(connector
+	(pt 592 -24)
+	(pt 592 272)
+	(bus)
+)
+(connector
+	(pt 584 -24)
+	(pt 592 -24)
+	(bus)
+)
+(connector
+	(pt 592 272)
+	(pt 600 272)
+	(bus)
+)
