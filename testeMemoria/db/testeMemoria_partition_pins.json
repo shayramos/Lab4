@@ -80,10 +80,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
 					"name" : "SW[15]",
 					"strict" : false
 				},

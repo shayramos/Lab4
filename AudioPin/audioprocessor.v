@@ -30,14 +30,14 @@ module audioProcessor(  input clock, //interface para Avalon
 					 IDLE = 									5'hF;
 
     //reg [31:0] savedWriteData;
-    reg [4:0] state, next_state;
+    reg [4:0] state, next_state, addr_initial, addr_next;
 	 //indica que a palavra está disponível
 	 //sinal que diz para o controlador ler a palavra da memoria
 	 reg readMemoryData;
 	 //palavra da memoria
 	 wire [15:0] dataFromMemory;
 	 //endereço da musica a ser tocada
-	 wire musicEnded;
+	 wire musicEnded, controllerReset;
 	 wire codecReset, lrck_last;
 	 reg codecCombReset, i2cCombReset;
 	 
@@ -46,7 +46,7 @@ module audioProcessor(  input clock, //interface para Avalon
 	 
 	 assign i2cReset = reset | i2cCombReset;
 	 assign codecReset = reset | codecCombReset;
-	 
+	 assign controllerReset = reset | readMemoryData;
 	 
 	 /*wire [15:0] datagerador;
 	 geradorsqwave gerador( .clock(lrck),
@@ -76,9 +76,8 @@ module audioProcessor(  input clock, //interface para Avalon
 										
 										
 	controllerMemory memoInt( 	.clock(clock),
-										.reset(reset),
-										.indiceMemory(writedata[4:0]),
-										.start(readMemoryData),
+										.reset(controllerReset),
+										.indiceMemory(addr_initial),
 										.dataOut(dataFromMemory),
 										.finishMusic(musicEnded),
 										.lrck(lrck),
@@ -96,9 +95,11 @@ module audioProcessor(  input clock, //interface para Avalon
     always @ (posedge clock) begin
         if (reset) begin
             state <= BEGIN;
+				addr_initial <= 0;
         end
         else begin
             state <= next_state;
+				addr_initial <= addr_next;
         end
     end
     
@@ -115,7 +116,7 @@ module audioProcessor(  input clock, //interface para Avalon
 					if (i2cFinished) begin
 						next_state = CONFIG_LH_OUT;
 					end else begin
-						next_state = state;
+						next_state = SEND_CONFIG_RESET;
 					end
 				end
 				CONFIG_LH_OUT: begin
@@ -125,7 +126,7 @@ module audioProcessor(  input clock, //interface para Avalon
 					if (i2cFinished) begin
 						next_state = CONFIG_RH_OUT;
 					end else begin
-						next_state = state;
+						next_state = SEND_CONFIG_LH_OUT;
 					end
 				end
 				CONFIG_RH_OUT: begin
@@ -135,7 +136,7 @@ module audioProcessor(  input clock, //interface para Avalon
 					if (i2cFinished) begin
 						next_state = CONFIG_ANALOG_AUDIO_PATH;
 					end else begin
-						next_state = state;
+						next_state = SEND_CONFIG_RH_OUT;
 					end
 				end
 				CONFIG_ANALOG_AUDIO_PATH: begin
@@ -145,7 +146,7 @@ module audioProcessor(  input clock, //interface para Avalon
 					if (i2cFinished) begin
 						next_state = CONFIG_DAI;
 					end else begin
-						next_state = state;
+						next_state = SEND_CONFIG_ANALOG_AUDIO_PATH;
 					end
 				end
 				CONFIG_DAI: begin
@@ -155,7 +156,7 @@ module audioProcessor(  input clock, //interface para Avalon
 					if (i2cFinished) begin
 						next_state = CONFIG_SAMPL_CONTROL;
 					end else begin
-						next_state = state;
+						next_state = SEND_CONFIG_DAI;
 					end
 				end
 				CONFIG_SAMPL_CONTROL: begin
@@ -165,7 +166,7 @@ module audioProcessor(  input clock, //interface para Avalon
 					if (i2cFinished) begin
 						next_state = IDLE;
 					end else begin
-						next_state = state;
+						next_state = SEND_CONFIG_SAMPL_CONTROL;
 					end
 				end
             IDLE: begin
@@ -195,6 +196,7 @@ module audioProcessor(  input clock, //interface para Avalon
 			codecCombReset = 0;
 			codecConfig = 24'b0;
 			i2cCombReset = 1'b0;
+			addr_next  = addr_initial;
         case (state)
 				BEGIN: begin
 					
@@ -237,9 +239,13 @@ module audioProcessor(  input clock, //interface para Avalon
 				end
             IDLE: begin
 					codecCombReset = 0;
+					if (write) begin
+						addr_next = writedata[4:0];
+					end
             end
             GET_INDEX: begin
                readMemoryData = 1;
+					
             end
 				WAIT_MUSIC: begin
 				end

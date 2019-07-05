@@ -20,9 +20,9 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 224 160)
+	(rect 16 16 224 128)
 	(text "fetchMemory" (rect 5 0 60 12)(font "Arial" ))
-	(text "inst" (rect 8 128 20 140)(font "Arial" ))
+	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -40,23 +40,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "start" (rect 0 0 17 12)(font "Arial" ))
-		(text "start" (rect 21 59 38 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 1))
+		(text "addr[15..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "addr[15..0]" (rect 21 59 62 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "addr[15..0]" (rect 0 0 41 12)(font "Arial" ))
-		(text "addr[15..0]" (rect 21 75 62 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
 		(text "dataIn[15..0]" (rect 0 0 47 12)(font "Arial" ))
-		(text "dataIn[15..0]" (rect 21 91 68 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 3))
+		(text "dataIn[15..0]" (rect 21 75 68 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
 		(pt 208 32)
@@ -87,7 +80,7 @@ refer to the applicable agreement for further details.
 		(line (pt 208 80)(pt 192 80)(line_width 1))
 	)
 	(parameter
-		"IDLE"
+		"BEGIN"
 		"00"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
@@ -107,7 +100,7 @@ refer to the applicable agreement for further details.
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing
-		(rectangle (rect 16 16 192 128)(line_width 1))
+		(rectangle (rect 16 16 192 96)(line_width 1))
 	)
 	(annotation_block (parameter)(rect 224 -64 324 16))
 )
