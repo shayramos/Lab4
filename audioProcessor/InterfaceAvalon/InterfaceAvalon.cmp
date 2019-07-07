@@ -1,9 +1,0 @@
-	component InterfaceAvalon is
-		port (
-			audioprocessor_0_conduit_end_bclk            : out std_logic;        -- bclk
-			audioprocessor_0_conduit_end_codecserialdata : out std_logic;        -- codecserialdata
-			audioprocessor_0_conduit_end_lrck            : out std_logic;        -- lrck
-			clk_clk                                      : in  std_logic := 'X'  -- clk
-		);
-	end component InterfaceAvalon;
-
